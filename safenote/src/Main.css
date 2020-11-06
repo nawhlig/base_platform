@@ -1,0 +1,45 @@
+#footer{
+    text-Align: center;
+    background-color: black;
+    color: #FFFFFFA6;
+}
+
+#mainsentece{
+    text-Align: center;
+    color: #FFFFFFA6;
+    padding-top: 200px; 
+    font-size: xx-large;
+}
+
+
+.launch{
+    box-sizing: border-box;
+    padding: 15px;
+    color: Black;
+    
+}
+
+.noticebox{
+    border: 1px solid rgba(0, 0, 0, 500); 
+    border-width: 2px; 
+    padding: 12px; 
+    word-break: break-all;
+}
+
+.mapbox{
+    position: relative;
+    height: 500px;
+    border: 1px solid rgba(0, 0, 0, 500); 
+    border-width: 2px; 
+    word-break: break-all;
+    margin-bottom: 3cm;
+}
+
+html body, html body div#root{
+    height: 100%;
+    position: relative;
+}
+
+.ant-layout, .ant-layout {
+    height: 100%;
+}
