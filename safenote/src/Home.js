@@ -71,7 +71,7 @@ function onSearch(val) {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            <Option value="korea"><Link exact to="/korea">Korea</Link></Option>
+            <Option value="korea">Korea</Option>
             <Option value="lucy">Lucy</Option>
             <Option value="tom">Tom</Option>
           </Select>
