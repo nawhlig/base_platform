@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { GOOGLE_MAPS_KEY } from "./config";
 
 // const mapStyles = {
 //   width: "1420px",
 //   height: "700px",
 //   position: "inherit !important;"
 // };
-
 
 const mapStyles = {
   position: 'absolute',
@@ -33,6 +33,6 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAB7a7tIVNlqxg3oSmrBxXj2S0STFyMcqE'
+  apiKey: GOOGLE_MAPS_KEY
 })(MapContainer);
 
