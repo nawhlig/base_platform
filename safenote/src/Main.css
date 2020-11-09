@@ -8,9 +8,9 @@
     text-Align: center;
     color: #FFFFFFA6;
     padding-top: 200px; 
+    padding-bottom: 0px;
     font-size: xx-large;
 }
-
 
 .launch{
     box-sizing: border-box;
@@ -42,4 +42,23 @@ html body, html body div#root{
 
 .ant-layout, .ant-layout {
     height: 100%;
+}
+
+.blink{
+    background-color: rgba(0, 0, 0, 0);
+    padding: 15px;	
+    text-align: center;
+    font-size: xx-large;
+    line-height: 50px;
+}
+.blink span{
+    font-family: sans-serif;;
+    color: white;
+    font-size: 2cm;
+    animation: blink 8s linear infinite;
+}
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: 1;}
+100%{opacity: 0;}
 }
