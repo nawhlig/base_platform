@@ -9,14 +9,12 @@
     color: #FFFFFFA6;
     padding-top: 200px; 
     padding-bottom: 0px;
-    font-size: xx-large;
 }
 
 .launch{
     box-sizing: border-box;
     padding: 15px;
     color: Black;
-    
 }
 
 .noticebox{
@@ -31,13 +29,15 @@
     height: 500px;
     border: 1px solid rgba(0, 0, 0, 500); 
     border-width: 2px; 
+    padding-bottom: 20cm;
+    margin-bottom: 2cm;
     word-break: break-all;
-    margin-bottom: 3cm;
 }
 
-html body, html body div#root{
-    height: 100%;
+html, html body, html body div#root{
+    height: auto;
     position: relative;
+    overflow: auto;
 }
 
 .ant-layout, .ant-layout {
@@ -54,7 +54,7 @@ html body, html body div#root{
 .blink span{
     font-family: sans-serif;;
     color: white;
-    font-size: 2cm;
+    font-size: 1.5cm;
     animation: blink 8s linear infinite;
 }
 @keyframes blink{

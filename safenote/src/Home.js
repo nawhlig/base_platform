@@ -60,8 +60,8 @@ function onSearch(val) {
             <p class="blink"><span>{text}</span></p>  
             <Select
             showSearch
-            style={{ width: 500 }}
-            placeholder="나라를 고르세요 / Select Your Contry"
+            style={{ width: 430}}
+            placeholder="어느 나라가 궁금하신가요? / Which country are you curious about?"
             optionFilterProp="children"
             onChange={onChange}
             onFocus={onFocus}
@@ -71,7 +71,7 @@ function onSearch(val) {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            <Option value="korea">Korea</Option>
+            <Option value="korea" href="/korea">Korea</Option>
             <Option value="lucy">Lucy</Option>
             <Option value="tom">Tom</Option>
           </Select>
