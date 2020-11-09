@@ -28,8 +28,10 @@ function Main() {
         <>
         
         <Layout>
-            <Header style={{ position: 'fixed', zIndex: 1, width: '100%', backgroundColor: "black" }}>
-              <div className="logo" style={{float: "left", width: 150, padding: 'auto'}}><img src={logo} /></div>
+            <Header style={{ position: 'fixed', zIndex: 1, width: '100%', backgroundColor: "black" }} 
+            meta name="viewport" content="width=device-width,initial-scale=1">
+              
+              <div className="logo" style={{float: "left", width: 150, padding: 'auto', margin:0}}><img src={logo} /></div>
               <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{float:'right', backgroundColor: "black"}}>
                 <Menu.Item key="1"><Link exact to='/'>Home</Link></Menu.Item>
                   <SubMenu key="SubMenu" title="Emergency" placeholder="Search..">
@@ -37,14 +39,14 @@ function Main() {
                     <Menu.Item key="setting:1"><Link exact to="/korea">Korea / 한국</Link></Menu.Item>
                     </Menu.ItemGroup>
                     <Menu.ItemGroup title="Europe / 유럽">
-                    <Menu.Item key="setting:3">Sweden / 스웨덴</Menu.Item>
-                    <Menu.Item key="setting:4">U.K / 영국</Menu.Item>
+                    <Menu.Item key="setting:3"><Link exact to='/sweden'>Sweden / 스웨덴</Link></Menu.Item>
+                    <Menu.Item key="setting:4"><Link exact to='/uk'>U.K / 영국</Link></Menu.Item>
                     </Menu.ItemGroup>
                     <Menu.ItemGroup title="Africa / 아프리카">
-                    <Menu.Item key="setting:3">Egypt / 이집트</Menu.Item>
+                    <Menu.Item key="setting:5"><Link exact to='/egypt'>Egypt / 이집트</Link></Menu.Item>
                     </Menu.ItemGroup>
                     <Menu.ItemGroup title="America / 아메리카">
-                    <Menu.Item key="setting:3">U.S.A / 미국</Menu.Item>
+                    <Menu.Item key="setting:6"><Link exact to='/usa'>U.S.A / 미국</Link></Menu.Item>
                     </Menu.ItemGroup>
                   </SubMenu>
                 </Menu>

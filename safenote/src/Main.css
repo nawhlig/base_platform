@@ -34,11 +34,27 @@
     word-break: break-all;
 }
 
-html, html body, html body div#root{
+html body{
+    height: 100%;
+    position: relative;
+}
+
+html body div#root{
     height: auto;
     position: relative;
     overflow: auto;
 }
+
+html body div#root section.ant-layout main.ant-layout-content.site-layout{
+    min-height: 16.5cm;
+    
+}
+
+@media (max-width: 780px) {
+    html body div#root section.ant-layout main.ant-layout-content.site-layout {
+        min-height: 20cm;
+        max-width: 11cm;
+    }}
 
 .ant-layout, .ant-layout {
     height: 100%;
@@ -57,6 +73,15 @@ html, html body, html body div#root{
     font-size: 1.5cm;
     animation: blink 8s linear infinite;
 }
+
+@media (max-width: 780px) {
+    .blink span{
+        font-family: sans-serif;;
+        color: white;
+        font-size: 0.7cm;
+        animation: blink 8s linear infinite;
+    }}
+
 @keyframes blink{
 0%{opacity: 0;}
 50%{opacity: 1;}
