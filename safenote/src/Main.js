@@ -31,7 +31,7 @@ function Main() {
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%', backgroundColor: "black" }} 
             meta name="viewport" content="width=device-width,initial-scale=1">
               
-              <div className="logo" style={{float: "left", width: 150, padding: 'auto', margin:0}}><img src={logo} /></div>
+              <div className="logo" style={{float: "left", width: 10, padding: 'auto', margin:0}}><img src={logo} /></div>
               <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{float:'right', backgroundColor: "black"}}>
                 <Menu.Item key="1"><Link exact to='/'>Home</Link></Menu.Item>
                   <SubMenu key="SubMenu" title="Emergency" placeholder="Search..">

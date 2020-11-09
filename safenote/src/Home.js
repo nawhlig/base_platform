@@ -59,7 +59,6 @@ function onSearch(val) {
             <div id='mainsentece'>
             <p class="blink"><span>{text}</span></p>  
             <Select
-
             showSearch
             style={{ width: '100%', maxWidth: 450 }}
             placeholder="어느 나라가 궁금하신가요? / Which country are you curious about?"
