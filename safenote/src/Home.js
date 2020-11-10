@@ -59,6 +59,7 @@ function onSearch(val) {
             <div id='mainsentece'>
             <p class="blink"><span>{text}</span></p>  
             <Select
+            onChange="window.open(value, '_self');"
             showSearch
             style={{ width: '100%', maxWidth: 450 }}
             placeholder="어느 나라가 궁금하신가요? / Which country are you curious about?"
@@ -71,9 +72,11 @@ function onSearch(val) {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            <Option value="korea" href="/korea">Korea</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="tom">Tom</Option>
+            <Option value="./korea"><Link exact to='/korea'>Korea</Link></Option>
+            <Option value="./swden"><Link exact to='/sweden'>Sweden</Link></Option>
+            <Option value="./egypt"><Link exact to='/egypt'>Egypt</Link></Option>
+            <Option value="./usa"><Link exact to='/usa'>U.S.A</Link></Option>
+            <Option value="./uk"><Link exact to='/uk'>U.K</Link></Option>
           </Select>
             </div>
         </Content>
