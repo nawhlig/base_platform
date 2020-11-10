@@ -5,8 +5,10 @@ import './index.css';
 import 'antd/dist/antd.css';
 import 'antd/dist/antd.css';
 
-import { Layout, Menu, Breadcrumb, Select } from 'antd';
-import {Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Layout, Menu, Breadcrumb, Select, Button, Tooltip } from 'antd';
+import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { SearchOutlined } from '@ant-design/icons';
+
 
 import test from './images/sliderImages/1918x954.gif';
 
@@ -52,6 +54,7 @@ function onSearch(val) {
   console.log('search:', val);
 }
 
+
   return (
     <>
       
@@ -72,12 +75,13 @@ function onSearch(val) {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            <Option value="./korea"><Link exact to='/korea'>Korea</Link></Option>
-            <Option value="./swden"><Link exact to='/sweden'>Sweden</Link></Option>
-            <Option value="./egypt"><Link exact to='/egypt'>Egypt</Link></Option>
-            <Option value="./usa"><Link exact to='/usa'>U.S.A</Link></Option>
-            <Option value="./uk"><Link exact to='/uk'>U.K</Link></Option>
+            <Option value="./korea"><Link exact to='/korea' style={{paddingRight: 500}}>Korea</Link></Option>
+            <Option value="./swden"><Link exact to='/sweden' style={{paddingRight: 500}}>Sweden</Link></Option>
+            <Option value="./egypt"><Link exact to='/egypt' style={{paddingRight: 500}}>Egypt</Link></Option>
+            <Option value="./usa"><Link exact to='/usa' style={{paddingRight: 500}}>U.S.A</Link></Option>
+            <Option value="./uk"><Link exact to='/uk' style={{paddingRight: 500}}>U.K</Link></Option>
           </Select>
+          {/* <Button icon={<SearchOutlined />} style={{marginLeft: 5}} onClick={onChange}>Search</Button> */}
             </div>
         </Content>
        
