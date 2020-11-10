@@ -62,7 +62,6 @@ function onSearch(val) {
             <div id='mainsentece'>
             <p class="blink"><span>{text}</span></p>  
             <Select
-            onChange="window.open(value, '_self');"
             showSearch
             style={{ width: '100%', maxWidth: 450 }}
             placeholder="어느 나라가 궁금하신가요? / Which country are you curious about?"
@@ -75,11 +74,11 @@ function onSearch(val) {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            <Option value="./korea"><Link exact to='/korea' style={{paddingRight: 500}}>Korea</Link></Option>
-            <Option value="./swden"><Link exact to='/sweden' style={{paddingRight: 500}}>Sweden</Link></Option>
-            <Option value="./egypt"><Link exact to='/egypt' style={{paddingRight: 500}}>Egypt</Link></Option>
-            <Option value="./usa"><Link exact to='/usa' style={{paddingRight: 500}}>U.S.A</Link></Option>
-            <Option value="./uk"><Link exact to='/uk' style={{paddingRight: 500}}>U.K</Link></Option>
+            <Option value="korea"><Link exact to='/korea' style={{paddingRight: 500}}>Korea</Link></Option>
+            <Option value="swden"><Link exact to='/sweden' style={{paddingRight: 500}}>Sweden</Link></Option>
+            <Option value="egypt"><Link exact to='/egypt' style={{paddingRight: 500}}>Egypt</Link></Option>
+            <Option value="usa"><Link exact to='/usa' style={{paddingRight: 500}}>U.S.A</Link></Option>
+            <Option value="uk"><Link exact to='/uk' style={{paddingRight: 500}}>U.K</Link></Option>
           </Select>
           {/* <Button icon={<SearchOutlined />} style={{marginLeft: 5}} onClick={onChange}>Search</Button> */}
             </div>

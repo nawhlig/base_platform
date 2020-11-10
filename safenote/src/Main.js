@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 
 import {Route, Link, NavLink, Switch } from 'react-router-dom';
 import SubMenu from 'antd/lib/menu/SubMenu';
-import { Layout, Menu, Breadcrumb, Select } from 'antd';
+import { Layout, Menu, Breadcrumb, Select, Affix } from 'antd';
 
 import team from './images/team.jpg';
 import test from './images/sliderImages/1918x954.gif';
@@ -20,7 +20,7 @@ import UK from './UK';
 import Sweden from './Sweden';
 import Egypt from './Egypt';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer, bottom } = Layout;
 
 function Main() {
 
@@ -31,10 +31,10 @@ function Main() {
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%', backgroundColor: "black" }} 
             meta name="viewport" content="width=device-width,initial-scale=1">
               
-              <div className="logo" style={{float: "left", width: 10, padding: 'auto', margin:0}}><img src={logo} /></div>
+              <Link exact to='/'><div className="logo" style={{float: "left", width: 10, padding: 'auto', margin:0}}><img src={logo} /></div></Link>
               <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{float:'right', backgroundColor: "black"}}>
                 <Menu.Item key="1"><Link exact to='/'>Home</Link></Menu.Item>
-                  <SubMenu key="SubMenu" title="Emergency" placeholder="Search..">
+                  <SubMenu key="SubMenu" title="Country" placeholder="Search..">
                     <Menu.ItemGroup title="Asia / 아시아">
                     <Menu.Item key="setting:1"><Link exact to="/korea">Korea / 한국</Link></Menu.Item>
                     </Menu.ItemGroup>
@@ -59,7 +59,9 @@ function Main() {
                 <Route exact path="/usa" component={USA}/>
                 <Route exact path="/uk" component={UK}/>
             </Switch>
+            <Affix offsetBottom={bottom}>
             <Footer id='footer'>SafeNote ©2020 Created by #Import</Footer>  
+            </Affix>
         </Layout>
   
         </>

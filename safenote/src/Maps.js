@@ -9,14 +9,14 @@ import { GOOGLE_MAPS_KEY } from "./config";
 // };
 
 const mapStyles = {
-  position: 'absolute',
   width: "100%",
-  height: "100%"
+  height: "90%",
 };
 
 export class MapContainer extends Component {
   render() {
     return (
+      <div style={{height:'100%',width:'100%'}}>
       <Map
         google={this.props.google}
         zoom={14}
@@ -28,6 +28,7 @@ export class MapContainer extends Component {
           }
         }
       />
+      </div>
     );
   }
 }
