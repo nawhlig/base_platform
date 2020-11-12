@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Maps from './Maps';
 import './Korea.css';
 import './index.css';
 import 'antd/dist/antd.css';
+import { UserContext} from './userContext'
 
 import Icon from '@ant-design/icons';
 import { FireOutlined, AlertOutlined, MedicineBoxOutlined, StarFilled, StarTwoTone, ExclamationOutlined, PhoneOutlined } from '@ant-design/icons';
@@ -43,6 +44,11 @@ function infomedic() {
 function Korea() {
 
   const [ click, setClick ] = React.useState(false)
+
+  const [timedistance, setTimedistance] = useState({ totalTime:'',
+  totalDistance: ''})
+
+
   const clickevent = () => {
     if (click == true){
       setClick(false)
@@ -52,13 +58,16 @@ function Korea() {
     }
   } 
 
-
+  
   return (
     <>
      <Content style={{ padding: '0 50px', marginTop: 100, position: 'relative'}}>
               <section class='section'>    
                 <div style={{marginTop:"0.5cm", zIndex: 0}}>
+                <UserContext.Provider value={{timedistance:timedistance,setTimedistance:setTimedistance}}>
+
                 <Maps/>
+                </UserContext.Provider>
                 </div>
               </section>
               <section class='nosection'>
