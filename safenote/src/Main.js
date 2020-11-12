@@ -60,7 +60,9 @@ function Main() {
                 <Route exact path="/uk" component={UK}/>
             </Switch>
             <Affix offsetBottom={bottom}>
+              <div>
             <Footer id='footer'>SafeNote ©2020 Created by #Import</Footer>  
+            </div>
             </Affix>
         </Layout>
   
