@@ -1,3 +1,17 @@
+main.ant-layout-content.site-layout {
+    background-size: 100%;
+}
+
+@media (max-width: 900pt) {
+    main.ant-layout-content.site-layout {
+        background-size: 120%;
+    }}
+
+@media (max-width: 700pt) {
+    main.ant-layout-content.site-layout {
+        background-image: url("./images/sliderImages/mobilesky2.jpg") !important;
+    }}
+
 #footer{
     text-Align: center;
     background-color: black;
@@ -67,7 +81,7 @@ html body div#root{
 }
 
 .blink{
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.39);
     padding: 15pt;	
     text-align: center;
     font-size: xx-large;
