@@ -7,17 +7,37 @@
 #mainsentece{
     text-Align: center;
     color: #FFFFFFA6;
-    padding-top: 200px; 
-    padding-bottom: 0px;
+    padding-top: 200pt; 
+    padding-bottom: 0pt;
 }
 
-.launch{
+.inner.launch{
     box-sizing: border-box;
-    padding: 5px;
     color: Black;
-    margin-bottom: 0.5cm;
+    float: left;
+    height: auto;
+    padding: 50pt;
 }
 
+.inner button.ant-btn{
+    min-height: 33pt;
+    min-width: 100pt;
+}
+
+.inner {
+    z-index: 2;
+    /* //최하단을 기준으로 설정 */
+    position: absolute;
+    bottom: 0;
+    
+    /* //아래 요소는 시각적으로 보여주기 위한 설정임 */
+    padding: auto;
+    margin: auto;
+  }
+
+.inner div {
+padding: 5pt;
+}
 
 html body{
     height: 100%;
@@ -29,9 +49,9 @@ html body div#root{
     overflow: auto;
 }
 
-@media (max-width: 780px){
+@media (max-width: 780pt){
     html body div#root{
-        height: calc(100%-100px);
+        height: calc(100%-100pt);
         position: relative;
         overflow: auto;
     }
@@ -43,10 +63,10 @@ html body div#root{
 
 .blink{
     background-color: rgba(0, 0, 0, 0);
-    padding: 15px;	
+    padding: 15pt;	
     text-align: center;
     font-size: xx-large;
-    line-height: 50px;
+    line-height: 50pt;
 }
 .blink span{
     font-family: sans-serif;;
@@ -55,7 +75,7 @@ html body div#root{
     animation: blink 8s linear infinite;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 780pt) {
     .blink span{
         font-family: sans-serif;;
         color: white;
@@ -70,8 +90,14 @@ html body div#root{
 }
 
 /* 화면 크기 조절 매우 중요 */
-section{
+.section{
     position: relative;
     height: 90%;
     width: 100%;
+}
+
+.nosection{
+    position: relative;
+    height: 10%;
+    width: 10%;
 }

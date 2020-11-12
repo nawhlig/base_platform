@@ -58,7 +58,7 @@ function onSearch(val) {
   return (
     <>
       
-        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64, backgroundImage: "url(" + test + ")"}}>
+        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64, backgroundImage: "url(" + test + ")", backgroundSize: '100F%'}}>
             <div id='mainsentece'>
             <p class="blink"><span>{text}</span></p>  
             <Select
