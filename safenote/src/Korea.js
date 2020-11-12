@@ -29,15 +29,15 @@ function info() {
 
 function Korea() {
 
-const [ click, setClick ] = React.useState(false)
-const clickevent = () => {
-  if (click == true){
-    setClick(false)
-  }
-  else{
-    setClick(true)
-  }
-} 
+  const [ click, setClick ] = React.useState(false)
+  const clickevent = () => {
+    if (click == true){
+      setClick(false)
+    }
+    else{
+      setClick(true)
+    }
+  } 
 
 
   return (
