@@ -10,7 +10,7 @@ import { Route, Link, NavLink, Switch } from 'react-router-dom';
 import { SearchOutlined } from '@ant-design/icons';
 
 
-import test from './images/sliderImages/1918x954.gif';
+import test from './images/sliderImages/websky2.jpg';
 
 const { Header, Content, Footer } = Layout;
 
@@ -58,7 +58,7 @@ function onSearch(val) {
   return (
     <>
       
-        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64, backgroundImage: "url(" + test + ")", backgroundSize: '100%'}}>
+        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64, backgroundImage: "url(" + test + ")"}}>
             <div id='mainsentece'>
             <p class="blink"><span>{text}</span></p>  
             <Select
