@@ -28,7 +28,7 @@ function info() {
 }
 
 function infomedic() {
-  Modal.infomedic({
+  Modal.info({
     title: '공지 / Notice',
     content: (
       <div>
