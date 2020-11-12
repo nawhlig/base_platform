@@ -27,6 +27,19 @@ function info() {
   });
 }
 
+function infomedic() {
+  Modal.info({
+    title: '공지 / Notice',
+    content: (
+      <div>
+        <p>병원?</p>
+        <p>한국은</p>
+      </div>
+    ),
+    onOk() {},
+  });
+}
+
 function Egypt() {
   const [ click, setClick ] = React.useState(false)
   const clickevent = () => {
@@ -58,7 +71,8 @@ function Egypt() {
                     </div>
                     </>
                     }</td></tb>
-                  <Button onClick={info} danger style={{float: "right", minHeight:'50pt', maxWidth:'50pt', borderRadius:'50%'}}>Notice</Button>
+                  <Button onClick={info} danger style={{float: "right", minHeight:'50pt', maxWidth:'50pt', borderRadius:'50%'}}>Notice</Button>  
+                  <Button onClick={infomedic} danger style={{float: "right", minHeight:'50pt', maxWidth:'50pt', borderRadius:'50%', textAlign:'left', marginRight: 5}}>Medic</Button>
                 </Container>
                 </table>
               </section>

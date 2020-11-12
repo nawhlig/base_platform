@@ -20,17 +20,22 @@
 }
 
 .inner button.ant-btn{
-    min-height: 33pt;
+    min-height: 100pt;
     min-width: 100pt;
+    border-radius: 100%;
+}
+
+table nav.fab-container{
+    float: left;
+    left: 8vw;
 }
 
 .inner {
     z-index: 2;
-    /* //최하단을 기준으로 설정 */
+    
     position: absolute;
     bottom: 0;
     
-    /* //아래 요소는 시각적으로 보여주기 위한 설정임 */
     padding: auto;
     margin: auto;
   }
