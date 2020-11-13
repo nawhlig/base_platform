@@ -3,7 +3,6 @@ import Maps from './Maps';
 import './Korea.css';
 import './index.css';
 import 'antd/dist/antd.css';
-import { UserContext} from './userContext'
 
 import Icon from '@ant-design/icons';
 import { FireOutlined, AlertOutlined, MedicineBoxOutlined, StarFilled, StarTwoTone, ExclamationOutlined, PhoneOutlined } from '@ant-design/icons';
@@ -12,6 +11,7 @@ import { Layout, Menu, Breadcrumb, Modal, Button, Space } from 'antd';
 import test from './images/sliderImages/1918x954.gif';
 
 import { Container, Link } from 'react-floating-action-button'
+import { UserContext} from './userContext'
 
 const { Header, Content, Footer } = Layout;
 
@@ -45,10 +45,6 @@ function Korea() {
 
   const [ click, setClick ] = React.useState(false)
 
-  const [timedistance, setTimedistance] = useState({ totalTime:'',
-  totalDistance: ''})
-
-
   const clickevent = () => {
     if (click == true){
       setClick(false)
@@ -58,16 +54,15 @@ function Korea() {
     }
   } 
 
-  
+  const [timedistance, setTimedistance] = useState({ totalTime:'',
+  totalDistance: ''})
+
   return (
-    <div style={{border:'1px black solid'}}>
      <Content style={{ padding: '0 50px', marginTop: 100, position: 'relative'}}>
               <section class='section'>    
                 <div style={{marginTop:"0.5cm", zIndex: 0}}>
                 <UserContext.Provider value={{timedistance:timedistance,setTimedistance:setTimedistance}}>
-                <div style={{textAlign:'center'}}>
                 <Maps />
-                </div>
                 </UserContext.Provider>
                 </div>
               </section>
@@ -89,7 +84,6 @@ function Korea() {
                 </table>
               </section>
     </Content>
-    </div>
   );
 }
 

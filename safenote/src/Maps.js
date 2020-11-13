@@ -68,7 +68,7 @@ function MyDirectionsRenderer(props) {
     (res) => {
 
       setTimedistance({ totalTime:res.rows[0].elements[0].distance.text,
-       totalDistance: res.rows[0].elements[0].duration.text});
+      totalDistance: res.rows[0].elements[0].duration.text});
 
     }
   );

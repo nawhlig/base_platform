@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Maps from './Maps';
 import './Korea.css';
 import './index.css';
@@ -11,6 +11,7 @@ import { Layout, Menu, Breadcrumb, Modal, Button, Space } from 'antd';
 import test from './images/sliderImages/1918x954.gif';
 
 import { Container, Link } from 'react-floating-action-button'
+import { UserContext} from './userContext'
 
 const { Header, Content, Footer } = Layout;
 
@@ -51,12 +52,17 @@ function Egypt() {
     }
   } 
 
+  const [timedistance, setTimedistance] = useState({ totalTime:'',
+  totalDistance: ''})
+
   return (
     <>
      <Content style={{ padding: '0 50px', marginTop: 100, position: 'relative'}}>
               <section class='section'>    
                 <div style={{marginTop:"0.5cm", zIndex: 0}}>
+                <UserContext.Provider value={{timedistance:timedistance,setTimedistance:setTimedistance}}>
                 <Maps/>
+                </UserContext.Provider>
                 </div>
               </section>
               <section class='nosection'>
