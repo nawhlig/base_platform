@@ -2,16 +2,17 @@
 
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, Marker, DirectionsRenderer, LoadScript, InfoWindow } from '@react-google-maps/api';
-//import './App.css'
-import { UserContext} from './userContext'
-
+import './App.css'
+import { UserContext } from './userContext'
+ 
 import {my_key} from './keys'
+import { message, Button } from 'antd';
+
 const google = window.google;
 
 const containerStyle = {
-  // width: '400px',
-  height: '400px',
- 
+  width: '400px',
+  height: '400px'
 };
  
 // const center = {
@@ -27,7 +28,7 @@ function MyDirectionsRenderer(props) {
   const { origin, destination, travelMode } = props;
   const { timedistance, setTimedistance} = React.useContext(UserContext);
  
-
+// pos    setPos 함수 상위 이동(변수명 맞춰야 함...)
 
   useEffect(() => {
 
@@ -54,25 +55,31 @@ function MyDirectionsRenderer(props) {
 
   useEffect(()=>{
   
-    
+    //GPS 코드 이동..
+
     var service = new window.google.maps.DistanceMatrixService();
     
+    message.info(JSON.stringify(origin));
+
     service.getDistanceMatrix({
       origins: [origin],
       destinations:  [{ lat: 37.551168, lng: 126.988141 }],   //데이터 들어 갈 부분
       avoidHighways: false,
       avoidTolls: false,
       travelMode: 'TRANSIT',
-      //unitSystem: 'IMPERIAL'
+      //unitSystem: window.google.maps.UnitSystem.metric,
     }, 
     (res) => {
-
-      setTimedistance({ totalTime:res.rows[0].elements[0].distance.text,
-       totalDistance: res.rows[0].elements[0].duration.text});
+      
+        console.log(res,'+_++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+')
+      
+        setTimedistance({ totalTime: res.rows[0].elements[0].distance.text,
+                        totalDistance: res.rows[0].elements[0].duration.text});
 
     }
   );
 
+  
   
   },[])
 
@@ -83,63 +90,80 @@ function MyDirectionsRenderer(props) {
   );
 }
 
-
-
-
 //////////////////////////////////////
-function TestComponent() {
+function Totalprint() {
 
-  const { timedistance, setTimedistance} = React.useContext(UserContext);
-
+  const {timedistance, setTimedistance} = React.useContext(UserContext);
+  
   return (
     <>
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
-    <div style={{overflow:'scroll'}}>
     <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
     약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
     </pre>
     <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  SO, It will take about <strong>{timedistance.totalDistance}</strong>.
     </pre>
-    </div>
+ 
     </>
   )
 }
 
-
 function MyComponent() {
-
-  
 
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
   const [pos, setPos] = React.useState({
     lat: 0,
-    lng: 0,
+    lng: 0
   })
   
   const [position, setPosition] = React.useState({ lat: 52.620360, lng: -1.142179 });
 
   useEffect(()=> {
 
+    //message.info(navigator.geolocation);
+
     if (navigator.geolocation) {
+
+      message.info("GPS 사용중");
       navigator.geolocation.getCurrentPosition(
         (position) => {
 
-          setPos({
+
+
+
+          message.info("get Current 성공");
+
+            //console.log(position,'------------------------------------------------')
+            //message.info(position.coords.latitude);
+            //console.log(position.coords.latitude,'------------------------------------------------')
+            //console.log(position.coords.longitude,'------------------------------------------------')
+            setPos({
             lat: position.coords.latitude,
-            lng: position.coords.longitude,
+            lng: position.coords.longitude
           });
 
+
+
+            
+
+          // 변수 들 출력 이동..
           
         },
-        () => {
+        (error) => {
+          message.info(error.message);
+        },{
+          timeout: 1000,
+          maximumAge: 10000,
+          enableHighAccuracy: true
         }
       );
+    } else {
+      message.info("GPS를 연결하실 수 없습니다.");
     }
 
-
   }, []);
-
+ 
   function handleCenter() {
     if (!mapRef.current) return;
 
@@ -159,12 +183,9 @@ function MyComponent() {
     mapRef.current = map;
   }
 
-
- 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
-
 
   const divStyle = {
     background: `white`,
@@ -178,9 +199,6 @@ function MyComponent() {
     console.log('infoWindow: ', infoWindow)
   }
   
-/* global google */
-
-
   
   return (
     <>
@@ -263,7 +281,7 @@ function MyComponent() {
           <></>
     </LoadScript>
     <div>
-    <TestComponent/>
+    <Totalprint/>
     </div>
     </>
   )

@@ -60,14 +60,14 @@ function Korea() {
 
   
   return (
-    <div style={{border:'1px black solid'}}>
+    <>
      <Content style={{ padding: '0 50px', marginTop: 100, position: 'relative'}}>
               <section class='section'>    
                 <div style={{marginTop:"0.5cm", zIndex: 0}}>
                 <UserContext.Provider value={{timedistance:timedistance,setTimedistance:setTimedistance}}>
-                <div style={{textAlign:'center'}}>
+                
                 <Maps />
-                </div>
+                
                 </UserContext.Provider>
                 </div>
               </section>
@@ -89,7 +89,7 @@ function Korea() {
                 </table>
               </section>
     </Content>
-    </div>
+    </>
   );
 }
 

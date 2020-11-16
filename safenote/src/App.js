@@ -11,9 +11,13 @@ function App() {
                                     totalDistance: ''})
   return (
     <>
+    
     <BrowserRouter>
+    
       <Main/>
+      
     </BrowserRouter>
+    
 
     </>
   );
