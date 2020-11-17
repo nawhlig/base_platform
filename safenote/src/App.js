@@ -7,9 +7,17 @@ import Main from './Main';
 function App() {
   return (
     <>
+    
     <BrowserRouter>
+    
       <Main/>
+      
     </BrowserRouter>
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> a725e91de4352152e2ad5894d7c50d042a5010bc
     </>
   );
 }

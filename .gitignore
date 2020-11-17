@@ -4,5 +4,7 @@ __pycache__
 .pyc
 media
 private_*
-keys.js
+config.js
+safenote/src/keys.js
 
+safenote/src/모듈.txt

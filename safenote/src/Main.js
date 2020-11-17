@@ -46,6 +46,7 @@ function Main() {
                 <Route exact path="/sweden" component={Sweden}/>
                 <Route exact path="/egypt" component={Egypt}/>
             </Switch>
+<<<<<<< HEAD
             </div>
             </main>
             <footer>
@@ -54,6 +55,19 @@ function Main() {
             </div>
             </footer>
         </div>
+=======
+            <Affix offsetBottom={bottom}>
+              <div>
+            <Footer id='footer'>SafeNote ©2020 Created by #Import</Footer>  
+            </div>
+            </Affix>
+        </Layout>
+  
+        </>
+    );
+
+}
+>>>>>>> a725e91de4352152e2ad5894d7c50d042a5010bc
 
 
         </>
