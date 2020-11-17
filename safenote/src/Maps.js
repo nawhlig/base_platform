@@ -2,16 +2,17 @@
 
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, Marker, DirectionsRenderer, LoadScript, InfoWindow } from '@react-google-maps/api';
-//import './App.css'
-import { UserContext} from './userContext'
-
+import './App.css'
+import { UserContext } from './userContext'
+ 
 import {my_key} from './keys'
+import { message, Button } from 'antd';
+
 const google = window.google;
 
 const containerStyle = {
-  // width: '400px',
-  height: '400px',
- 
+  width: '400px',
+  height: '400px'
 };
  
 // const center = {
@@ -19,15 +20,31 @@ const containerStyle = {
 //   lng: -2.960830
 // };
 
+function Totalprint() {
+
+  const {timedistance, setTimedistance} = React.useContext(UserContext);
+  
+  return (
+    <>
+    {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
+    <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
+    약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
+    </pre>
+    <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  SO, It will take about <strong>{timedistance.totalDistance}</strong>.
+    </pre>
+ 
+    </>
+  )
+}
 
 
 function MyDirectionsRenderer(props) {
   
   const [directions, setDirections] = useState(null);
-  const { origin, destination, travelMode } = props;
+  const { origin, destination, travelMode, setPos } = props;
   const { timedistance, setTimedistance} = React.useContext(UserContext);
  
-
+// pos    setPos 함수 상위 이동(변수명 맞춰야 함...)
 
   useEffect(() => {
 
@@ -53,26 +70,71 @@ function MyDirectionsRenderer(props) {
   }
 
   useEffect(()=>{
-  
-    
+
     var service = new window.google.maps.DistanceMatrixService();
     
-    service.getDistanceMatrix({
-      origins: [origin],
-      destinations:  [{ lat: 37.551168, lng: 126.988141 }],   //데이터 들어 갈 부분
-      avoidHighways: false,
-      avoidTolls: false,
-      travelMode: 'TRANSIT',
-      //unitSystem: 'IMPERIAL'
-    }, 
-    (res) => {
+  
+    //GPS 코드 이동..
+    if (navigator.geolocation) {
 
-      setTimedistance({ totalTime:res.rows[0].elements[0].distance.text,
-      totalDistance: res.rows[0].elements[0].duration.text});
+      message.info("GPS 사용중");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
 
+          message.info("get Current 성공");
+
+            //console.log(position,'------------------------------------------------')
+            //message.info(position.coords.latitude);
+            //console.log(position.coords.latitude,'------------------------------------------------')
+            //console.log(position.coords.longitude,'------------------------------------------------')
+          setPos({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+
+          // 변수 들 출력 이동..
+          console.log(JSON.stringify({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }));
+
+          service.getDistanceMatrix({
+            origins: [{
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            }],
+            destinations:  [{ lat: 37.551168, lng: 126.988141 }],   //데이터 들어 갈 부분
+            avoidHighways: false,
+            avoidTolls: false,
+            travelMode: 'TRANSIT',
+            //unitSystem: window.google.maps.UnitSystem.metric,
+          }, 
+          (res) => {
+            
+              console.log(res,'+_++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+')
+              setTimedistance({ totalTime: res.rows[0].elements[0].distance.text,
+                              totalDistance: res.rows[0].elements[0].duration.text});
+      
+          }
+        );
+          
+        },
+        (error) => {
+          message.info(error.message);
+        },{
+          timeout: 1000,
+          maximumAge: 10000,
+          enableHighAccuracy: true
+        }
+      );
+    } else {
+      message.info("GPS를 연결하실 수 없습니다.");
     }
-  );
 
+   
+   
+
+  
   
   },[])
 
@@ -83,63 +145,27 @@ function MyDirectionsRenderer(props) {
   );
 }
 
-
-
-
 //////////////////////////////////////
-function TestComponent() {
-
-  const { timedistance, setTimedistance} = React.useContext(UserContext);
-
-  return (
-    <>
-    {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
-    <div style={{overflow:'scroll'}}>
-    <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
-    약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
-    </pre>
-    <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  SO, It will take about <strong>{timedistance.totalDistance}</strong>.
-    </pre>
-    </div>
-    </>
-  )
-}
-
 
 function MyComponent() {
-
-  
 
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
   const [pos, setPos] = React.useState({
     lat: 0,
-    lng: 0,
+    lng: 0
   })
   
   const [position, setPosition] = React.useState({ lat: 52.620360, lng: -1.142179 });
 
   useEffect(()=> {
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
+    //message.info(navigator.geolocation);
 
-          setPos({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-
-          
-        },
-        () => {
-        }
-      );
-    }
-
+  
 
   }, []);
-
+ 
   function handleCenter() {
     if (!mapRef.current) return;
 
@@ -148,23 +174,24 @@ function MyComponent() {
   }
 
   const onLoad = React.useCallback(function callback(map) {
-    
+    mapRef.current = map;
     const bounds = new window.google.maps.LatLngBounds();
     map.fitBounds(bounds);
-  
     setMap(map)
   }, [])
-
-  function handleLoad(map) {
-    mapRef.current = map;
-  }
-
-
  
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
 
+
+  // function handleLoad(map) {
+  //   mapRef.current = map;
+  // }
+
+  // const onUnmount = React.useCallback(function callback(map) {
+  //   setMap(null)
+  // }, [])
 
   const divStyle = {
     background: `white`,
@@ -178,9 +205,6 @@ function MyComponent() {
     console.log('infoWindow: ', infoWindow)
   }
   
-/* global google */
-
-
   
   return (
     <>
@@ -193,12 +217,13 @@ function MyComponent() {
         mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
         center={position}
-        zoom={29}
-        onLoad={handleLoad}
+        zoom={10}
+        onLoad={onLoad}
         onUnmount={onUnmount}
-        defaultZoom={4}
+        //defaultZoom={4}
     //defaultCenter={{ lat: 52.620360, lng: -1.142179 }}
       >    
+      <></>
 <DistanceMatrixService
             options={{
               origins: [{pos}],
@@ -252,18 +277,20 @@ function MyComponent() {
       </div>
     </InfoWindow>
         <MyDirectionsRenderer
+      setPos={setPos}
       origin={pos}
       destination={{ lat: 37.551168, lng: 126.988141 }}   //데이터 들어 갈 부분
       travelMode= 'TRANSIT' 
        
     />
         { /* Child components, such as markers, info windows, etc. */ }
-        
+        <></>
       </GoogleMap>
-          <></>
+          
     </LoadScript>
     <div>
-    <TestComponent/>
+      
+    <Totalprint/>
     </div>
     </>
   )
