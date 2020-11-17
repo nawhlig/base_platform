@@ -5,34 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-div#root{
-  height: 100%;
-}
-
-/* 맨 밑 줄 */
-footer.ant-layout.footer{
-  background-color: black;
-}
-
-
-
-/* 메뉴 글자 색, 배경 색 변경 */
-.ant-layout .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
-  background-color: black;
-  color: turquoise;
-}
-
-.ant-layout .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover{
-  background-color: black;
-  color: turquoise;
-}
-

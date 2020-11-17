@@ -1,122 +1,273 @@
-main.ant-layout-content.site-layout {
-    background-size: 100%;
-}
-
-@media (max-width: 900pt) {
-    main.ant-layout-content.site-layout {
-        background-size: 120%;
-    }}
-
-@media (max-width: 700pt) {
-    main.ant-layout-content.site-layout {
-        background-image: url("./images/sliderImages/mobilesky2.jpg") !important;
-    }}
-
-#footer{
-    text-Align: center;
-    background-color: black;
-    color: #FFFFFFA6;
-}
-
-#mainsentece{
-    text-Align: center;
-    color: #FFFFFFA6;
-    padding-top: 200pt; 
-    padding-bottom: 0pt;
-}
-
-.inner.launch{
-    box-sizing: border-box;
-    color: Black;
-    float: left;
-    height: auto;
-    padding: 50pt;
-}
-
-.inner button.ant-btn{
-    min-height: 100pt;
-    min-width: 100pt;
-    border-radius: 100%;
-}
-
-table nav.fab-container{
-    float: left;
-    left: 8vw;
-}
-
-.inner {
-    z-index: 2;
-    
-    position: absolute;
-    bottom: 0;
-    
-    padding: auto;
-    margin: auto;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%
   }
 
-.inner div {
-padding: 5pt;
-}
-
-html body{
-    height: 100%;
+div#root{
     position: relative;
-}
-
-html body div#root{
-    height: 100%;
-    overflow: auto;
-}
-
-@media (max-width: 780pt){
-    html body div#root{
-        height: calc(100%-100pt);
-        position: relative;
-        overflow: auto;
-    }
-}
-
-.ant-layout, .ant-layout {
     height: 100%;
 }
 
-.blink{
-    background-color: rgba(0, 0, 0, 0.39);
-    padding: 15pt;	
+.wrapper {
+    max-width: 1920pt;
+    max-height: 1080pt;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  header {
+    color: white;
+    background: black;
+    min-height: 0%;
+  }
+
+  /* menu btn */
+
+.logo{
+    position: relative;
+    background-color: black;
+    max-width: 100pt;
+    max-height: 50pt;
+    float: left;
+    margin-top: 0.7%;
+    margin-left: 0.7%;
+}
+
+.navbar {
+    overflow: hidden;
+    max-width: 100%;
+    background-color: black;
+  }
+  .navbar a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .navbar a {
+    font-size: 13pt;
+    color: white;
     text-align: center;
-    font-size: xx-large;
+    padding: 14pt 16pt;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: right;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 13pt;  
+    border: none;
+    outline: none;
+    padding: 14pt 16pt;
+    font-family: inherit;
+    margin: 0;
+    background-color: black;
+    color: white;
+  }
+  
+  .dropdown .dropbtn:hover{
+    color: black;
+    background-color: white;
+  }
+
+
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    background-color: black;
+    max-width: 60pt;
+    padding: 14pt 16pt;
+    box-shadow: 0pt 8pt 16pt 0pt rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12pt 16pt;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:active {
+    background-color:black;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* btn */
+
+  main {
+    background-size: cover;
+    background-position: center;
+    background-image: url("./img/backone.jpg");
+    height: calc(100% - 110pt);
+  }
+  
+  
+  aside {
+    border-top: 15pt solid teal;
+    color: white;
+    background: cadetblue;
+    padding: 10pt;
+  }
+  
+  footer {
+    text-align: center;
+    color: white;
+    background: black;
+    padding: 15pt 0;
+    font-weight: bold;
+    min-width: 100%;
+    max-height: max-content;
+    bottom: 0pt;
+  }
+
+/* 선택 박스 */
+
+.contryheader{
+  position: absolute;
+  opacity: 0.5;
+  color: white;
+  font-size: 2.5cm;
+  text-align: center;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sosbox{
+  position: absolute;
+  min-width: fit-content;
+  text-align: center;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn1, .btn2, .btn3{
+  background-color: rgba(7,7,7,0.3) !important;
+  color: white;
+  border: none;
+  border-radius: 5%;
+  font-size: xx-large;
+  margin: 5pt;
+  padding: 50pt;
+}
+
+.btn1:hover, .btn2:hover, .btn3:hover{
+  color: rgba(150, 255, 255, 0.877);
+}
+
+
+
+/* Reset Select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background:rgba(0,0,0,0.3);
+    background-image: none;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: flex;
+    width: 50%;
+    height: 3em;
+    line-height: 3;
+    background: rgba(0,0,0,0.3);
+    overflow: hidden;
+    border-radius: .25em;
+    min-width: 35%;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: larger;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: rgba(0,0,0,0.3) ;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: rgba(111, 225, 255, 0.725)
+  }
+
+  select option{
+      background-color: rgba(0, 0, 0, 0.795);
+  }
+
+  @media (max-width: 425pt) { 
+    .select{width: 95%;}
+}
+
+/* 선택 박스 */
+
+
+/* 페이지 대문 */
+.blink{
+    position: absolute;
+    text-align: center;
     line-height: 50pt;
+    min-width: 55%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .blink span{
     font-family: sans-serif;;
     color: white;
-    font-size: 1.5cm;
+    font-size: 2.5cm;
     animation: blink 8s linear infinite;
 }
 
-@media (max-width: 780pt) {
-    .blink span{
-        font-family: sans-serif;;
-        color: white;
-        font-size: 0.7cm;
-        animation: blink 8s linear infinite;
-    }}
-
 @keyframes blink{
-0%{opacity: 0;}
-50%{opacity: 1;}
-100%{opacity: 0;}
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+    }
+
+/* 여기까지 페이지 대문 */
+
+
+@media (max-width: 950pt) { 
+  .blink span{font-size: 1.5cm;}
+  .btn1, .btn2, .btn3{font-size: medium; padding: 35pt;}
 }
 
-/* 화면 크기 조절 매우 중요 */
-.section{
-    position: relative;
-    height: 90%;
-    width: 100%;
-}
-
-.nosection{
-    position: relative;
-    height: 10%;
-    width: 10%;
+@media (max-width: 768pt) { 
+    .blink span{font-size: 1.3cm;}
+    .btn1, .btn2, .btn3{font-size: medium; padding: 35pt;}
 }
