@@ -2,7 +2,9 @@ from rest_framework.response import Response
 from .serializers import SingupSerializer
 from rest_framework.decorators import api_view
 from .models import User
-# # Create your views here.
+# # Create your views here.\
+
+#회원 가입 시
 # api_view(['GET','POST'])
 # def signUp(request):
 

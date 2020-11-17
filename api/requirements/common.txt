@@ -1,6 +1,7 @@
 Django~=3.1.1
 djangorestframework
 djangorestframework-jwt
+django-import-export
 Pillow
 pylint
 django-cors-headers
