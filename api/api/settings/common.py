@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     # installed
     "rest_framework",
     "corsheaders",
-
+    "import_export",
     # add app
-    "account"
-
+    "account",
+    "safenote",
 ]
 
 MIDDLEWARE = [
