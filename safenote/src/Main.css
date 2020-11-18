@@ -15,6 +15,7 @@ div#root{
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  font-family: sans-serif;;
 }
 
 header {
@@ -45,11 +46,15 @@ header {
   color: black;
 }
 
+.homemenu{
+  color: white;
+  padding: 14pt 16pt;
+  float: right;
+}
+
 .navbar a {
   font-size: 13pt;
-  color: white;
   text-align: center;
-  padding: 14pt 16pt;
   text-decoration: none;
 }
 
@@ -107,10 +112,9 @@ header {
 main {
   background-size: cover;
   background-position: center;
-  background-image: url("./img/backone.jpg");
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("./img/backtwo.jpg");
   height: calc(100% - 110pt);
 }
-
 
 aside {
   border-top: 15pt solid teal;
@@ -134,7 +138,7 @@ footer {
 
 .contryheader{
 position: absolute;
-opacity: 0.5;
+opacity: 0.8;
 color: white;
 font-size: 2.5cm;
 text-align: center;
@@ -247,7 +251,6 @@ select option{
   transform: translate(-50%, -50%);
 }
 .blink span{
-  font-family: sans-serif;;
   color: white;
   font-size: 2.5cm;
   animation: blink 8s linear infinite;

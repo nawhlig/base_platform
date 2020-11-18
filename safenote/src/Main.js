@@ -10,6 +10,7 @@ import USA from './USA';
 import UK from './UK';
 import Sweden from './Sweden';
 import Egypt from './Egypt';
+import Map from './Map';
 
 function Main() {
     return(
@@ -26,13 +27,13 @@ function Main() {
                     </button>
                     <div class="dropdown-content">
                     <Link exact to='/korea'>Korea</Link>
-                    <Link exact to='/korea'>Korea</Link>
-                    <Link exact to='/korea'>Korea</Link>
-                    <Link exact to='/korea'>Korea</Link>
-                    <Link exact to='/korea'>Korea</Link>
+                    <Link exact to='/usa'>U.S.A</Link>
+                    <Link exact to='/uk'>U.K</Link>
+                    <Link exact to='/sweden'>Sweden</Link>
+                    <Link exact to='/egypt'>Egypt</Link>
                     </div>
                 </div> 
-                <Link exact to='/' style={{float:"right"}}>Home</Link>
+                <Link exact to='/' className='homemenu'>Home</Link>
                 </div>
             </div>
             </header>
@@ -45,6 +46,7 @@ function Main() {
                 <Route exact path="/uk" component={UK}/>
                 <Route exact path="/sweden" component={Sweden}/>
                 <Route exact path="/egypt" component={Egypt}/>
+                <Route exact path="/map" component={Map}/>
             </Switch>
             </div>
             </main>
