@@ -5,7 +5,7 @@ import './Main.css';
 function Sweden(){
     return(
         <>
-            <div className='contryheader'>Sweden</div>
+            <div className='countryheader'>Sweden</div>
             <div className='sosbox'>
                 <button className='btn1'>Police</button>
                 <button className='btn2'>Fire Station</button>

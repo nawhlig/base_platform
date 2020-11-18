@@ -34,7 +34,7 @@ function Home({history}) {
         <p class="blink"><span>{text}</span></p>
         <div class="select">
         <select name="slct" id="slct" onChange={selectCountry}>
-            <option selected disabled>나라를 선택하세요. / Choose the Contry</option>
+            <option selected disabled>나라를 선택하세요. / Choose the Country</option>
             <option value="/korea">Korea</option>
             <option value="/usa">U.S.A</option>
             <option value="/uk">U.K</option>

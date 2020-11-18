@@ -11,7 +11,7 @@ function Korea({history}){
     }
     return(
         <>
-            <div className='contryheader'>Korea</div>
+            <div className='countryheader'>Korea</div>
             <div className='sosbox'>
                 <a href='tel:01085586313'><button className='btn1'>Police</button></a>
                 <a href='tel:01085586313'><button className='btn2'>Fire Station</button></a>

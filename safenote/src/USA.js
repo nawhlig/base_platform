@@ -5,7 +5,7 @@ import './Main.css';
 function USA(){
     return(
         <>
-            <div className='contryheader'>USA</div>
+            <div className='countryheader'>USA</div>
             <div className='sosbox'>
                 <button className='btn1'>Police</button>
                 <button className='btn2'>Fire Station</button>
