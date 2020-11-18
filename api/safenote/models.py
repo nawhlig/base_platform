@@ -27,6 +27,7 @@ class Country(models.Model):
     country_img1 = models.URLField('국기 이미지 주소', max_length=200)
     country_img2 = models.URLField('국토 이미지 주소', max_length=200)
 
+
 class HelpCall(models.Model):
     seq = models.AutoField(primary_key=True)
     country_ID = models.ForeignKey('safenote.Country',  related_name='helpcalls', on_delete=models.CASCADE)
@@ -53,8 +54,8 @@ class Embassy(models.Model):
     embassy_name = models.CharField('대사관 이름', max_length=32)
     embassy_lati = models.DecimalField('대사관 위도', max_digits=9, decimal_places=6, null=True)
     embassy_logi = models.DecimalField('대사관 경도', max_digits=9, decimal_places=6, null=True)
-    embassy_addr = models.CharField('대사관 주소', max_length=150)
-    embassy_tel = models.CharField('대사관 전화', max_length=100)
-    embassy_telsos = models.CharField('대사관 비상전화', max_length=100)
-    embassy_email = models.EmailField('대사관 이메일', max_length=254)
-    contact_notice = models.TextField('대사관정보')
+    embassy_addr = models.CharField('대사관 주소', max_length=150, null=True)
+    embassy_tel = models.CharField('대사관 전화', max_length=100, null=True)
+    embassy_telsos = models.CharField('대사관 비상전화', max_length=100, null=True)
+    embassy_email = models.EmailField('대사관 이메일', max_length=254, null=True)
+    contact_notice = models.TextField('대사관정보', null=True)
