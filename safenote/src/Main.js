@@ -12,17 +12,21 @@ import UK from './UK';
 import Sweden from './Sweden';
 import Egypt from './Egypt';
 import Map from './Map';
+import Api from './helper/Api'
 
 function Main() {
-    React.useEffect(()=>
-{Axios.get("http://192.168.0.64:8000/api/safenote/country/")
-.then(response=>{
-console.log(response);
-}).catch(error=>{
-console.error(error);
-});
-},
-[])
+    React.useEffect(()=>{
+
+        Api.get("country/", {
+            headers: {
+                Authorization: "JWT " + window.localStorage.getItem("token")//getToken()
+            }
+        }).then(res=>{
+            const {data} = res;
+            console.log(data);
+        })
+
+    },[])
     return(
         <>  
         
