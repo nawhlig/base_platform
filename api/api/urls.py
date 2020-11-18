@@ -21,8 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    #path("drf/todo/", include("todo.urls")),
-    #path("drf/exam/", include("exam.urls")),
+    path("api/safenote/", include("safenote.urls")),
     #path("account/", include("account.urls")), # JWT 회원가입시 
     path("api-auth/", include("rest_framework.urls")),  #django DRF 인증용 기본세팅
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

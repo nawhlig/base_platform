@@ -14,11 +14,6 @@ const containerStyle = {
   width: '400px',
   height: '400px'
 };
- 
-// const center = {
-//   lat: 53.430855, 
-//   lng: -2.960830
-// };
 
 function Totalprint() {
 
@@ -44,7 +39,7 @@ function MyDirectionsRenderer(props) {
   const { origin, destination, travelMode, setPos } = props;
   const { timedistance, setTimedistance} = React.useContext(UserContext);
  
-// pos    setPos 함수 상위 이동(변수명 맞춰야 함...)
+
 
   useEffect(() => {
 
@@ -74,7 +69,7 @@ function MyDirectionsRenderer(props) {
     var service = new window.google.maps.DistanceMatrixService();
     
   
-    //GPS 코드 이동..
+   
     if (navigator.geolocation) {
 
       message.info("GPS 사용중");
@@ -155,12 +150,14 @@ function MyComponent() {
     lat: 0,
     lng: 0
   })
+
+  const [ref, setRef] = React.useState({})
   
   const [position, setPosition] = React.useState({ lat: 52.620360, lng: -1.142179 });
 
   useEffect(()=> {
 
-    //message.info(navigator.geolocation);
+
 
   
 
@@ -184,14 +181,11 @@ function MyComponent() {
     setMap(null)
   }, [])
 
+  const onLoad22 = (ref) => {
+    setRef(ref)
+  };
 
-  // function handleLoad(map) {
-  //   mapRef.current = map;
-  // }
-
-  // const onUnmount = React.useCallback(function callback(map) {
-  //   setMap(null)
-  // }, [])
+  const onPlacesChanged = () => console.log(ref.getPlaces());
 
   const divStyle = {
     background: `white`,
@@ -237,7 +231,8 @@ function MyComponent() {
           />
               
 <StandaloneSearchBox
-          onLoad={onLoad2}
+          onPlacesChanged={onPlacesChanged}
+          onLoad={onLoad22}
         >
           <input
             type="text"
@@ -259,6 +254,9 @@ function MyComponent() {
             }}
           />
         </StandaloneSearchBox>
+        {/* {markers.map((marker, index) =>
+      <Marker key={index} position={marker.position} />
+    )} */}
         <InfoWindow
       onLoad={onLoad2}  //목적지   
       position={{ lat: 37.551168, lng: 126.988141 }} //데이터 들어 갈 부분
