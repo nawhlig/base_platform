@@ -18,9 +18,6 @@ function Main() {
     React.useEffect(()=>{
 
         Api.get("country/", {
-            headers: {
-                Authorization: "JWT " + window.localStorage.getItem("token")//getToken()
-            }
         }).then(res=>{
             const {data} = res;
             console.log(data);
