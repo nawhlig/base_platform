@@ -16,6 +16,7 @@ from . import private_oraclecloud_mariadb, private_django_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+ROOT_DIR = os.path.dirname(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +28,7 @@ SECRET_KEY = private_django_secret_key.KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "127.0.0.1:8000"]
 
 
 # Application definition
@@ -141,6 +142,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    STATIC_DIR,
+    ]
+
+STATIC_ROOT = os.path.join(ROOT_DIR,'.static_root')
 
 ##CORS
 CORS_ORIGIN_ALLOW_ALL=True
