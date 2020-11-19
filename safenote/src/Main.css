@@ -82,7 +82,7 @@ header {
   position: absolute;
   display: none;
   background-color: black;
-  max-width: 60pt;
+  max-width: 100pt;
   padding: 14pt 26pt;
   box-shadow: 0pt 8pt 16pt 0pt rgba(0,0,0,0.2);
   z-index: 1;
@@ -158,7 +158,7 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-.btn1, .btn2, .btn3{
+.btn1, .btn2, .btn3, .btn4, .btn5{
 background-color: rgba(7,7,7,0.3) !important;
 color: white;
 border: none;
@@ -169,7 +169,7 @@ margin: 5pt;
 padding: 50pt;
 }
 
-.btn1:hover, .btn2:hover, .btn3:hover{
+.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover{
 color: rgba(150, 255, 255, 0.877);
 }
 
@@ -280,13 +280,31 @@ select option:hover{
 
 @media (max-width: 950pt) { 
 .blink span{font-size: 1.5cm;}
-.btn1, .btn2, .btn3{font-size: medium; padding: 35pt;}
+.btn1, .btn2, .btn3, .btn4, .btn5{font-size: medium; padding: 35pt;}
 }
 
 @media (max-width: 768pt) { 
   .blink span{font-size: 1.3cm;}
-  .btn1, .btn2, .btn3{font-size: medium; padding: 35pt;}
+  .btn1, .btn2, .btn3, .btn4, .btn5{font-size: medium; padding: 35pt;}
 }
 
 
 
+.map{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mapinfo{
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bolder;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
