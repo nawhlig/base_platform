@@ -20,7 +20,7 @@ function Totalprint() {
   const {timedistance, setTimedistance} = React.useContext(UserContext);
   
   return (
-    <>
+    <div style={{backgroundColor:'ivory', width:'400px'}}>
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
     <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
     약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
@@ -28,7 +28,7 @@ function Totalprint() {
     <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  SO, It will take about <strong>{timedistance.totalDistance}</strong>.
     </pre>
  
-    </>
+    </div>
   )
 }
 
@@ -208,6 +208,7 @@ function MyComponent() {
     >
       
       <GoogleMap
+        
         mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
         center={position}
