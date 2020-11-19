@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import Map  from './Map';
+//import Map  from './Map';
 import { UserContext} from './userContext'
 import './App.css';
+import 'antd/dist/antd.css';
 import Main from './Main';
 import 'antd/dist/antd.css';
 

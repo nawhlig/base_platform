@@ -23,12 +23,11 @@ const google = window.google;
 
 function Totalprint() {
 
-  
-
   const {timedistance, setTimedistance} = React.useContext(UserContext);
   
   return (
     <>
+    <div style={{backgroundColor:'ivory', width:'420px'}}>
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
     <div class="mapinfo">
       <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
@@ -36,6 +35,7 @@ function Totalprint() {
       </pre>
       <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  So, It will take about <strong>{timedistance.totalDistance}</strong>.
       </pre>
+    </div>
     </div>
     </>
   )
@@ -78,29 +78,25 @@ function MyDirectionsRenderer(props) {
     
   
     if (navigator.geolocation) {
+      
+      message.success('GPS가 정상적으로 작동 중입니다.');
 
-      message.info("GPS 사용중");
       navigator.geolocation.getCurrentPosition(
         (position) => {
 
-          message.info("get Current 성공");
 
-            //console.log(position,'------------------------------------------------')
-            //message.info(position.coords.latitude);
-            //console.log(position.coords.latitude,'------------------------------------------------')
-            //console.log(position.coords.longitude,'------------------------------------------------')
           setPos({
             lat: position.coords.latitude,
             lng: position.coords.longitude
           });
 
-          // 변수 들 출력 이동..
+          
           console.log(JSON.stringify({
             lat: position.coords.latitude,
             lng: position.coords.longitude
           }));
 
-          service.getDistanceMatrix({
+          setTimeout( service.getDistanceMatrix({
             origins: [{
               lat: position.coords.latitude,
               lng: position.coords.longitude
@@ -115,10 +111,10 @@ function MyDirectionsRenderer(props) {
             
               console.log(res,'+_++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+')
               setTimedistance({ totalTime: res.rows[0].elements[0].distance.text,
-                              totalDistance: res.rows[0].elements[0].duration.text});
+                                totalDistance: res.rows[0].elements[0].duration.text});
       
           }
-        );
+        ,1000));
           
         },
         (error) => {
