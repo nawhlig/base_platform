@@ -18,31 +18,32 @@ div#root{
 }
 
 header {
+  position: absolute;
   color: white;
-  background: black;
+  background:rgba(0,0,0,0.3);
   min-height: 0%;
+  width: 100%;
 }
 
 /* menu btn */
 
 .logo{
-  position: relative;
-  background-color: black;
-  max-width: 100pt;
-  max-height: 50pt;
+  max-width: 110pt;
+  max-height: 55pt;
   float: left;
-  margin-top: 0.7%;
-  margin-left: 0.7%;
+  height: 51.5pt;
+  width: 110pt;
+  opacity: 0.5;
 }
 
 .navbar {
   overflow: hidden;
   max-width: 100%;
-  background-color: black;
+  background-color:rgba(0,0,0,0.3);
 }
 .navbar a:hover {
   background-color: white;
-  color: black;
+  color: rgba(0,0,0,0.3);
 }
 
 .homemenu{
@@ -68,7 +69,7 @@ header {
   outline: none;
   padding: 16pt 20pt;
   margin: 0;
-  background-color: black;
+  background-color: rgba(0,0,0,0.3);
   color: white;
 }
 
@@ -81,7 +82,7 @@ header {
 .dropdown-content {
   position: absolute;
   display: none;
-  background-color: black;
+  background-color: rgba(0,0,0,0.3);
   max-width: 100pt;
   padding: 14pt 26pt;
   box-shadow: 0pt 8pt 16pt 0pt rgba(0,0,0,0.2);
@@ -91,18 +92,25 @@ header {
 .dropdown-content a {
   float: none;
   color: white;
-  padding: 12pt 1pt;
+  padding: 10pt 1pt;
   text-decoration: none;
   display: block;
   text-align: center;
 }
 
+.dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 10%;
+}
+
 .dropdown-content a:active {
-  background-color:black;
+  background-color:rgba(0,0,0,0.3);
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  color: black;
 }
 
 /* btn */
@@ -111,7 +119,7 @@ main {
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("./img/backtwo.jpg");
-  height: calc(100% - 110pt);
+  height: 100%;
   font-family: 'Do Hyeon', sans-serif;
 }
 
@@ -123,9 +131,10 @@ aside {
 }
 
 footer {
+  position: absolute;
   text-align: center;
   color: white;
-  background: black;
+  background: rgba(0,0,0,0.5);
   padding: 15pt 0;
   font-weight: bold;
   font-family: 'Do Hyeon', sans-serif;
@@ -159,7 +168,7 @@ transform: translate(-50%, -50%);
 }
 
 .btn1, .btn2, .btn3, .btn4, .btn5{
-background-color: rgba(7,7,7,0.3) !important;
+background-color: rgba(7,7,7,0.3);
 color: white;
 border: none;
 border-radius: 5%;
@@ -170,7 +179,8 @@ padding: 50pt;
 }
 
 .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover{
-color: rgba(150, 255, 255, 0.877);
+color: rgba(0, 0, 0, 0.888);
+background-color: white;
 }
 
 
