@@ -293,12 +293,13 @@ function MyComponent() {
         <></>
       </GoogleMap>
       
-      <Button onClick={info}>Notice</Button>
+     
           
     </LoadScript>
     <div>
       
     <Totalprint/>
+    <Button onClick={info}>Notice</Button>
     </div>
     </>
   )
