@@ -12,14 +12,14 @@ import { message, Button, Modal } from 'antd';
 
 const google = window.google;
 
-// const containerStyle = {
-//   width: '590px',
-//   height: '400px',
-//   position: 'relative',
-//   top: '50%',
-//   left: '50%',
+const containerStyle = {
+  width: '590px',
+  height: '400px',
+  position: 'relative',
+  top: '50%',
+  left: '50%',
 
-// };
+};
 
 function Totalprint() {
 
@@ -217,7 +217,7 @@ function MyComponent() {
     >
       
       <GoogleMap
-        class={["map"]}
+        mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
         center={position}
         zoom={10}
