@@ -4,7 +4,6 @@ import Axios from 'axios'
 import { message, Button } from 'antd';
 import './Main.css';
 import Home from './Home'
-
 import logo from './img/logosample.jpg'
 
 import Korea from './Korea';
@@ -12,6 +11,7 @@ import USA from './USA';
 import UK from './UK';
 import Sweden from './Sweden';
 import Egypt from './Egypt';
+import MapPage from './MapPage';
 import Map from './Map';
 import Api from './helper/Api'
 import Modal from 'antd/lib/modal/Modal';
@@ -61,7 +61,7 @@ function Main() {
                 <Route exact path="/uk" component={UK}/>
                 <Route exact path="/sweden" component={Sweden}/>
                 <Route exact path="/egypt" component={Egypt}/>
-                <Route exact path="/modal" component={Modal}/>
+                <Route exact path="/map" component={MapPage}/>
             </Switch>
             </div>
             </main>

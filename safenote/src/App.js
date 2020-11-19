@@ -6,7 +6,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 import Main from './Main';
 import 'antd/dist/antd.css';
-
+import Map from './Map'
 function App() {
 
   const [timedistance, setTimedistance] = useState({ totalTime:'',
