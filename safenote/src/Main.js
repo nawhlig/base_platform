@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Link, Switch } from 'react-router-dom';
 import Axios from 'axios'
-
+import { message, Button } from 'antd';
 import './Main.css';
 import Home from './Home'
 
@@ -21,6 +21,8 @@ function Main() {
         }).then(res=>{
             const {data} = res;
             console.log(data);
+            
+            
         })
 
     },[])
