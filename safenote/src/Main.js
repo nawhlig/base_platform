@@ -6,7 +6,6 @@ import './Main.css';
 import Home from './Home'
 
 import logo from './img/logosample.jpg'
-
 import Korea from './Korea';
 import USA from './USA';
 import UK from './UK';
@@ -14,7 +13,6 @@ import Sweden from './Sweden';
 import Egypt from './Egypt';
 import Map from './Map';
 import Api from './helper/Api'
-import Modal from 'antd/lib/modal/Modal';
 
 function Main() {
     React.useEffect(()=>{
@@ -61,13 +59,13 @@ function Main() {
                 <Route exact path="/uk" component={UK}/>
                 <Route exact path="/sweden" component={Sweden}/>
                 <Route exact path="/egypt" component={Egypt}/>
-                <Route exact path="/modal" component={Modal}/>
+                <Route exact path="/map" component={Map}/>
             </Switch>
             </div>
             </main>
             <footer>
             <div>
-                <p>©2020.Hoon Ho all rights reserved.</p>
+                <p>SafeNote ©2020 Created by #Import</p>
             </div>
             </footer>
         </div>

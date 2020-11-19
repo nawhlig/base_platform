@@ -5,7 +5,7 @@ import { UserContext} from './userContext'
 import './App.css';
 import 'antd/dist/antd.css';
 import Main from './Main';
-import 'antd/dist/antd.css';
+
 
 function App() {
 

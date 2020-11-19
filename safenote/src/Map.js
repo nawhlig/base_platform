@@ -1,43 +1,34 @@
-import 'antd/dist/antd.css';
-
 /* global google */
 
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, Marker, DirectionsRenderer, LoadScript, InfoWindow } from '@react-google-maps/api';
 import './Main.css';
 import { UserContext } from './userContext'
-
+ 
 import {my_key} from './keys'
-import { message, Button, Modal } from 'antd';
+import { message, Button } from 'antd';
 
 const google = window.google;
 
-// const containerStyle = {
-//   width: '590px',
-//   height: '400px',
-//   position: 'relative',
-//   top: '50%',
-//   left: '50%',
-
-// };
+const containerStyle = {
+  width: '400px',
+  height: '400px'
+};
 
 function Totalprint() {
 
   const {timedistance, setTimedistance} = React.useContext(UserContext);
   
   return (
-    <>
     <div style={{backgroundColor:'ivory', width:'420px'}}>
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
-    <div class="mapinfo">
-      <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
-      약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
-      </pre>
-      <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  So, It will take about <strong>{timedistance.totalDistance}</strong>.
-      </pre>
+    <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
+    약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
+    </pre>
+    <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  SO, It will take about <strong>{timedistance.totalDistance}</strong>.
+    </pre>
+ 
     </div>
-    </div>
-    </>
   )
 }
 
@@ -47,7 +38,8 @@ function MyDirectionsRenderer(props) {
   const [directions, setDirections] = useState(null);
   const { origin, destination, travelMode, setPos } = props;
   const { timedistance, setTimedistance} = React.useContext(UserContext);
-  
+ 
+
 
   useEffect(() => {
 
@@ -77,10 +69,11 @@ function MyDirectionsRenderer(props) {
     var service = new window.google.maps.DistanceMatrixService();
     
   
+   
     if (navigator.geolocation) {
       
       message.success('GPS가 정상적으로 작동 중입니다.');
-
+     
       navigator.geolocation.getCurrentPosition(
         (position) => {
 
@@ -128,6 +121,10 @@ function MyDirectionsRenderer(props) {
     } else {
       message.info("GPS를 연결하실 수 없습니다.");
     }
+
+   
+   
+
   
   
   },[])
@@ -158,8 +155,10 @@ function MyComponent() {
 
 
 
-  }, []);
+  
 
+  }, []);
+ 
   function handleCenter() {
     if (!mapRef.current) return;
 
@@ -173,7 +172,7 @@ function MyComponent() {
     map.fitBounds(bounds);
     setMap(map)
   }, [])
-
+ 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
@@ -196,18 +195,6 @@ function MyComponent() {
     console.log('infoWindow: ', infoWindow)
   }
   
-  function info() {
-    Modal.info({
-      title: 'This is a notification message',
-      content: (
-        <div>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-        </div>
-      ),
-      onOk() {},
-    });
-  }
   
   return (
     <>
@@ -217,7 +204,7 @@ function MyComponent() {
     >
       
       <GoogleMap
-        class={["map"]}
+        mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
         center={position}
         zoom={10}
@@ -288,12 +275,11 @@ function MyComponent() {
       origin={pos}
       destination={{ lat: 37.551168, lng: 126.988141 }}   //데이터 들어 갈 부분
       travelMode= 'TRANSIT' 
+       
     />
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
       </GoogleMap>
-      
-      <Button onClick={info}>Notice</Button>
           
     </LoadScript>
     <div>
@@ -303,5 +289,6 @@ function MyComponent() {
     </>
   )
 }
+ 
 
 export default React.memo(MyComponent)
