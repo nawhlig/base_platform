@@ -22,8 +22,9 @@ function Korea({history}){
                 <a href='tel:01085586313'><button className='btn2'>Fire Station</button></a>
                 <a href='tel:01085586313'><button className='btn3'>Ambulance</button></a>
                 <Link exact to='/map'><button className='btn4'>Map</button></Link>
-                
             </div>
+
+            
                 
             
         </>

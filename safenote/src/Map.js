@@ -14,11 +14,7 @@ const google = window.google;
 
 const containerStyle = {
   width: '590px',
-  height: '400px',
-  position: 'relative',
-  top: '50%',
-  left: '50%',
-
+  height: '200px',
 };
 
 function Totalprint() {
@@ -29,13 +25,13 @@ function Totalprint() {
     <>
     <div style={{backgroundColor:'ivory', width:'420px'}}>
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
-    <div class="mapinfo">
+    {/* <div class="mapinfo">
       <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
       약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
       </pre>
       <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  So, It will take about <strong>{timedistance.totalDistance}</strong>.
       </pre>
-    </div>
+    </div> */}
     </div>
     </>
   )
@@ -58,13 +54,13 @@ function MyDirectionsRenderer(props) {
         destination: new window.google.maps.LatLng(destination.lat, destination.lng),
         travelMode: travelMode
       },
-      (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {
-          setDirections(result);
-        } else {
-          console.error(`error fetching directions ${result}`);
-        }
-      } 
+      // (result, status) => {
+      //   if (status === window.google.maps.DirectionsStatus.OK) {
+      //     setDirections(result);
+      //   } else {
+      //     console.error(`error fetching directions ${result}`);
+      //   }
+      // } 
     );
   }, [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);
   
@@ -215,7 +211,7 @@ function MyComponent() {
     libraries={["places"]}
       googleMapsApiKey={my_key}
     >
-      
+
       <GoogleMap
         mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
@@ -226,6 +222,7 @@ function MyComponent() {
         //defaultZoom={4}
     //defaultCenter={{ lat: 52.620360, lng: -1.142179 }}
       >    
+      
       <></>
 <DistanceMatrixService
             options={{
@@ -293,14 +290,12 @@ function MyComponent() {
         <></>
       </GoogleMap>
       
-      
           
     </LoadScript>
-    <Button onClick={info}>Notice</Button>
+    
     <div>
-      
     <Totalprint/>
-    <Button onClick={info}>Notice</Button>
+    {/* <Button onClick={info} className="notice">Notice</Button> */}
     </div>
     </>
   )
