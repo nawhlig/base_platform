@@ -10,6 +10,9 @@ import { UserContext } from './userContext'
 import {my_key} from './keys'
 import { message, Button, Modal } from 'antd';
 
+
+
+
 const google = window.google;
 
 const containerStyle = {
@@ -43,9 +46,9 @@ function Totalprint() {
 
 
 function MyDirectionsRenderer(props) {
-  
+  // const [des, setDes] = useState({lat: 37.551168, lng: 126.988141})
   const [directions, setDirections] = useState(null);
-  const { origin, destination, travelMode, setPos } = props;
+  const { origin, destination, setDes, travelMode, setPos } = props;
   const { timedistance, setTimedistance} = React.useContext(UserContext);
   
 
@@ -66,7 +69,8 @@ function MyDirectionsRenderer(props) {
         }
       } 
     );
-  }, [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);
+  }
+  , [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);
   
   const callback = (res) => {
     console.log("RESPONSE", res);
@@ -96,12 +100,15 @@ function MyDirectionsRenderer(props) {
             lng: position.coords.longitude
           }));
 
-          setTimeout( service.getDistanceMatrix({
+          console.log('jbjbjbjbjbjbjjbjb================================')
+          console.log(destination)
+
+          service.getDistanceMatrix({
             origins: [{
               lat: position.coords.latitude,
               lng: position.coords.longitude
             }],
-            destinations:  [{ lat: 37.551168, lng: 126.988141 }],   //데이터 들어 갈 부분
+            destinations:  [{ lat: destination.lat, lng: destination.lng }],   //데이터 들어 갈 부분
             avoidHighways: false,
             avoidTolls: false,
             travelMode: 'TRANSIT',
@@ -114,7 +121,7 @@ function MyDirectionsRenderer(props) {
                                 totalDistance: res.rows[0].elements[0].duration.text});
       
           }
-        ,1000));
+        );
           
         },
         (error) => {
@@ -130,7 +137,7 @@ function MyDirectionsRenderer(props) {
     }
   
   
-  },[])
+  },[destination])
 
   return (
     <React.Fragment>
@@ -142,7 +149,7 @@ function MyDirectionsRenderer(props) {
 //////////////////////////////////////
 
 function MyComponent() {
-
+  const [des, setDes] = useState({lat: 37.551168, lng: 126.988141})
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
   const [pos, setPos] = React.useState({
@@ -161,6 +168,7 @@ function MyComponent() {
   }, []);
 
   function handleCenter() {
+    
     if (!mapRef.current) return;
 
     const newPos = mapRef.current.getCenter().toJSON();
@@ -182,8 +190,21 @@ function MyComponent() {
     setRef(ref)
   };
 
-  const onPlacesChanged = () => console.log(ref.getPlaces());
+  const onPlacesChanged = () => {
+    console.log('jbjbjbjbj');
+    console.log(ref.getPlaces());
+    
+    
 
+    console.log('위도: ',ref.getPlaces()[0].geometry.viewport.Wa.j,'경도: ',ref.getPlaces()[0].geometry.viewport.Sa.j);
+    
+
+    setDes({lat: ref.getPlaces()[0].geometry.viewport.Wa.j
+          , lng: ref.getPlaces()[0].geometry.viewport.Sa.j})
+
+          
+  }   
+  //////2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2//2/2/2/2/2/2/2/2/2/2//2/2/2/2//2/2/2/2/2/2/2/2/2/2/2/2/
   const divStyle = {
     background: `white`,
     border: `1px solid #ccc`,
@@ -195,7 +216,7 @@ function MyComponent() {
   const onLoad2 = infoWindow => {
     console.log('infoWindow: ', infoWindow)
   }
-  
+  //버튼 ZONE///////////////////////////////////////////////////////
   function info() {
     Modal.info({
       title: 'This is a notification message',
@@ -208,7 +229,9 @@ function MyComponent() {
       onOk() {},
     });
   }
-  
+  ////////////////////////////////////////////////////////////
+
+
   return (
     <>
     <LoadScript
@@ -220,7 +243,7 @@ function MyComponent() {
         mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
         center={position}
-        zoom={10}
+        zoom={29}
         onLoad={onLoad}
         onUnmount={onUnmount}
         //defaultZoom={4}
@@ -230,7 +253,7 @@ function MyComponent() {
 <DistanceMatrixService
             options={{
               origins: [{pos}],
-              destinations: [{ lat: 37.551168, lng: 126.988141 }],  //데이터 들어 갈 부분
+              destinations: [{ des }],  //데이터 들어 갈 부분
               travelMode: "TRANSIT",
               
             }}
@@ -268,7 +291,7 @@ function MyComponent() {
     )} */}
         <InfoWindow
       onLoad={onLoad2}  //목적지   
-      position={{ lat: 37.551168, lng: 126.988141 }} //데이터 들어 갈 부분
+      position={ des } //데이터 들어 갈 부분
     >
       <div style={divStyle}>
         <h1>DESTINATION</h1>   {/* 데이터 들어 갈 부분 */}
@@ -286,7 +309,8 @@ function MyComponent() {
         <MyDirectionsRenderer
       setPos={setPos}
       origin={pos}
-      destination={{ lat: 37.551168, lng: 126.988141 }}   //데이터 들어 갈 부분
+      destination={ des }   //데이터 들어 갈 부분
+      setDes = { setDes }
       travelMode= 'TRANSIT' 
     />
         { /* Child components, such as markers, info windows, etc. */ }
