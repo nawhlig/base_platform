@@ -18,27 +18,28 @@ div#root{
 }
 
 header {
+  position: absolute;
   color: white;
-  background: black;
+  background:rgba(0,0,0,0.3);
   min-height: 0%;
+  width: 100%;
 }
 
 /* menu btn */
 
 .logo{
-  position: relative;
-  background-color: black;
   max-width: 100pt;
-  max-height: 50pt;
+  max-height: 55pt;
   float: left;
-  margin-top: 0.7%;
-  margin-left: 0.7%;
+  height: 52pt;
+  width: 110pt;
+  opacity: 0.5;
 }
 
 .navbar {
   overflow: hidden;
   max-width: 100%;
-  background-color: black;
+  background-color:rgba(0,0,0,0.3);
 }
 .navbar a:hover {
   background-color: white;
@@ -51,10 +52,14 @@ header {
   float: right;
 }
 
+
+
 .navbar a {
+  height: 52pt;
   font-size: 13pt;
   text-align: center;
   text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .dropdown {
@@ -68,7 +73,7 @@ header {
   outline: none;
   padding: 16pt 20pt;
   margin: 0;
-  background-color: black;
+  background-color: rgba(0,0,0,0.3);
   color: white;
 }
 
@@ -81,9 +86,8 @@ header {
 .dropdown-content {
   position: absolute;
   display: none;
-  background-color: black;
-  max-width: 60pt;
-  padding: 14pt 26pt;
+  background-color: rgba(0,0,0,0.3);
+  max-width: 85pt;
   box-shadow: 0pt 8pt 16pt 0pt rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -91,18 +95,25 @@ header {
 .dropdown-content a {
   float: none;
   color: white;
-  padding: 12pt 1pt;
+  padding: 5pt 30pt;
+  max-height: 30pt;
   text-decoration: none;
   display: block;
-  text-align: center;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .dropdown-content a:active {
-  background-color:black;
+  background-color:rgba(0,0,0,0.3);
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  color: black;
 }
 
 /* btn */
@@ -111,7 +122,7 @@ main {
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("./img/backtwo.jpg");
-  height: calc(100% - 110pt);
+  height: 100%;
   font-family: 'Do Hyeon', sans-serif;
 }
 
@@ -123,9 +134,10 @@ aside {
 }
 
 footer {
+  position: absolute;
   text-align: center;
   color: white;
-  background: black;
+  background: rgba(0,0,0,0.5);
   padding: 15pt 0;
   font-weight: bold;
   font-family: 'Do Hyeon', sans-serif;
@@ -143,6 +155,7 @@ color: white;
 font-size: 2.5cm;
 font-family: 'Do Hyeon', sans-serif;
 text-align: center;
+letter-spacing: 10pt;
 top: 25%;
 left: 50%;
 transform: translate(-50%, -50%);
@@ -158,8 +171,8 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-.btn1, .btn2, .btn3{
-background-color: rgba(7,7,7,0.3) !important;
+.btn1, .btn2, .btn3, .btn4, .btn5{
+background-color: rgba(7,7,7,0.3);
 color: white;
 border: none;
 border-radius: 5%;
@@ -169,8 +182,9 @@ margin: 5pt;
 padding: 50pt;
 }
 
-.btn1:hover, .btn2:hover, .btn3:hover{
-color: rgba(150, 255, 255, 0.877);
+.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover{
+color: rgba(0, 0, 0, 0.888);
+background-color: white;
 }
 
 
@@ -280,13 +294,80 @@ select option:hover{
 
 @media (max-width: 950pt) { 
 .blink span{font-size: 1.5cm;}
-.btn1, .btn2, .btn3{font-size: medium; padding: 35pt;}
+.btn1, .btn2, .btn3, .btn4, .btn5{font-size: medium; padding: 35pt;}
 }
 
 @media (max-width: 768pt) { 
   .blink span{font-size: 1.3cm;}
-  .btn1, .btn2, .btn3{font-size: medium; padding: 35pt;}
+  .btn1, .btn2, .btn3, .btn4, .btn5{font-size: medium; padding: 35pt;}
 }
 
 
+.mapSection{
+  position: relative;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.mapPage{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mapList{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+  width: 445pt;
+  border: rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mapList tr th{
+  padding: 5pt;
+  font-size: larger;
+}
+
+.mapList tr td{
+  padding: 15pt;
+  font-size: large;
+}
+
+/* 
+.mapinfo{
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bolder;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.notice{
+  position: absolute;
+  background-color: rgba(7,7,7,0.3);
+  color: white;
+  border: none;
+  border-radius: 5%;
+  font-size: x-large;
+  font-family: 'Do Hyeon', sans-serif;
+  margin: 5pt;
+  height: 50pt;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%,-50%);
+}
+
+.notice:hover{
+  color: black;
+}

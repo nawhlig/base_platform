@@ -35,7 +35,7 @@ function Main() {
                 <div class="navbar">
                 <Link exact to='/'><img class='logo' src={logo} /></Link>
                 <div class="dropdown">
-                    <button class="dropbtn">Dropdown 
+                    <button class="dropbtn">Country 
                     <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">

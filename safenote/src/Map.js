@@ -1,18 +1,23 @@
+import 'antd/dist/antd.css';
+
 /* global google */
 
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, Marker, DirectionsRenderer, LoadScript, InfoWindow } from '@react-google-maps/api';
 import './Main.css';
 import { UserContext } from './userContext'
- 
+
 import {my_key} from './keys'
-import { message, Button } from 'antd';
+import { message, Button, Modal } from 'antd';
+
+
+
 
 const google = window.google;
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '590px',
+  height: '200px',
 };
 
 function Totalprint() {
@@ -20,26 +25,28 @@ function Totalprint() {
   const {timedistance, setTimedistance} = React.useContext(UserContext);
   
   return (
+    <>
     <div style={{backgroundColor:'ivory', width:'420px'}}>
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
-    <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
-    약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
-    </pre>
-    <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  SO, It will take about <strong>{timedistance.totalDistance}</strong>.
-    </pre>
- 
+    <div class="mapinfo">
+      <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
+      약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
+      </pre>
+      <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  So, It will take about <strong>{timedistance.totalDistance}</strong>.
+      </pre>
     </div>
+    </div>
+    </>
   )
 }
 
 
 function MyDirectionsRenderer(props) {
-  
+  // const [des, setDes] = useState({lat: 37.551168, lng: 126.988141})
   const [directions, setDirections] = useState(null);
-  const { origin, destination, travelMode, setPos } = props;
+  const { origin, destination, setDes, travelMode, setPos } = props;
   const { timedistance, setTimedistance} = React.useContext(UserContext);
- 
-
+  
 
   useEffect(() => {
 
@@ -50,15 +57,16 @@ function MyDirectionsRenderer(props) {
         destination: new window.google.maps.LatLng(destination.lat, destination.lng),
         travelMode: travelMode
       },
-      (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {
-          setDirections(result);
-        } else {
-          console.error(`error fetching directions ${result}`);
-        }
-      } 
+      // (result, status) => {
+      //   if (status === window.google.maps.DirectionsStatus.OK) {
+      //     setDirections(result);
+      //   } else {
+      //     console.error(`error fetching directions ${result}`);
+      //   }
+      // } 
     );
-  }, [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);
+  }
+  , [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);
   
   const callback = (res) => {
     console.log("RESPONSE", res);
@@ -69,11 +77,10 @@ function MyDirectionsRenderer(props) {
     var service = new window.google.maps.DistanceMatrixService();
     
   
-   
     if (navigator.geolocation) {
       
       message.success('GPS가 정상적으로 작동 중입니다.');
-     
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
 
@@ -89,12 +96,15 @@ function MyDirectionsRenderer(props) {
             lng: position.coords.longitude
           }));
 
-          setTimeout( service.getDistanceMatrix({
+          console.log('jbjbjbjbjbjbjjbjb================================')
+          console.log(destination)
+
+          service.getDistanceMatrix({
             origins: [{
               lat: position.coords.latitude,
               lng: position.coords.longitude
             }],
-            destinations:  [{ lat: 37.551168, lng: 126.988141 }],   //데이터 들어 갈 부분
+            destinations:  [{ lat: destination.lat, lng: destination.lng }],   //데이터 들어 갈 부분
             avoidHighways: false,
             avoidTolls: false,
             travelMode: 'TRANSIT',
@@ -107,7 +117,7 @@ function MyDirectionsRenderer(props) {
                                 totalDistance: res.rows[0].elements[0].duration.text});
       
           }
-        ,1000));
+        );
           
         },
         (error) => {
@@ -121,13 +131,9 @@ function MyDirectionsRenderer(props) {
     } else {
       message.info("GPS를 연결하실 수 없습니다.");
     }
-
-   
-   
-
   
   
-  },[])
+  },[destination])
 
   return (
     <React.Fragment>
@@ -139,7 +145,7 @@ function MyDirectionsRenderer(props) {
 //////////////////////////////////////
 
 function MyComponent() {
-
+  const [des, setDes] = useState({lat: 37.551168, lng: 126.988141})
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
   const [pos, setPos] = React.useState({
@@ -155,11 +161,10 @@ function MyComponent() {
 
 
 
-  
-
   }, []);
- 
+
   function handleCenter() {
+    
     if (!mapRef.current) return;
 
     const newPos = mapRef.current.getCenter().toJSON();
@@ -172,7 +177,7 @@ function MyComponent() {
     map.fitBounds(bounds);
     setMap(map)
   }, [])
- 
+
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
@@ -181,8 +186,21 @@ function MyComponent() {
     setRef(ref)
   };
 
-  const onPlacesChanged = () => console.log(ref.getPlaces());
+  const onPlacesChanged = () => {
+    console.log('jbjbjbjbj');
+    console.log(ref.getPlaces());
+    
+    
 
+    console.log('위도: ',ref.getPlaces()[0].geometry.viewport.Wa.j,'경도: ',ref.getPlaces()[0].geometry.viewport.Sa.j);
+    
+
+    setDes({lat: ref.getPlaces()[0].geometry.viewport.Wa.j
+          , lng: ref.getPlaces()[0].geometry.viewport.Sa.j})
+
+          
+  }   
+  //////2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2//2/2/2/2/2/2/2/2/2/2//2/2/2/2//2/2/2/2/2/2/2/2/2/2/2/2/
   const divStyle = {
     background: `white`,
     border: `1px solid #ccc`,
@@ -194,30 +212,45 @@ function MyComponent() {
   const onLoad2 = infoWindow => {
     console.log('infoWindow: ', infoWindow)
   }
-  
-  
+  //버튼 ZONE///////////////////////////////////////////////////////
+  function info() {
+    Modal.info({
+      title: 'This is a notification message',
+      content: (
+        <div>
+          <p>some messages...some messages...</p>
+          <p>some messages...some messages...</p>
+        </div>
+      ),
+      onOk() {},
+    });
+  }
+  ////////////////////////////////////////////////////////////
+
+
   return (
     <>
     <LoadScript
     libraries={["places"]}
       googleMapsApiKey={my_key}
     >
-      
+
       <GoogleMap
         mapContainerStyle={containerStyle}
         onDragEnd={handleCenter}
         center={position}
-        zoom={10}
+        zoom={29}
         onLoad={onLoad}
         onUnmount={onUnmount}
         //defaultZoom={4}
     //defaultCenter={{ lat: 52.620360, lng: -1.142179 }}
       >    
+      
       <></>
 <DistanceMatrixService
             options={{
               origins: [{pos}],
-              destinations: [{ lat: 37.551168, lng: 126.988141 }],  //데이터 들어 갈 부분
+              destinations: [{ des }],  //데이터 들어 갈 부분
               travelMode: "TRANSIT",
               
             }}
@@ -255,7 +288,7 @@ function MyComponent() {
     )} */}
         <InfoWindow
       onLoad={onLoad2}  //목적지   
-      position={{ lat: 37.551168, lng: 126.988141 }} //데이터 들어 갈 부분
+      position={ des } //데이터 들어 갈 부분
     >
       <div style={divStyle}>
         <h1>DESTINATION</h1>   {/* 데이터 들어 갈 부분 */}
@@ -273,22 +306,23 @@ function MyComponent() {
         <MyDirectionsRenderer
       setPos={setPos}
       origin={pos}
-      destination={{ lat: 37.551168, lng: 126.988141 }}   //데이터 들어 갈 부분
+      destination={ des }   //데이터 들어 갈 부분
+      setDes = { setDes }
       travelMode= 'TRANSIT' 
-       
     />
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
       </GoogleMap>
+      
           
     </LoadScript>
+    
     <div>
-      
     <Totalprint/>
+    {/* <Button onClick={info} className="notice">Notice</Button> */}
     </div>
     </>
   )
 }
- 
 
 export default React.memo(MyComponent)
