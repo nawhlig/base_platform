@@ -17,7 +17,7 @@ const google = window.google;
 
 const containerStyle = {
   width: '590px',
-  height: '200px',
+  height: '300px',
 };
 
 function Totalprint() {

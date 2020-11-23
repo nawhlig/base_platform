@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, Component  } from 'react'
-import Map from './Map'
-import './Main.css';
+import Map from '../Map'
+import '../Main.css';
 
-export default function MapPage()
+export default function MapPage_Korea()
 {
     return (
     <>      

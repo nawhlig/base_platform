@@ -303,23 +303,16 @@ select option:hover{
 }
 
 
-.mapSection{
-  position: relative;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .mapPage{
   position: absolute;
-  top: 25%;
+  top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .mapList{
   position: absolute;
-  top: 55%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: scroll;
