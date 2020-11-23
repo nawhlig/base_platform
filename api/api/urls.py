@@ -20,7 +20,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("api/admin/", admin.site.urls),
     path("api/safenote/", include("safenote.urls")),
     #path("account/", include("account.urls")), # JWT 회원가입시 
     path("api-auth/", include("rest_framework.urls")),  #django DRF 인증용 기본세팅
