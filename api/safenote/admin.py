@@ -23,12 +23,13 @@ class CountryAdmin(ImportExportActionModelAdmin):
 @admin.register(HelpCall)
 class HelpCallAdmin(ImportExportActionModelAdmin):
     resource_class = HelpCallResource
-    list_display = ["country_ID", "crime", "fire", "ambulance"]
+    list_display = [  "seq", "country_ID", "crime", "fire", "ambulance"  ]
 
 @admin.register(Medical)
 class MedicalAdmin(ImportExportActionModelAdmin):
     resource_class = MedicalResource
-    list_display = [  "country_ID"
+    list_display = [  "seq"
+                    , "country_ID"
                     , "hospital_name"
                     , "hospital_addr"
                     , "hospital_tel"

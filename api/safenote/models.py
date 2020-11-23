@@ -29,26 +29,26 @@ class Country(models.Model):
 
 
 class HelpCall(models.Model):
-    seq = models.AutoField(primary_key=True)
+    seq = models.IntegerField(default=0, primary_key=True)
     country_ID = models.ForeignKey('safenote.Country',  related_name='helpcalls', on_delete=models.CASCADE)
     #외래키사용
-    crime = models.CharField('범죄신고', max_length=200)
-    fire = models.CharField('화재신고', max_length=200)
-    ambulance = models.TextField('구급차')
+    crime = models.CharField('범죄신고', max_length=200, null=True)
+    fire = models.CharField('화재신고', max_length=200, null=True)
+    ambulance = models.TextField('구급차', null=True)
 
 class Medical(models.Model):
-    seq = models.AutoField(primary_key=True)
+    seq = models.IntegerField(default=0, primary_key=True)
     country_ID = models.ForeignKey('safenote.Country',  related_name='medical', on_delete=models.CASCADE)
     #외래키사용
-    hospital_name = models.CharField('병원 이름', max_length=200)
-    hospital_addr = models.CharField('병원 주소', max_length=200)
-    hospital_tel = models.CharField('병원 전화', max_length=200)
-    hospital_web = models.URLField('병원 웹사이트', max_length=200)
+    hospital_name = models.CharField('병원 이름', max_length=200, null=True)
+    hospital_addr = models.CharField('병원 주소', max_length=200, null=True)
+    hospital_tel = models.CharField('병원 전화', max_length=200, null=True)
+    hospital_web = models.URLField('병원 웹사이트', max_length=200, null=True)
     hospital_lati = models.DecimalField('병원 위도', max_digits=9, decimal_places=6, null=True)
     hospital_logi = models.DecimalField('병원 경도', max_digits=9, decimal_places=6, null=True)
 
 class Embassy(models.Model):
-    seq = models.AutoField(primary_key=True)
+    seq = models.IntegerField(default=0, primary_key=True)
     country_ID = models.ForeignKey('safenote.Country',  related_name='embassy', on_delete=models.CASCADE)
     #외래키사용
     embassy_name = models.CharField('대사관 이름', max_length=32)
