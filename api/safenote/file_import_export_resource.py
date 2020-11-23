@@ -80,7 +80,7 @@ class EmbassyResource(resources.ModelResource):
         
     def before_import(self, dataset, using_transactions, dry_run, **kwargs):
         print("Inside Before Import")
-        dataset.headers = (  "country_ID", "embassy_name", "embassy_lati", "embassy_logi", "embassy_addr"
+        dataset.headers = (  "seq", "country_ID", "embassy_name", "embassy_lati", "embassy_logi", "embassy_addr"
                             , "embassy_tel", "embassy_telsos", "embassy_email", "contact_notice"  )
         #로드된 특정 행을 지우고 싶을 때는  del dataset[인덱스번호]
     def get_instance(self, instance_loader, row):

@@ -39,7 +39,8 @@ class MedicalAdmin(ImportExportActionModelAdmin):
 @admin.register(Embassy)
 class EmbassyAdmin(ImportExportActionModelAdmin):
     resource_class = EmbassyResource
-    list_display = [  "country_ID"
+    list_display = [  "seq"
+                    , "country_ID"
                     , "embassy_name"
                     , "embassy_lati"
                     , "embassy_logi"
