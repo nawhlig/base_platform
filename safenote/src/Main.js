@@ -13,6 +13,7 @@ import Sweden from './Sweden';
 import Egypt from './Egypt';
 import Map from './Map';
 import Api from './helper/Api'
+import MapPage from './MapPage';
 
 function Main() {
     React.useEffect(()=>{
@@ -59,7 +60,7 @@ function Main() {
                 <Route exact path="/uk" component={UK}/>
                 <Route exact path="/sweden" component={Sweden}/>
                 <Route exact path="/egypt" component={Egypt}/>
-                <Route exact path="/map" component={Map}/>
+                <Route exact path="/map" component={MapPage}/>
             </Switch>
             </div>
             </main>
