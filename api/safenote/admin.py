@@ -36,6 +36,7 @@ class MedicalAdmin(ImportExportActionModelAdmin):
                     , "hospital_web"
                     , "hospital_lati"
                     , "hospital_logi"  ]
+    list_display_links = ["hospital_name"]
 
 @admin.register(Embassy)
 class EmbassyAdmin(ImportExportActionModelAdmin):
@@ -50,3 +51,4 @@ class EmbassyAdmin(ImportExportActionModelAdmin):
                     , "embassy_telsos"
                     , "embassy_email"
                     , "contact_notice"  ]
+    list_display_links = ["embassy_name"]
