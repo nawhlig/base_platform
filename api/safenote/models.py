@@ -17,15 +17,15 @@ from django.db.models.fields.related import create_many_to_many_intermediary_mod
 
 class Country(models.Model):
     country_ID = models.PositiveSmallIntegerField('국가코드(숫자)', primary_key=True)
-    iso_code = models.CharField('국가코드(ABC)', max_length=3)
-    cname_en = models.CharField('국가명(영어)', max_length=32)
-    cname_kr = models.CharField('국가명(한글)', max_length=22)
-    continent_code = models.CharField('대륙코드(ABC)', max_length=2)
-    continent_en = models.CharField('대륙명(영어)', max_length=13)
-    continent_kr = models.CharField('대륙명(한글)', max_length=10)
-    phone_code = models.CharField('국가번호',max_length=20)
-    country_img1 = models.URLField('국기 이미지 주소', max_length=200)
-    country_img2 = models.URLField('국토 이미지 주소', max_length=200)
+    iso_code = models.CharField('국가코드(ABC)', max_length=3, null=True)
+    cname_en = models.CharField('국가명(영어)', max_length=32, null=True)
+    cname_kr = models.CharField('국가명(한글)', max_length=22, null=True)
+    continent_code = models.CharField('대륙코드(ABC)', max_length=2, null=True)
+    continent_en = models.CharField('대륙명(영어)', max_length=13, null=True)
+    continent_kr = models.CharField('대륙명(한글)', max_length=10, null=True)
+    phone_code = models.CharField('국가번호',max_length=20, null=True)
+    country_img1 = models.URLField('국기 이미지 주소', max_length=200, null=True)
+    country_img2 = models.URLField('국토 이미지 주소', max_length=200, null=True)
 
 
 class HelpCall(models.Model):
