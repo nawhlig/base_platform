@@ -23,18 +23,20 @@ class CountryAdmin(ImportExportActionModelAdmin):
 @admin.register(HelpCall)
 class HelpCallAdmin(ImportExportActionModelAdmin):
     resource_class = HelpCallResource
-    list_display = ["country_ID", "crime", "fire", "ambulance"]
+    list_display = [  "seq", "country_ID", "crime", "fire", "ambulance"  ]
 
 @admin.register(Medical)
 class MedicalAdmin(ImportExportActionModelAdmin):
     resource_class = MedicalResource
-    list_display = [  "country_ID"
+    list_display = [  "seq"
+                    , "country_ID"
                     , "hospital_name"
                     , "hospital_addr"
                     , "hospital_tel"
                     , "hospital_web"
                     , "hospital_lati"
                     , "hospital_logi"  ]
+    list_display_links = ["hospital_name"]
 
 @admin.register(Embassy)
 class EmbassyAdmin(ImportExportActionModelAdmin):
@@ -49,3 +51,4 @@ class EmbassyAdmin(ImportExportActionModelAdmin):
                     , "embassy_telsos"
                     , "embassy_email"
                     , "contact_notice"  ]
+    list_display_links = ["embassy_name"]

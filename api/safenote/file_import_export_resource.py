@@ -37,7 +37,7 @@ class HelpCallResource(resources.ModelResource):
         
     def before_import(self, dataset, using_transactions, dry_run, **kwargs):
         print("Inside Before Import")
-        dataset.headers = (  "country_ID", "crime", "fire", "ambulance"  )
+        dataset.headers = (  "seq", "country_ID", "crime", "fire", "ambulance"  )
         #로드된 특정 행을 지우고 싶을 때는  del dataset[인덱스번호]
     def get_instance(self, instance_loader, row):
         print("Inside get instance")
@@ -58,7 +58,7 @@ class MedicalResource(resources.ModelResource):
         
     def before_import(self, dataset, using_transactions, dry_run, **kwargs):
         print("Inside Before Import")
-        dataset.headers = (  "country_ID", "hospital_name", "hospital_addr", "hospital_tel", "hospital_web"
+        dataset.headers = (  "seq", "country_ID", "hospital_name", "hospital_addr", "hospital_tel", "hospital_web"
                             , "hospital_lati", "hospital_logi"  )
         #로드된 특정 행을 지우고 싶을 때는  del dataset[인덱스번호]
     def get_instance(self, instance_loader, row):
