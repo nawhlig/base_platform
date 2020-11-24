@@ -18,12 +18,14 @@ class CountryAdmin(ImportExportActionModelAdmin):
                     , "phone_code"
                     , "country_img1"
                     , "country_img2"  ]
-    list_display_links = ["cname_en", "cname_kr"] 
+    list_display_links = ["cname_en", "cname_kr"]
+    search_fields = ['country_ID', 'cname_en', 'cname_kr', 'continent_kr']
 
 @admin.register(HelpCall)
 class HelpCallAdmin(ImportExportActionModelAdmin):
     resource_class = HelpCallResource
-    list_display = [  "seq", "country_ID", "crime", "fire", "ambulance"  ]
+    list_display = [  'seq', 'country_ID', 'crime', 'fire', 'ambulance'  ]
+    
 
 @admin.register(Medical)
 class MedicalAdmin(ImportExportActionModelAdmin):
@@ -37,6 +39,9 @@ class MedicalAdmin(ImportExportActionModelAdmin):
                     , "hospital_lati"
                     , "hospital_logi"  ]
     list_display_links = ["hospital_name"]
+    search_fields = ['hospital_name'
+        #'country_ID'
+        ]
 
 @admin.register(Embassy)
 class EmbassyAdmin(ImportExportActionModelAdmin):
@@ -52,3 +57,4 @@ class EmbassyAdmin(ImportExportActionModelAdmin):
                     , "embassy_email"
                     , "contact_notice"  ]
     list_display_links = ["embassy_name"]
+    search_fields = ['embassy_name']

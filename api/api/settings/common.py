@@ -50,6 +50,19 @@ INSTALLED_APPS = [
     "safenote",
 ]
 
+# REST_FRAMEWORK = {
+#     #쿼리셋 장고-필터 기능 사용
+#     'DEFAULT_FILTER_BACKENDS': (
+#         'django_filters.rest_framework.DjangoFilterBackend',
+#     ),
+
+#     #회원가입용  JWT 토큰사용 세팅 
+#    'DEFAULT_AUTHENTICATION_CLASSES':[
+#    'rest_framework.authentication.SessionAuthentication',
+#    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#    ]
+#}
+
 MIDDLEWARE = [
     #default
     'django.middleware.security.SecurityMiddleware',
@@ -109,12 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # # 회원 토큰사용 세팅
-# REST_FRAMEWORK={
-#     'DEFAULT_AUTHENTICATION_CLASSES':[
-#     'rest_framework.authentication.SessionAuthentication',
-#     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-#     ]
-# }
 # JWT_AUTH={
 #     "JWT_ALGORITHM":"HS256",
 #     "JWT_EXPIRATION_DELTA":datetime.timedelta(days=30),

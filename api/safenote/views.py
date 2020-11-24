@@ -1,3 +1,5 @@
+from django.db.models import query
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Country, HelpCall, Medical, Embassy
 from rest_framework import status, viewsets
@@ -33,22 +35,37 @@ class CountryView(ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
 
+
 class HelpCallView(ModelViewSet):
     queryset = HelpCall.objects.all()
     serializer_class = HelpCallSerializer
 
-    # def get_queryset(self):
-    #     qs = super().get_queryset()
-    #     status = self.request.query_params.get('status')
-    #     if status:
-    #         qs = qs.filter(status=status)
-    #     return qs
+    def get_queryset(self):
+        qs = super().get_queryset()
+        search_cname_kr = self.request.query_params.get('na')
+        if search_cname_kr:
+            qs = qs.filter(country_ID__cname_kr = search_cname_kr)
+        return qs
 
 
 class MedicalView(ModelViewSet):
     queryset = Medical.objects.all()
     serializer_class = MedicalSerializer
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        search_cname_kr = self.request.query_params.get('na')
+        if search_cname_kr:
+            qs = qs.filter(country_ID__cname_kr = search_cname_kr)
+        return qs 
+
 class EmbassyView(ModelViewSet):
     queryset = Embassy.objects.all()
     serializer_class = EmbassySerializer
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        search_cname_kr = self.request.query_params.get('na')
+        if search_cname_kr:
+            qs = qs.filter(country_ID__cname_kr = search_cname_kr)
+        return qs 

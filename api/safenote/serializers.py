@@ -1,3 +1,4 @@
+from rest_framework.fields import ReadOnlyField
 from .models import Country, HelpCall, Medical, Embassy
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, Serializer
@@ -20,18 +21,19 @@ class CountrySerializer(ModelSerializer):
         fields = '__all__'
 
 class HelpCallSerializer(ModelSerializer):
-    #group_name = serializers.ReadOnlyField(source='group.name')
+#    country_ID = CountrySerializer(read_only = True)
     class Meta:
         model = HelpCall
         fields = '__all__'
 
 class MedicalSerializer(ModelSerializer):
+#    country_ID = CountrySerializer(read_only = True)
     class Meta:
         model = Medical
         fields = '__all__'
 
 class EmbassySerializer(ModelSerializer):
-    #group_name = serializers.ReadOnlyField(source='group.name')
+#    country_ID = CountrySerializer(read_only = True)
     class Meta:
         model = Embassy
         fields = '__all__'
