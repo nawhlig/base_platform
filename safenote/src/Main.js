@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route, Link, Switch } from 'react-router-dom';
 import Axios from 'axios'
-import { message, Button } from 'antd';
 import './Main.css';
 import Home from './Home'
 
@@ -11,7 +10,6 @@ import USA from './country/USA';
 import UK from './country/UK';
 import Sweden from './country/Sweden';
 import Egypt from './country/Egypt';
-import Map from './Map';
 import Api from './helper/Api'
 import MapPage_Korea from './countrymap/MapPage_Korea';
 import MapPage_USA from './countrymap/MapPage_USA';

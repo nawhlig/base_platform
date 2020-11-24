@@ -6,14 +6,8 @@ import '../Main.css';
 
 import {Link} from 'react-router-dom';
 
-const body = document.querySelector('#body');
 
 function Korea({history}){
-    const selectCountry = (e) => {
-        history.push(e.target.value)
-        console.log(e.target.value);
-    }
-
     return(
         <>
             <div className='countryheader'>Korea</div>
