@@ -57,13 +57,13 @@ function MyDirectionsRenderer(props) {
         destination: new window.google.maps.LatLng(destination.lat, destination.lng),
         travelMode: travelMode
       },
-      // (result, status) => {
-      //   if (status === window.google.maps.DirectionsStatus.OK) {
-      //     setDirections(result);
-      //   } else {
-      //     console.error(`error fetching directions ${result}`);
-      //   }
-      // } 
+      (result, status) => {
+        if (status === window.google.maps.DirectionsStatus.OK) {
+          setDirections(result);
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      } 
     );
   }
   , [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);

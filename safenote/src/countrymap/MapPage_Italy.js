@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, Component  } from 'react'
 import Map from '../Map'
 import '../Main.css';
 
-export default function MapPage_Egypt()
+export default function MapPage_Italy()
 {
     return (
     <>      
