@@ -69,7 +69,7 @@ function Main() {
             </main>
             <footer>
             <div>
-                <p>SafeNote ©2020 Created by #Import</p>
+                <p class='bottombox'>SafeNote ©2020 Created by #Import</p>
             </div>
             </footer>
         </div>

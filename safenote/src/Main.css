@@ -311,7 +311,22 @@ select option:hover{
 
 
 /* PC , 테블릿 가로 (해상도 768px ~ )*/
-@media all and (min-width:768px){ 
+@media all and (min-width:768px){
+  .inputbox{
+    position: fixed;;
+    margin-left: -110px;
+    margin-top:550px;
+  }
+  .in_inputbox{
+    background-color:yellow;
+    top:84%;
+    left:10%;
+    color:red;
+    position:fixed;
+    z-index:1;
+  }
+  
+
 .blink span{font-size: 1.3cm;}
 .btn1, .btn2, .btn3, .btn4, .btn5{font-size: medium; padding: 35pt;}
 .mapbody{
@@ -325,7 +340,7 @@ select option:hover{
   width: 500px;
   height: 500px;
   margin-left: -28%;
-  margin-top: -9%;
+  margin-top: -12%;
 }
 .mapList{
   position: absolute;
@@ -347,8 +362,8 @@ select option:hover{
   text-align: center;
   font-size: x-large;
   font-weight: bolder;
-  top: 80%;
-  left: 133%;
+  top: 88%;
+  left: 140%;
   width: 600px;
   font-size: medium;
   transform: translate(-50%, -50%);
@@ -357,6 +372,21 @@ select option:hover{
 
 /* 모바일, 테블릿 세로 (해상도~ 767px)*/
 @media all and (max-width:767px) { 
+  .bottombox{
+    line-height: -90% !important;
+  }
+  .inputbox{
+    margin-left: -24px;
+    margin-top: 297px;
+  }
+  .in_inputbox{
+    background-color:yellow;
+    top:47.5%;
+    color:red;
+    position:fixed;
+    z-index:1;
+  }
+
   .blink span{font-size: 1.3cm;}
 .btn1, .btn2, .btn3, .btn4, .btn5{
   font-size: medium;
@@ -369,18 +399,18 @@ select option:hover{
   .mapbody{
     position: absolute;
     left: 1%;
-    top:10%;
+    top:11%;
   }
 
   .mapPage{
     width: 389px;
-    height: 280px;
+    height: 260px;
   }
   .mapList{
     overflow-y: scroll;
     width: 389px;
-    height:248px;
-    max-height: 200pt;
+    height:230px;
+    
     color: white;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
@@ -400,6 +430,9 @@ select option:hover{
     transform: translate(-50%, -50%); */
     width: 389px;
     font-size:small;
+    margin-top: 9%;
+    line-height: 100%;
+    
   }
 
 }
@@ -523,3 +556,8 @@ select option:hover{
 .gm-style> div:nth-child(7) > button{
   right:-2% !important;
 }
+
+
+
+
+
