@@ -7,11 +7,11 @@ import API from '../helper/Api';
 export default function MapPage_Korea()
 {   
     React.useEffect(()=>{
-        API.get("embassy/?na=중국").then(res=>{
+        API.get("embassy/?na=대한민국").then(res=>{
             const {data} = res;
             console.log(data);})
 
-        API.get("medical/?na=중국").then(res=>{
+        API.get("medical/?na=대한민국").then(res=>{
             const {data} = res;
             console.log(data);})
     },[])
