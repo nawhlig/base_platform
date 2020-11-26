@@ -36,8 +36,8 @@ return (
     <select onChange={selectCountry}>
         <option selected disabled>나라를 선택하세요. / Choose the Country</option>
         <option value="/korea">Korea</option>
-        <option value="/usa">U.S.A</option>
-        <option value="/uk">U.K</option>
+        <option value="/Italy">Italy</option>
+        <option value="/Spain">Spain</option>
         <option value="/sweden">Sweden</option>
         <option value="/egypt">Egypt</option>
     </select>

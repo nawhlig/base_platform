@@ -4,34 +4,28 @@ import Axios from 'axios'
 import './Main.css';
 import Home from './Home'
 
-import logo from './img/logosample.jpg'
+/*import logo from './img/logosample.jpg'*/
+//import logo from './img/logo_safenote3.png'
+import logo from './img/logo_safenote4.png'
+//import logo from './img/logo_safenote5.png'
+//import logo from './img/logo_safenote6.png'
+
 import Korea from './country/Korea';
 import Spain from './country/Spain';
 import Italy from './country/Italy';
 import Sweden from './country/Sweden';
 import Egypt from './country/Egypt';
-import Api from './helper/Api'
+import API from './helper/Api'
 import MapPage_Korea from './countrymap/MapPage_Korea';
 import MapPage_Italy from './countrymap/MapPage_Italy';
 import MapPage_Spain from './countrymap/MapPage_Spain';
 import MapPage_Sweden from './countrymap/MapPage_Sweden';
 import MapPage_Egypt from './countrymap/MapPage_Egypt';
 
-function Main() {
-    React.useEffect(()=>{
+function Main() {   
 
-        Api.get("country/", {
-        }).then(res=>{
-            const {data} = res;
-            console.log(data);
-            
-            
-        })
-
-    },[])
     return(
-        <>  
-        
+        <>
         <div class="wrapper">
             <header>
             <div class="wrapper">
