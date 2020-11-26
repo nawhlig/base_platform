@@ -11,7 +11,7 @@ div#root{
 
 .wrapper {
   max-width: 1920pt;
-  max-height: 1080pt;
+  max-height: 1100pt;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -31,16 +31,17 @@ header {
   /* max-width: 110pt; */
   /* max-height: 55pt; */
   float: left;
-  height: 52pt;
+  height: 38pt;
   /* width: 110pt; */
   /* opacity: 0.5; */
 }
 
 .navbar {
   overflow: hidden;
-  max-width: 100%;
+  width: 100%;
   /* background-color:rgba(0,0,0,0.3); */
   background-color:rgba(0,0,0);
+  /* position: fixed; */
 }
 .navbar a:hover {
   background-color: white;
@@ -148,12 +149,14 @@ footer {
   min-width: 100%;
   max-height: max-content;
   bottom: 0pt;
+ 
 }
+
 
 /* 선택 박스 */
 
 .countryheader{
-position: absolute;
+  position: relative;
 backdrop-filter: blur(3px);
 opacity: 0.8;
 color: white;
@@ -167,13 +170,15 @@ transform: translate(-50%, -50%);
 }
 
 .sosbox{
-position: absolute;
-min-width: fit-content;
+/* position: relative; */
+/* min-width: fit-content; */
 text-align: center;
 font-family: 'Do Hyeon', sans-serif;
-top: 60%;
+margin-top: 140px;
+height: auto;
+/* top: 60%;
 left: 50%;
-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%); */
 }
 
 .btn1, .btn2, .btn3, .btn4, .btn5{
@@ -181,13 +186,17 @@ background-color: rgba(7,7,7,0.3);
 backdrop-filter: blur(6px);
 color: white;
 border: none;
-border-radius: 5%;
+border-radius: 100%;
 font-size: xx-large;
 font-family: 'Do Hyeon', sans-serif;
 margin: 5pt;
 padding: 50pt;
+height: 150px;
+width: 150px;
 }
-
+.btn2{
+  line-height: 60%;
+}
 .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover{
 color: rgba(0, 0, 0, 0.888);
 background-color: white;
@@ -206,6 +215,7 @@ select {
   border: 0 !important;
   background:rgba(0,0,0,0.3);
   font-family: 'Do Hyeon', sans-serif;;
+  
 }
 /* Remove IE arrow */
 select::-ms-expand {
@@ -274,7 +284,7 @@ select option:hover{
 
 /* 페이지 대문 */
 .blink{
-  position: absolute;
+  position: relative;
   font-family: 'Do Hyeon', sans-serif;
   text-align: center;
   line-height: 50pt;
@@ -282,11 +292,13 @@ select option:hover{
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 }
-.blink span{
+.blink>span{
   color: white;
   font-size: 2.5cm;
   animation: blink 8s linear infinite;
+  
 }
 
 @keyframes blink{
@@ -346,12 +358,20 @@ select option:hover{
 /* 모바일, 테블릿 세로 (해상도~ 767px)*/
 @media all and (max-width:767px) { 
   .blink span{font-size: 1.3cm;}
-.btn1, .btn2, .btn3, .btn4, .btn5{font-size: medium; padding: 35pt;}
+.btn1, .btn2, .btn3, .btn4, .btn5{
+  font-size: medium;
+  padding: 35pt;
+  
+}
+.btn1, .btn2, .btn3, .btn4>#text{
+  line-height: 5px;
+}
   .mapbody{
     position: absolute;
     left: 1%;
     top:10%;
   }
+
   .mapPage{
     width: 389px;
     height: 280px;
@@ -480,6 +500,16 @@ select option:hover{
   left:1710%!important;
 
 }
+#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
+  position: absolute!important;
+  top: -270%!important;
+  left:7010%!important;
+}
+#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul > div{
+  position: absolute!important;
+  top: -270%!important;
+  left:7010%!important;
+}
 .gmnoprint>.gm-style-mtc:nth-child(2)>button{
   font-size: 1px !important;
   font-weight: 800;
@@ -489,6 +519,7 @@ select option:hover{
   top: 150%!important;
   left:1540%!important;
 }
+
 .gm-style> div:nth-child(7) > button{
   right:-2% !important;
 }
