@@ -1,17 +1,16 @@
-import 'antd/dist/antd.css';
-
+//구글맵 특수 키 오류대비 필수!!
 /* global google */
 
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, Marker, DirectionsRenderer, LoadScript, InfoWindow } from '@react-google-maps/api';
 import './Main.css';
+
 import { UserContext } from './userContext'
 
-import {my_key} from './keys'
+import {my_key} from './keys' //구글 맵 API 키
+
+import 'antd/dist/antd.css';
 import { message, Button, Modal } from 'antd';
-
-
-
 
 const google = window.google;
 
@@ -22,10 +21,9 @@ const containerStyle = {
   height: '100%',
 };
 
+// 맵 출발 목적 거리시간 예측 결과 프린트
 function Totalprint() {
-
-  const {timedistance, setTimedistance} = React.useContext(UserContext);
-  
+  const {timedistance, setTimedistance} = React.useContext(UserContext); 
   return (
     <>
     <div style={{backgroundColor:'ivory', width:'389px'}}>
@@ -42,14 +40,13 @@ function Totalprint() {
   )
 }
 
-
+// GPS 찾고 목적지까지 경로설정
 function MyDirectionsRenderer(props) {
-  // const [des, setDes] = useState({lat: 37.551168, lng: 126.988141})
-  const [directions, setDirections] = useState(null);
-  const { origin, destination, setDes, travelMode, setPos } = props;
-  const { timedistance, setTimedistance} = React.useContext(UserContext);
+  const [directions, setDirections] = useState(null); //도로위치 GIS 지리정보 값
+  const { origin, destination, setDes, travelMode, setPos } = props; // 출발, 도착지, 목적지설정, 이동수단, 현위치기본값
+  const { timedistance, setTimedistance} = React.useContext(UserContext); //시간계산결과값
   
-
+  // 현위치 GPS 잡고 
   useEffect(() => {
 
     const directionsService = new window.google.maps.DirectionsService();
@@ -60,33 +57,26 @@ function MyDirectionsRenderer(props) {
         travelMode: travelMode
       },
       (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {
-          setDirections(result);
-        } else {
-          console.error(`error fetching directions ${result}`);
-        }
+        if (status === window.google.maps.DirectionsStatus.OK) {setDirections(result);}
+        else { console.error(`error fetching directions ${result}`);}
       } 
     );
-  }
-  , [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);
-  
-  const callback = (res) => {
-    console.log("RESPONSE", res);
-  }
+  }, [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);  
+  const callback = (res) => { console.log("RESPONSE", res); }
 
+  // 출발위치값(현위치) 에 현위치 GPS  값 대입
   useEffect(()=>{
 
-    var service = new window.google.maps.DistanceMatrixService();
+    var service = new window.google.maps.DistanceMatrixService();  //API 기본 정의값
     
-  
+    // GPS 경로가 정상일 경우 현위치(setPos) 에 넣을 준비
     if (navigator.geolocation) {
       
       message.success('GPS가 정상적으로 작동 중입니다.');
 
+      // setPos 에 넣음
       navigator.geolocation.getCurrentPosition(
         (position) => {
-
-
           setPos({
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -106,7 +96,7 @@ function MyDirectionsRenderer(props) {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             }],
-            destinations:  [{ lat: destination.lat, lng: destination.lng }],   //데이터 들어 갈 부분
+            destinations:  [{ lat: destination.lat, lng: destination.lng }],   //목적지 데이터 들어 갈 부분
             avoidHighways: false,
             avoidTolls: false,
             travelMode: 'TRANSIT',
@@ -145,9 +135,9 @@ function MyDirectionsRenderer(props) {
 }
 
 //////////////////////////////////////
-
+// countrymap 폴더의 맵페이지에서 목적지 위치받아여~
 function MyComponent() {
-  const [des, setDes] = useState({lat: 37.551168, lng: 126.988141})
+  const [des, setDes] = useState({lat: 37.645468, lng: 126.793067})  //최종 목적지 위치 변수 (값 바꾸면 목적지가 바껴요)
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
   const [pos, setPos] = React.useState({
@@ -254,7 +244,7 @@ function MyComponent() {
 <DistanceMatrixService
             options={{
               origins: [{pos}],
-              destinations: [{ des }],  //데이터 들어 갈 부분
+              destinations: [{ des }],  //데이터 들어 갈 부분 :setdes
               travelMode: "TRANSIT",
               
             }}
@@ -293,14 +283,14 @@ function MyComponent() {
         {/* {markers.map((marker, index) =>
       <Marker key={index} position={marker.position} />
     )} */}
-        <InfoWindow
+        {/* <InfoWindow
       onLoad={onLoad2}  //목적지   
-      position={ des } //데이터 들어 갈 부분
+      position={ des } //데이터 들어 갈 부분 setdes
     >
       <div style={divStyle}>
-        <h1>DESTINATION</h1>   {/* 데이터 들어 갈 부분 */}
+        <h1>목적지 정보 들어갈 부분</h1>   
       </div>
-    </InfoWindow>
+    </InfoWindow> */}
     
     <InfoWindow
       onLoad={onLoad2}  // 출발지 (gps)
@@ -311,12 +301,12 @@ function MyComponent() {
       </div>
     </InfoWindow>
         <MyDirectionsRenderer
-      setPos={setPos}
-      origin={pos}
-      destination={ des }   //데이터 들어 갈 부분
-      setDes = { setDes }
-      travelMode= 'TRANSIT' 
-    />
+          setPos={setPos}
+          origin={pos}
+          destination={ des }   //데이터 들어 갈 부분 setdes
+          setDes = { setDes }
+          travelMode= 'TRANSIT' 
+        />
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
       </GoogleMap>
