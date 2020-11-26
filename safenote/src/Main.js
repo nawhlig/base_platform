@@ -10,17 +10,18 @@ import logo from './img/logo_safenote4.png'
 //import logo from './img/logo_safenote5.png'
 //import logo from './img/logo_safenote6.png'
 
+import Testpage from './country/Testpage';
 import Korea from './country/Korea';
 import Spain from './country/Spain';
 import Italy from './country/Italy';
 import Sweden from './country/Sweden';
 import Egypt from './country/Egypt';
-import API from './helper/Api'
 import MapPage_Korea from './countrymap/MapPage_Korea';
 import MapPage_Italy from './countrymap/MapPage_Italy';
 import MapPage_Spain from './countrymap/MapPage_Spain';
 import MapPage_Sweden from './countrymap/MapPage_Sweden';
 import MapPage_Egypt from './countrymap/MapPage_Egypt';
+
 
 function Main() {   
 
@@ -41,6 +42,7 @@ function Main() {
                     <Link exact to='/Spain'>Spain</Link>
                     <Link exact to='/sweden'>Sweden</Link>
                     <Link exact to='/egypt'>Egypt</Link>
+                    <Link exact to='/testpage'>Testpage</Link>
                     </div>
                 </div> 
                 <Link exact to='/' className='homemenu'>Home</Link>
@@ -56,6 +58,7 @@ function Main() {
                 <Route exact path="/spain" component={Spain}/>
                 <Route exact path="/sweden" component={Sweden}/>
                 <Route exact path="/egypt" component={Egypt}/>
+                <Route exact path="/testpage" component={Testpage}/>
                 <Route exact path="/koreamap" component={MapPage_Korea}/>
                 <Route exact path="/italymap" component={MapPage_Italy}/>
                 <Route exact path="/spainmap" component={MapPage_Spain}/>
