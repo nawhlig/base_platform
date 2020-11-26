@@ -312,14 +312,77 @@ select option:hover{
 
 /* PC , 테블릿 가로 (해상도 768px ~ )*/
 @media all and (min-width:768px){
+
+/* 맵 길들이기 부분 */
+
+.gm-control-active,.gm-svpc{
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
+  display: none;
+}
+
+.gm-style-cc{
+  margin-left: 100px;
+}
+.gmnoprint>div{
+  width: 20px !important;
+  height: 50px !important;
+  margin-left: 12px;
+  /* margin-top: 145px; */
+}
+.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
+  width: 25px !important;
+  height: 25px !important;
+  margin-left:25px;
+  margin-top: 5px;
+}
+.gmnoprint>.gm-style-mtc:nth-child(1)>button{
+  font-size: 1px !important;
+  font-weight: 800;
+  padding: 0px !important;
+  height:30px !important;
+  position: absolute!important;
+  top: 70%!important;
+  left:2260%!important;
+
+}
+#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
+  position: absolute!important;
+  top: -270%!important;
+  left:9560%!important;
+}
+#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul > div{
+  position: absolute!important;
+  top: 500%!important;
+  left:8010%!important;
+}
+.gmnoprint>.gm-style-mtc:nth-child(2)>button{
+  font-size: 1px !important;
+  font-weight: 800;
+  padding: 0px !important;
+  height:30px !important;
+  position: absolute!important;
+  top: 150%!important;
+  left:2090%!important;
+}
+
+.gm-style> div:nth-child(7) > button{
+  right:-2% !important;
+}
+
+
+
   .inputbox{
     position: fixed;;
-    margin-left: -110px;
+    margin-left: -90px;
     margin-top:550px;
   }
   .in_inputbox{
     background-color:yellow;
-    top:84%;
+    top:85%;
     left:10%;
     color:red;
     position:fixed;
@@ -372,6 +435,68 @@ select option:hover{
 
 /* 모바일, 테블릿 세로 (해상도~ 767px)*/
 @media all and (max-width:767px) { 
+
+/* 맵 길들이기 부분 */
+
+.gm-control-active,.gm-svpc{
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
+  display: none;
+}
+
+.gm-style-cc{
+  margin-left: 100px;
+}
+.gmnoprint>div{
+  width: 20px !important;
+  height: 40px !important;
+  margin-left: 14px;
+  /* margin-top: 145px; */
+}
+.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
+  width: 25px !important;
+  height: 25px !important;
+  margin-left:25px;
+  margin-top: 5px;
+}
+.gmnoprint>.gm-style-mtc:nth-child(1)>button{
+  font-size: 1px !important;
+  font-weight: 800;
+  padding: 0px !important;
+  height:30px !important;
+  position: absolute!important;
+  top: 70%!important;
+  left:1710%!important;
+
+}
+#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
+  position: absolute!important;
+  top: -270%!important;
+  left:7010%!important;
+}
+#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul > div{
+  position: absolute!important;
+  top: -270%!important;
+  left:7010%!important;
+}
+.gmnoprint>.gm-style-mtc:nth-child(2)>button{
+  font-size: 1px !important;
+  font-weight: 800;
+  padding: 0px !important;
+  height:30px !important;
+  position: absolute!important;
+  top: 150%!important;
+  left:1540%!important;
+}
+
+.gm-style> div:nth-child(7) > button{
+  right:-2% !important;
+}
+
+
   .bottombox{
     line-height: -90% !important;
   }
@@ -497,65 +622,7 @@ select option:hover{
 
 
 
-/* 맵 길들이기 부분 */
 
-.gm-control-active,.gm-svpc{
-  width: 20px !important;
-  height: 20px !important;
-}
-
-.gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
-  display: none;
-}
-
-.gm-style-cc{
-  margin-left: 100px;
-}
-.gmnoprint>div{
-  width: 20px !important;
-  height: 40px !important;
-  margin-left: 14px;
-  /* margin-top: 145px; */
-}
-.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
-  width: 25px !important;
-  height: 25px !important;
-  margin-left:25px;
-  margin-top: 5px;
-}
-.gmnoprint>.gm-style-mtc:nth-child(1)>button{
-  font-size: 1px !important;
-  font-weight: 800;
-  padding: 0px !important;
-  height:30px !important;
-  position: absolute!important;
-  top: 70%!important;
-  left:1710%!important;
-
-}
-#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
-  position: absolute!important;
-  top: -270%!important;
-  left:7010%!important;
-}
-#root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul > div{
-  position: absolute!important;
-  top: -270%!important;
-  left:7010%!important;
-}
-.gmnoprint>.gm-style-mtc:nth-child(2)>button{
-  font-size: 1px !important;
-  font-weight: 800;
-  padding: 0px !important;
-  height:30px !important;
-  position: absolute!important;
-  top: 150%!important;
-  left:1540%!important;
-}
-
-.gm-style> div:nth-child(7) > button{
-  right:-2% !important;
-}
 
 
 
