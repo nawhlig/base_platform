@@ -4,7 +4,7 @@ import Map from '../Map'
 import '../Main.css';
 import API from '../helper/Api';
 import { Button, List} from 'antd';
-import { SearchOutlined, RestOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined } from '@ant-design/icons';
 
 export default function Testpage()
 {
@@ -67,7 +67,7 @@ export default function Testpage()
                             title={<span>{item.embassy_name}</span>}
                             description={<>
                             <span>{item.embassy_lati}</span>
-                            <Button style={{float:"right"}} shape="circle" icon={<RestOutlined />} />
+                            <Button style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />} />
                             </>}
                         />
                     </List.Item>
@@ -82,7 +82,7 @@ export default function Testpage()
                             title={<span>{item.hospital_name}</span>}
                             description={<>
                             <span>{item.hospital_addr}</span>
-                            <Button style={{float:"right"}} shape="circle" icon={<RestOutlined />} />
+                            <Button style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />} />
                             </>}
                         />
                     </List.Item>
@@ -103,7 +103,7 @@ export default function Testpage()
                             title={<span>{item.hospital_name}</span>}
                             description={<>
                             <span>{item.hospital_addr}</span>
-                            <Button style={{float:"right"}} shape="circle" icon={<RestOutlined />} />
+                            <Button style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />} />
                             </>}
                         />
                     </List.Item>

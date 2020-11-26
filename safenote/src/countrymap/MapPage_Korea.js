@@ -3,8 +3,8 @@ import Map from '../Map'
 import '../Main.css';
 import API from '../helper/Api';
 
-import { Button, List} from 'antd';
-import { SearchOutlined, RestOutlined } from '@ant-design/icons';
+import { Button, List } from 'antd';
+import { EnvironmentOutlined } from '@ant-design/icons';
 
 
 export default function MapPage_Korea()
@@ -62,7 +62,7 @@ export default function MapPage_Korea()
                                     title={<span>{item.embassy_name}</span>}
                                     description={<>
                                     <span>{item.embassy_addr}</span>
-                                    <Button style={{float:"right"}} shape="circle" icon={<RestOutlined />} />
+                                    <Button style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />} />
                                     </>}
                                 />
                             </List.Item>
@@ -76,10 +76,14 @@ export default function MapPage_Korea()
                                     <List.Item>
                                         <List.Item.Meta
                                             title={<span>{item.hospital_name}</span>}
-                                            description={<>
-                                            <span>{item.hospital_addr}</span>
-                                            <Button style={{float:"right"}} shape="circle" icon={<RestOutlined />} />
-                                            </>}
+                                            description={<span>{item.hospital_addr}</span>}
+                                        />
+                                        <Button 
+                                            style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />}
+                                            onMouseEnter={() => { console.log('선택된 위치:', item.hospital_lati, item.hospital_logi) }}
+                                            onClick={() => { console.log('선택된 위치:', item.hospital_lati, item.hospital_logi);
+                                                            {/*deleteTodo(item.seq)*/}
+                                                            }}
                                         />
                                     </List.Item>
                                 )}/>            
