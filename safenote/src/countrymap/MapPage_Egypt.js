@@ -10,7 +10,7 @@ export default function MapPage_Egypt()
             <div className="mapPage">
                 <Map/>
             </div>
-            <div >
+            <div>
                 <div border="1" class="mapList">
                     <div style={{textAlign:"center"}}>1
                     <div>

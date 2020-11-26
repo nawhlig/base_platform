@@ -9,8 +9,7 @@ import Main from './Main';
 
 function App() {
 
-  const [timedistance, setTimedistance] = useState({ totalTime:'',
-totalDistance: ''})
+  const [timedistance, setTimedistance] = useState({ totalTime:'', totalDistance: ''})
 
   return (
     <>

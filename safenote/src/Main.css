@@ -28,18 +28,19 @@ header {
 /* menu btn */
 
 .logo{
-  max-width: 100pt;
-  max-height: 55pt;
+  /* max-width: 110pt; */
+  /* max-height: 55pt; */
   float: left;
   height: 52pt;
-  width: 110pt;
-  opacity: 0.5;
+  /* width: 110pt; */
+  /* opacity: 0.5; */
 }
 
 .navbar {
   overflow: hidden;
   max-width: 100%;
-  background-color:rgba(0,0,0,0.3);
+  /* background-color:rgba(0,0,0,0.3); */
+  background-color:rgba(0,0,0);
 }
 .navbar a:hover {
   background-color: white;
@@ -48,10 +49,10 @@ header {
 
 .homemenu{
   color: white;
+  background-color: rgba(0,0,0,0);
   padding: 14pt 16pt;
   float: right;
 }
-
 
 
 .navbar a {
@@ -73,7 +74,8 @@ header {
   outline: none;
   padding: 16pt 20pt;
   margin: 0;
-  background-color: rgba(0,0,0,0.3);
+  /* background-color: rgba(0,0,0,0.3); */
+  background-color: rgba(0,0,0,0);
   color: white;
 }
 
@@ -121,7 +123,8 @@ header {
 main {
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("./img/backtwo.jpg");
+  /* background-image: linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./img/backtwo.jpg"); */
+  background-image: linear-gradient( rgba(0,0,0,0), rgba(0,0,0,0.5)), url("./img/backtwo.jpg");
   height: 100%;
   font-family: 'Do Hyeon', sans-serif;
 }
@@ -137,7 +140,8 @@ footer {
   position: absolute;
   text-align: center;
   color: white;
-  background: rgba(0,0,0,0.5);
+  /* background: rgba(0,0,0,0.5); */
+  background: rgba(0,0,0,0);
   padding: 15pt 0;
   font-weight: bold;
   font-family: 'Do Hyeon', sans-serif;

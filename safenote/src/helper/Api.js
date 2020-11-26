@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 const API = Axios.create({
-    baseURL: "http://192.168.0.64:8000/api/safenote/",
+    baseURL: "https://safenote.tk/api/safenote/",
     timeout: 3000,
 })
 export default API;
