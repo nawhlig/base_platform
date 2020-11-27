@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import Map from '../Map'
+import click_location from '../country/Testpage';
 import '../Main.css';
 import API from '../helper/Api';
 
@@ -96,7 +97,7 @@ export default function MapPage_Korea()
                                                             console.log('이전 위치 선택값:', Deslati, Deslogi);
                                                         }}
                                     onClick={() => {    console.log('현재 선택 위치 클릭:', Deslati, Deslogi);
-                                                        <click_location  clicklati={Deslati} clicklogi={Deslogi}/>
+                                                        // <click_location  clicklati={Deslati} clicklogi={Deslogi}/>
                                                     }}
                                 />
                             </List.Item>
