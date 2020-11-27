@@ -6,11 +6,18 @@ import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, 
 import './Main.css';
 
 import { UserContext } from './userContext'
-
+//구글맵
+//구글맵 특수 키 오류대비 필수!!
+/* global google */
 import {my_key} from './keys' //구글 맵 API 키
-
+//Antd 스타일
 import 'antd/dist/antd.css';
 import { message, Button, Modal } from 'antd';
+
+
+
+
+
 
 const google = window.google;
 
@@ -21,24 +28,7 @@ const containerStyle = {
   height: '100%',
 };
 
-// 맵 출발 목적 거리시간 예측 결과 프린트
-function Totalprint() {
-  const {timedistance, setTimedistance} = React.useContext(UserContext); 
-  return (
-    <>
-    <div style={{backgroundColor:'ivory', width:'389px'}}>
-    {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
-    <div class="mapinfo">
-      <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
-      약<strong>{timedistance.totalDistance}</strong> 거리입니다.
-      </pre>
-      <pre>TotalDistance are <strong>{timedistance.totalTime}</strong> So, It will take about <strong>{timedistance.totalDistance}</strong>
-      </pre>
-    </div>
-    </div>
-    </>
-  )
-}
+
 
 // GPS 찾고 목적지까지 경로설정
 function MyDirectionsRenderer(props) {
@@ -66,65 +56,33 @@ function MyDirectionsRenderer(props) {
 
   // 출발위치값(현위치) 에 현위치 GPS  값 대입
   useEffect(()=>{
-
-    var service = new window.google.maps.DistanceMatrixService();  //API 기본 정의값
-    
-    // GPS 경로가 정상일 경우 현위치(setPos) 에 넣을 준비
-    if (navigator.geolocation) {
-      
-      message.success('GPS가 정상적으로 작동 중입니다.');
-
-      // setPos 에 넣음
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setPos({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          });
-
-          
-          console.log(JSON.stringify({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          }));
-
-          console.log('jbjbjbjbjbjbjjbjb================================')
-          console.log(destination)
-
-          service.getDistanceMatrix({
-            origins: [{
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            }],
-            destinations:  [{ lat: destination.lat, lng: destination.lng }],   //목적지 데이터 들어 갈 부분
-            avoidHighways: false,
-            avoidTolls: false,
-            travelMode: 'TRANSIT',
-            //unitSystem: window.google.maps.UnitSystem.metric,
-          }, 
-          (res) => {
-            
-              console.log(res,'+_++_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+')
-              setTimedistance({ totalTime: res.rows[0].elements[0].distance.text,
-                                totalDistance: res.rows[0].elements[0].duration.text});
-      
-          }
-        );
-          
-        },
-        (error) => {
-          message.info(error.message);
-        },{
-          timeout: 1000,
-          maximumAge: 10000,
-          enableHighAccuracy: true
-        }
-      );
-    } else {
-      message.info("GPS를 연결하실 수 없습니다.");
-    }
-  
-  
+                  var service = new window.google.maps.DistanceMatrixService();  //API 기본 정의값
+                  
+                  // GPS 경로가 정상일 경우 현위치(setPos) 에 넣을 준비
+                  if (navigator.geolocation) { 
+                    message.success('GPS 연결 됨');
+                    // setPos 에 넣음
+                    navigator.geolocation.getCurrentPosition( (position) => { 
+                        setPos({ lat: position.coords.latitude, lng: position.coords.longitude});
+                        console.log('GPS 현위치를 setPos 에 설정한 값 : ', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude}));
+                        console.log('destination 에 목적지로 설정된 값: ', destination);
+                        service.getDistanceMatrix({ 
+                          origins: [{ lat: position.coords.latitude, lng: position.coords.longitude}],
+                          destinations:  [{ lat: destination.lat, lng: destination.lng }],
+                          avoidHighways: false,
+                          avoidTolls: false,
+                          travelMode: 'TRANSIT',
+                          //unitSystem: window.google.maps.UnitSystem.metric,
+                        }, (res) => { console.log('목적지-출발지 거리시간 결과',res);
+                                      setTimedistance({ totalTime: res.rows[0].elements[0].distance.text, 
+                                                        totalDistance: res.rows[0].elements[0].duration.text
+                                                      });
+                                    }
+                        );
+                      },(error) => { message.info(error.message);}, { timeout: 1000, maximumAge: 10000, enableHighAccuracy: true}
+                    );
+                  } 
+                  else { message.info("GPS 를 이용할 수 없습니다"); }
   },[destination])
 
   return (
@@ -134,9 +92,25 @@ function MyDirectionsRenderer(props) {
   );
 }
 
+
+
+// 맵 출발 목적 거리시간 예측 결과 프린트
+function Totalprint() {
+  const {timedistance, setTimedistance} = React.useContext(UserContext); 
+  return (<>
+    <div style={{backgroundColor:'ivory', width:'389px'}}>
+    {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
+      <div class="mapinfo">
+        <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고, 약<strong>{timedistance.totalDistance}</strong> 거리입니다.</pre>
+        <pre>TotalDistance are <strong>{timedistance.totalTime}</strong> So, It will take about <strong>{timedistance.totalDistance}</strong></pre>
+      </div>
+    </div></>
+  )
+}
+
 //////////////////////////////////////
 // countrymap 폴더의 맵페이지에서 목적지 위치받아여~
-function MyComponent() {
+function MyComponent({clicklati, clicklogi}) {
   const [des, setDes] = useState({lat: 37.645468, lng: 126.793067})  //최종 목적지 위치 변수 (값 바꾸면 목적지가 바껴요)
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
@@ -149,11 +123,30 @@ function MyComponent() {
   
   const [position, setPosition] = React.useState({ lat: 52.620360, lng: -1.142179 });
 
-  useEffect(()=> {
+
+
+  // countrymap 폴더의 맵페이지에서 목적지 위치 받아서~
+  ////////////////////////////      목적지의 변경            /////////////////////////////////////////////////
+  
+  useEffect(()=> {  console.log('setdes로 상태변화한 des가 뭔지 알아보겠습니다', des);
+                    console.log('Map.js 로 전달 받은 값: ', clicklati, clicklogi);
+                    setDes({lat:clicklati, lng:clicklogi});
+                }, [clicklati, clicklogi]); 
+  
+  
+  // function ClickLocation(prop){
+  // //   return(<>
+  // console.log('전달 받은값 :', prop);
+  // //  console.log('위도 전달', {clicklati}, '경도 전달', {clicklogi});
+  // //   </>
+  // //   )
+  // }
+  //  useEffect(()=> { setDes({lat: {changelat},  lng: {changelng} }, []);
 
 
 
-  }, []);
+
+  ///////////////////////////////////////////////////////////////////////////////////
 
   function handleCenter() {
     
@@ -179,13 +172,10 @@ function MyComponent() {
   };
 
   const onPlacesChanged = () => {
-    console.log('jbjbjbjbj');
-    console.log(ref.getPlaces());
-    
-    
-
-    console.log('위도: ',ref.getPlaces()[0].geometry.viewport.Wa.j,'경도: ',ref.getPlaces()[0].geometry.viewport.Sa.j);
-    
+    console.log('getplaces() 의 결과값');
+    console.log('전체: ', ref.getPlaces());
+    console.log('위도: ', ref.getPlaces()[0].geometry.viewport.Wa.j,'경도: ',ref.getPlaces()[0].geometry.viewport.Sa.j);
+      
 
     setDes({lat: ref.getPlaces()[0].geometry.viewport.Wa.j
           , lng: ref.getPlaces()[0].geometry.viewport.Sa.j})
@@ -201,24 +191,24 @@ function MyComponent() {
     
   }
   
-  const onLoad2 = infoWindow => {
-    console.log('infoWindow: ', infoWindow)
-  }
+  const onLoad2 = infoWindow => { console.log('infoWindow: ', infoWindow) }
   
   //버튼 ZONE///////////////////////////////////////////////////////
   function info() {
-    Modal.info({
-      title: 'This is a notification message',
-      content: (
-        <div>
-          <p>some messages...some messages...</p>
-          <p>some messages...some messages...</p>
-        </div>
-      ),
-      onOk() {},
-    });
+    Modal.info( { title: 'This is a notification message',
+                  content: (  <div>
+                                <p>some messages...some messages...</p>
+                                <p>some messages...some messages...</p>
+                              </div>
+                            ), onOk() {},
+                }
+              );
   }
   ////////////////////////////////////////////////////////////
+
+
+
+
 
 
   return (
@@ -321,5 +311,8 @@ function MyComponent() {
     </>
   )
 }
+
+
+
 
 export default React.memo(MyComponent)

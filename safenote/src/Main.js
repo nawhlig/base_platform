@@ -1,10 +1,9 @@
 import React from 'react';
 import {Route, Link, Switch } from 'react-router-dom';
-import Axios from 'axios'
 import './Main.css';
 import Home from './Home'
 
-/*import logo from './img/logosample.jpg'*/
+//import logo from './img/logosample.jpg'
 //import logo from './img/logo_safenote3.png'
 import logo from './img/logo_safenote4.png'
 //import logo from './img/logo_safenote5.png'
