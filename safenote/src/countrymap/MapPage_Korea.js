@@ -54,8 +54,7 @@ export default function MapPage_Korea()
     <>      
         <div className="mapbody">
             <div className="mapPage">
-                <Map clicklati={Deslogi} clicklogi={Deslogi}/>
-                {/* <Map clicklati={Deslogi}/> */}
+                <Map clicklati={Deslati} clicklogi={Deslogi}/>
             </div>
             <div>
                 <div border="1" class="mapList">
