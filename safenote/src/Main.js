@@ -69,7 +69,7 @@ function Main() {
             </main>
             <footer>
             <div>
-                <p class='bottombox'>SafeNote ©2020 Created by #Import</p>
+                <p class='bottombox'>©2020.Hoon Ho All pictures cannot be copied without permission.</p>
             </div>
             </footer>
         </div>

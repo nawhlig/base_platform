@@ -257,9 +257,8 @@ function MyComponent() {
           onPlacesChanged={onPlacesChanged}
           onLoad={onLoad22}
         ><div>
-          <span class='in_inputbox'>SEARCH＝＞</span>
           <input
-           class='inputbox'
+            class='inputbox'
             type="text"
             placeholder="did you forget the name of public institutions?"
             style={{
