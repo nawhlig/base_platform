@@ -30,9 +30,9 @@ function Totalprint() {
     {/* 데이터 넣을 때, 건물 이름도 주어로 넣으면 금상첨화일듯!! */}
     <div class="mapinfo">
       <pre>총 거리는 <strong>{timedistance.totalTime}</strong> 이고,
-      약 <strong>{timedistance.totalDistance}</strong> 걸릴 것으로 예상됩니다.
+      약<strong>{timedistance.totalDistance}</strong> 거리입니다.
       </pre>
-      <pre>TotalDistance is <strong>{timedistance.totalTime}</strong>  So, It will take about <strong>{timedistance.totalDistance}</strong>.
+      <pre>TotalDistance are <strong>{timedistance.totalTime}</strong> So, It will take about <strong>{timedistance.totalDistance}</strong>
       </pre>
     </div>
     </div>
@@ -211,6 +211,7 @@ function MyComponent() {
   const onLoad2 = infoWindow => {
     console.log('infoWindow: ', infoWindow)
   }
+  
   //버튼 ZONE///////////////////////////////////////////////////////
   function info() {
     Modal.info({
@@ -262,15 +263,17 @@ function MyComponent() {
 <StandaloneSearchBox
           onPlacesChanged={onPlacesChanged}
           onLoad={onLoad22}
-        >
+        ><div>
+          <span class='in_inputbox'>SEARCH＝＞</span>
           <input
+           class='inputbox'
             type="text"
             placeholder="did you forget the name of public institutions?"
             style={{
               boxSizing: `border-box`,
               border: `1px solid transparent`,
-              width: `310px`,
-              height: `32px`,
+              width: `300px`,
+              height: `30px`,
               padding: `0 12px`,
               borderRadius: `3px`,
               boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
@@ -280,10 +283,9 @@ function MyComponent() {
               position: "fixed",
               left: "25%",
               top:'6%',
-              marginLeft: "-120px",
-              marginTop: '-10px'
+              
             }}
-          />
+          /></div>
         </StandaloneSearchBox>
         {/* {markers.map((marker, index) =>
       <Marker key={index} position={marker.position} />
