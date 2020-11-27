@@ -149,7 +149,6 @@ footer {
   min-width: 100%;
   max-height: max-content;
   bottom: 0pt;
- 
 }
 
 
@@ -512,11 +511,11 @@ select option:hover{
     z-index:1;
   }
 
-  .blink span{font-size: 1.3cm;}
+.blink span{font-size: 1.3cm;}
+
 .btn1, .btn2, .btn3, .btn4, .btn5{
   font-size: medium;
   padding: 35pt;
-  
 }
 .btn1, .btn2, .btn3, .btn4>#text{
   line-height: 5px;
