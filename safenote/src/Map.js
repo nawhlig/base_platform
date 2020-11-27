@@ -259,7 +259,7 @@ function MyComponent() {
         ><div>
           <span class='in_inputbox'>SEARCH＝＞</span>
           <input
-           class='inputbox'
+            class='inputbox'
             type="text"
             placeholder="did you forget the name of public institutions?"
             style={{
@@ -274,8 +274,8 @@ function MyComponent() {
               outline: `none`,
               textOverflow: `ellipses`,
               position: "fixed",
-              left: "25%",
-              top:'6%',
+              left: "10%",
+              top:'-17%',
               
             }}
           /></div>
