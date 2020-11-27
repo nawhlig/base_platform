@@ -563,7 +563,9 @@ select option:hover{
 
 
 
-
+div.ant-list-item-meta-contetn{
+  color: white;
+}
 
 .mapList div{
   padding: 3pt;
