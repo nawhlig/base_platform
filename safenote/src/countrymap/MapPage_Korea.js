@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import Map from '../Map'
+import click_location from '../country/Testpage';
 import '../Main.css';
 import API from '../helper/Api';
 
@@ -9,8 +10,14 @@ import { EnvironmentOutlined } from '@ant-design/icons';
 
 export default function MapPage_Korea()
 {   
+    // 대사관, 의료기관 위치 상태  mpas.js 로 넘겨줄 값
+    const [Deslati, setDeslati] = React.useState(null);
+    const [Deslogi, setDeslogi] = React.useState(null);
+
+    // Axios 로 불러올 리스트가 담길 변수 상태
     const [ItemList_embassy, setItemList_embassy] = React.useState(null);
     const [ItemList_medical, setItemList_medical] = React.useState(null);
+    // Axios 로딩 에러 상태값
     const [Loading, setLoading] = React.useState(false);
     const [Error, setError] = React.useState(null);
 
@@ -60,33 +67,41 @@ export default function MapPage_Korea()
                             <List.Item>
                                 <List.Item.Meta
                                     title={<span>{item.embassy_name}</span>}
-                                    description={<>
-                                    <span>{item.embassy_addr}</span>
-                                    <Button style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />} />
-                                    </>}
+                                    description={<span>{item.embassy_addr}</span>}
+                                />
+                                <Button
+                                    style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />}
+                                    onMouseEnter={() => {   setDeslati(item.embassy_lati); setDeslogi(item.embassy_logi);
+                                                            console.log('이전 위치 선택값:', Deslati, Deslogi);
+                                                        }}
+                                    onClick={() => {    console.log('현재 선택 위치 클릭:', Deslati, Deslogi);
+                                                        <click_location  clicklati={Deslati} clicklogi={Deslogi}/>
+                                                    }}
                                 />
                             </List.Item>
                         )}/>
                     </div>
                     <div id="pagetop"><div id="subject">의료기관</div></div>
                     <div id="pagebottom"><List
-                                itemLayout="horizontal"
-                                dataSource={ItemList_medical}
-                                renderItem={item => (
-                                    <List.Item>
-                                        <List.Item.Meta
-                                            title={<span>{item.hospital_name}</span>}
-                                            description={<span>{item.hospital_addr}</span>}
-                                        />
-                                        <Button 
-                                            style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />}
-                                            onMouseEnter={() => { console.log('선택된 위치:', item.hospital_lati, item.hospital_logi) }}
-                                            onClick={() => { console.log('선택된 위치:', item.hospital_lati, item.hospital_logi);
-                                                            {/*deleteTodo(item.seq)*/}
-                                                            }}
-                                        />
-                                    </List.Item>
-                                )}/>            
+                        itemLayout="horizontal"
+                        dataSource={ItemList_medical}
+                        renderItem={item => (
+                            <List.Item>
+                                <List.Item.Meta
+                                    title={<span>{item.hospital_name}</span>}
+                                    description={<span>{item.hospital_addr}</span>}
+                                />
+                                <Button 
+                                    style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />}
+                                    onMouseEnter={() => {   setDeslati(item.hospital_lati); setDeslogi(item.hospital_logi);
+                                                            console.log('이전 위치 선택값:', Deslati, Deslogi);
+                                                        }}
+                                    onClick={() => {    console.log('현재 선택 위치 클릭:', Deslati, Deslogi);
+                                                        // <click_location  clicklati={Deslati} clicklogi={Deslogi}/>
+                                                    }}
+                                />
+                            </List.Item>
+                        )}/>            
                     </div>                    
                 </div>    
             </div>
