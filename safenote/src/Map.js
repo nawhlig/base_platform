@@ -275,7 +275,7 @@ function MyComponent() {
               textOverflow: `ellipses`,
               position: "fixed",
               left: "10%",
-              top:'-17%',
+              top:'-22%',
               
             }}
           /></div>
