@@ -137,23 +137,30 @@ function MyDirectionsRenderer(props) {
 //////////////////////////////////////
 // countrymap 폴더의 맵페이지에서 목적지 위치받아여~
 function MyComponent() {
-  const [des, setDes] = useState({lat: 37.645468, lng: 126.793067})  //최종 목적지 위치 변수 (값 바꾸면 목적지가 바껴요)
+  const [des, setDes] = useState({lat: 37.56390, lng: 126.99249})  //최종 목적지 위치 변수 (값 바꾸면 목적지가 바껴요)
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
-  const [pos, setPos] = React.useState({
-    lat: 0,
-    lng: 0
-  })
-
+  const [pos, setPos] = React.useState({ lat: 0, lng: 0 })
   const [ref, setRef] = React.useState({})
-  
   const [position, setPosition] = React.useState({ lat: 52.620360, lng: -1.142179 });
 
-  useEffect(()=> {
+//////////////////////////// 목적지의 변경  ///////////////////////////////////////
+  
+  useEffect(()=> { console.log('des가 데이터타입이 뭔지 알아보겠습니다', des)}, []); 
+  
+//////////////// 값의 전달 ????? /////////////////////////////////////////////////////  
+  function click_location({clicklati, clicklogi}){
+    return(<>
+    console.log('위도 전달', {clicklati}, '경도 전달', {clicklogi});
+    </>
+    )
+  }
 
 
 
-  }, []);
+//  useEffect(()=> { setDes({lat: {changelat},  lng: {changelng} }, []);
+  
+///////////////////////////////////////////////////////////////////////////////////
 
   function handleCenter() {
     
