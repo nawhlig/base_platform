@@ -5,7 +5,7 @@ import Home from './Home'
 
 //import logo from './img/logosample.jpg'
 //import logo from './img/logo_safenote3.png'
-import logo from './img/logo_safenote4.png'
+import logo from './img/logo.jpg'
 //import logo from './img/logo_safenote5.png'
 //import logo from './img/logo_safenote6.png'
 
