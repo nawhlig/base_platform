@@ -6,3 +6,4 @@ media
 private_*
 config.js
 safenote/src/keys.js
+safenote/debug.log
