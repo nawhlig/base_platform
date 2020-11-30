@@ -20,6 +20,8 @@ export default function MapPage_Korea()
     const [Loading, setLoading] = React.useState(false);
     const [Error, setError] = React.useState(null);
 
+    let loading = true;
+
     React.useEffect(()=>{
         const fetchItemList = async () => {
             try {
@@ -72,7 +74,13 @@ export default function MapPage_Korea()
                                     style={{float:"right"}} shape="circle" icon={<EnvironmentOutlined />}
                                     onMouseEnter={() => {   console.log('위치상태 변수값:', Deslati, Deslogi);}}
                                     onClick=     {() => {   console.log('클릭후 위치상태 변수값:', Deslati, Deslogi);
-                                                            setDeslati(item.embassy_lati); setDeslogi(item.embassy_logi);
+                                                            if(loading) {
+                                                                loading = false;
+                                                                setDeslati(item.embassy_lati); setDeslogi(item.embassy_logi);
+                                                                setTimeout(()=>{
+                                                                    loading = true;   //지도 경로 로드 전 다시 버튼 누를시 오류발생 방지 딜레이 추가
+                                                                },1500);
+                                                            }
                                                         }}
                                 />
                             </List.Item>

@@ -33,17 +33,18 @@ function MyDirectionsRenderer(props) {
   const { timedistance, setTimedistance} = React.useContext(UserContext); //시간계산결과값
   const delayFactor = 0;
   // 현위치 GPS 잡고 
+
+  // console.log('jbjbjbjb')
+  // console.log(destination.lat, destination.lng);
+
   useEffect(() => { const directionsService = new window.google.maps.DirectionsService();
                     directionsService.route({ origin: new window.google.maps.LatLng(origin.lat, origin.lng),
                                               destination: new window.google.maps.LatLng(destination.lat, destination.lng),
                                               travelMode: travelMode
                                             }, (result, status) => {if (status === window.google.maps.DirectionsStatus.OK) {setDirections(result);
-                                                                  } else if (status === window.google.maps.DirectionsStatus.OVER_QUERY_LIMIT) {
-                                                                      // delayFactor++;
-                                                                      setTimeout(function () {
-                                                                        MyDirectionsRenderer(props);
-                                                                      }, delayFactor * 1000);
-                                                                  } else { console.error(`error fetching directions ${result}`);}
+                                                                  } 
+                                                                 
+                                                                   else { console.error(`error fetching directions ${result}`);}
                                                                   
                                                                   } 
                                           );
@@ -60,22 +61,30 @@ function MyDirectionsRenderer(props) {
                     message.success('GPS 연결 됨');
                     // setPos 에 넣음
                     navigator.geolocation.getCurrentPosition( (position) => { 
+
+                        
                         setPos({ lat: position.coords.latitude, lng: position.coords.longitude});
-                        console.log('GPS 현위치를 setPos 에 설정한 값 : ', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude}));
-                        console.log('destination 에 목적지로 설정된 값: ', destination);
-                        service.getDistanceMatrix({ 
-                          origins: [{ lat: position.coords.latitude, lng: position.coords.longitude}],
-                          destinations:  [{ lat: destination.lat, lng: destination.lng }],
-                          avoidHighways: false,
-                          avoidTolls: false,
-                          travelMode: 'TRANSIT',
-                          //unitSystem: window.google.maps.UnitSystem.metric,
-                        }, (res) => { console.log('목적지-출발지 거리시간 결과',res);
-                                      setTimedistance({ totalTime: res.rows[0].elements[0].distance.text, 
-                                                        totalDistance: res.rows[0].elements[0].duration.text
-                                                      });
-                                    }
-                        );
+                        // console.log('GPS 현위치를 setPos 에 설정한 값 : ', JSON.stringify({ lat: position.coords.latitude, lng: position.coords.longitude}));
+                        // console.log('destination 에 목적지로 설정된 값: ', destination);
+                        console.log('jbjbjbjbjb')
+                        console.log(destination.lat, destination.lng);
+                        // 37.58179744812036 127.1835899318241
+                        if (destination.lat!=null || destination.lng!=null ) {
+                          service.getDistanceMatrix({ 
+                            origins: [{ lat: position.coords.latitude, lng: position.coords.longitude}],
+                            destinations:  [{ lat: destination.lat, lng: destination.lng }],
+                            avoidHighways: false,
+                            avoidTolls: false,
+                            travelMode: 'TRANSIT',
+                            //unitSystem: window.google.maps.UnitSystem.metric,
+                          }, (res) => { console.log('목적지-출발지 거리시간 결과',res);
+                                        setTimedistance({ totalTime: res.rows[0].elements[0].distance.text, 
+                                                          totalDistance: res.rows[0].elements[0].duration.text
+                                                        });
+                                      }
+                          );
+                        }
+
                       },(error) => { message.info(error.message);}, { timeout: 1000, maximumAge: 10000, enableHighAccuracy: true}
                     );
                   } 
@@ -122,7 +131,12 @@ function MyComponent({clicklati, clicklogi}) {
   
   useEffect(()=> {  console.log('setdes로 상태변화한 des가 뭔지 알아보겠습니다', des);
                     console.log('Map.js 로 전달 받은 값: ', clicklati, clicklogi);
-                    setDes({lat:clicklati, lng:clicklogi});
+                    // 37.58179744812036 127.1835899318241
+                    // setDes({lat:37.58179744812036 , lng:127.1835899318241});
+                    if(clicklati != null || clicklogi != null) {
+                      setDes({lat:parseFloat(clicklati), lng:parseFloat(clicklogi)});
+                    } 
+                    // setDes({lat:clicklati, lng:clicklogi});
                 }, [clicklati, clicklogi]); 
   
   
