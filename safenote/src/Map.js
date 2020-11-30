@@ -31,14 +31,21 @@ function MyDirectionsRenderer(props) {
   //MyComponent 에서 보낸 setPos={setPos}, origin={pos}, destination={ des }, setDes = { setDes }, travelMode= 'TRANSIT'  값을 읽어옴
   const { origin, destination, setDes, travelMode, setPos } = props; // 출발, 도착지, 목적지설정, 이동수단, 현위치기본값 읽기전용으로 읽어옴
   const { timedistance, setTimedistance} = React.useContext(UserContext); //시간계산결과값
-  
+  const delayFactor = 0;
   // 현위치 GPS 잡고 
   useEffect(() => { const directionsService = new window.google.maps.DirectionsService();
                     directionsService.route({ origin: new window.google.maps.LatLng(origin.lat, origin.lng),
                                               destination: new window.google.maps.LatLng(destination.lat, destination.lng),
                                               travelMode: travelMode
-                                            }, (result, status) => {if (status === window.google.maps.DirectionsStatus.OK) {setDirections(result);}
-                                                                    else { console.error(`error fetching directions ${result}`);}} 
+                                            }, (result, status) => {if (status === window.google.maps.DirectionsStatus.OK) {setDirections(result);
+                                                                  } else if (status === window.google.maps.DirectionsStatus.OVER_QUERY_LIMIT) {
+                                                                      // delayFactor++;
+                                                                      setTimeout(function () {
+                                                                        MyDirectionsRenderer(props);
+                                                                      }, delayFactor * 1000);
+                                                                  } else { console.error(`error fetching directions ${result}`);}
+                                                                  
+                                                                  } 
                                           );
   }, [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);  
   
