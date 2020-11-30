@@ -121,7 +121,7 @@ main {
   background-size: cover;
   background-position: center;
   /* background-image: linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./img/backtwo.jpg"); */
-  background-image: linear-gradient( rgba(0,0,0,0), rgba(0,0,0,0.5)), url("./img/backtwo.jpg");
+  background-image: linear-gradient( rgba(0,0,0,0), rgba(0,0,0,0.5)), url("./img/snow.jpg");
   height: 100%;
   font-family: 'Do Hyeon', sans-serif;
 }
