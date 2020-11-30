@@ -6,6 +6,8 @@ import '../Main.css';
 
 import {Link} from 'react-router-dom';
 
+// import fire from './img/소방1.svg'
+
 
 function Korea({history}){
     return(
