@@ -1,10 +1,6 @@
-//구글맵 특수 키 오류대비 필수!!
-/* global google */
-
 import React, { useState, useEffect, useRef, Component  } from 'react'
 import {  DistanceMatrixService, StandaloneSearchBox, withGoogleMap, GoogleMap, Marker, DirectionsRenderer, LoadScript, InfoWindow } from '@react-google-maps/api';
 import './Main.css';
-
 import { UserContext } from './userContext'
 //구글맵
 //구글맵 특수 키 오류대비 필수!!
@@ -20,7 +16,6 @@ import { message, Button, Modal } from 'antd';
 
 
 const google = window.google;
-
 const containerStyle = {
   // width: '389px',
   // height: '300px',
@@ -32,26 +27,21 @@ const containerStyle = {
 
 // GPS 찾고 목적지까지 경로설정
 function MyDirectionsRenderer(props) {
-  const [directions, setDirections] = useState(null); //도로위치 GIS 지리정보 값
-  const { origin, destination, setDes, travelMode, setPos } = props; // 출발, 도착지, 목적지설정, 이동수단, 현위치기본값
+  const [directions, setDirections] = useState(null); //도로위치 GIS 지리정보 값 
+  //MyComponent 에서 보낸 setPos={setPos}, origin={pos}, destination={ des }, setDes = { setDes }, travelMode= 'TRANSIT'  값을 읽어옴
+  const { origin, destination, setDes, travelMode, setPos } = props; // 출발, 도착지, 목적지설정, 이동수단, 현위치기본값 읽기전용으로 읽어옴
   const { timedistance, setTimedistance} = React.useContext(UserContext); //시간계산결과값
   
   // 현위치 GPS 잡고 
-  useEffect(() => {
-
-    const directionsService = new window.google.maps.DirectionsService();
-    directionsService.route(
-      {
-        origin: new window.google.maps.LatLng(origin.lat, origin.lng),
-        destination: new window.google.maps.LatLng(destination.lat, destination.lng),
-        travelMode: travelMode
-      },
-      (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {setDirections(result);}
-        else { console.error(`error fetching directions ${result}`);}
-      } 
-    );
+  useEffect(() => { const directionsService = new window.google.maps.DirectionsService();
+                    directionsService.route({ origin: new window.google.maps.LatLng(origin.lat, origin.lng),
+                                              destination: new window.google.maps.LatLng(destination.lat, destination.lng),
+                                              travelMode: travelMode
+                                            }, (result, status) => {if (status === window.google.maps.DirectionsStatus.OK) {setDirections(result);}
+                                                                    else { console.error(`error fetching directions ${result}`);}} 
+                                          );
   }, [directions, destination.lat, destination.lng, origin.lat, origin.lng, travelMode]);  
+  
   const callback = (res) => { console.log("RESPONSE", res); }
 
   // 출발위치값(현위치) 에 현위치 GPS  값 대입
@@ -87,7 +77,7 @@ function MyDirectionsRenderer(props) {
 
   return (
     <React.Fragment>
-      {directions && <DirectionsRenderer directions={directions} />}
+      directions && <DirectionsRenderer directions={directions} />
     </React.Fragment>
   );
 }
@@ -108,19 +98,14 @@ function Totalprint() {
   )
 }
 
-//////////////////////////////////////
-// countrymap 폴더의 맵페이지에서 목적지 위치받아여~
+
+
 function MyComponent({clicklati, clicklogi}) {
-  const [des, setDes] = useState({lat: 37.645468, lng: 126.793067})  //최종 목적지 위치 변수 (값 바꾸면 목적지가 바껴요)
+  const [des, setDes] = useState({lat: 37.56390, lng: 126.99249})  //최종 목적지 위치 변수 (값 바꾸면 목적지가 바껴요)
   const mapRef = React.useRef(null);
   const [map, setMap] = React.useState(null)
-  const [pos, setPos] = React.useState({
-    lat: 0,
-    lng: 0
-  })
-
+  const [pos, setPos] = React.useState({ lat: 0, lng: 0 })
   const [ref, setRef] = React.useState({})
-  
   const [position, setPosition] = React.useState({ lat: 52.620360, lng: -1.142179 });
 
 
@@ -134,6 +119,8 @@ function MyComponent({clicklati, clicklogi}) {
                 }, [clicklati, clicklogi]); 
   
   
+  // useEffect(()=> {  setDes({lat:clicklati, lng:clicklogi});
+  // }, [clicklati, clicklogi]); 
   // function ClickLocation(prop){
   // //   return(<>
   // console.log('전달 받은값 :', prop);
@@ -149,9 +136,7 @@ function MyComponent({clicklati, clicklogi}) {
   ///////////////////////////////////////////////////////////////////////////////////
 
   function handleCenter() {
-    
     if (!mapRef.current) return;
-
     const newPos = mapRef.current.getCenter().toJSON();
     setPosition(newPos);
   }
@@ -163,32 +148,27 @@ function MyComponent({clicklati, clicklogi}) {
     setMap(map)
   }, [])
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
+  const onUnmount = React.useCallback(function callback(map) {setMap(null)}, [])
 
-  const onLoad22 = (ref) => {
-    setRef(ref)
-  };
+  const onLoad22 = (ref) => {setRef(ref)};
 
   const onPlacesChanged = () => {
     console.log('getplaces() 의 결과값');
     console.log('전체: ', ref.getPlaces());
     console.log('위도: ', ref.getPlaces()[0].geometry.viewport.Wa.j,'경도: ',ref.getPlaces()[0].geometry.viewport.Sa.j);
-      
-
+    
+    // 목적지 상태 변경
     setDes({lat: ref.getPlaces()[0].geometry.viewport.Wa.j
           , lng: ref.getPlaces()[0].geometry.viewport.Sa.j})
+  }
 
-          
-  }   
+
   //////2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2/2//2/2/2/2/2/2/2/2/2/2//2/2/2/2//2/2/2/2/2/2/2/2/2/2/2/2/
   const divStyle = {
     background: `white`,
     border: `1px solid #ccc`,
     padding: 1,
     fontSize: 4
-    
   }
   
   const onLoad2 = infoWindow => { console.log('infoWindow: ', infoWindow) }
@@ -212,103 +192,69 @@ function MyComponent({clicklati, clicklogi}) {
 
 
   return (
-    <>
-    <LoadScript
-    libraries={["places"]}
-      googleMapsApiKey={my_key}
-    >
-
-      <GoogleMap
-        className='aaa'
-        mapContainerStyle={containerStyle}
-        onDragEnd={handleCenter}
-        center={position}
-        zoom={29}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        //defaultZoom={4}
-    //defaultCenter={{ lat: 52.620360, lng: -1.142179 }}
-      >    
-      
-      <></>
-<DistanceMatrixService
-            options={{
-              origins: [{pos}],
-              destinations: [{ des }],  //데이터 들어 갈 부분 :setdes
-              travelMode: "TRANSIT",
+  <>
+    <LoadScript libraries={["places"]} googleMapsApiKey={my_key}>
+      <GoogleMap  className='aaa'
+                  mapContainerStyle={containerStyle}
+                  onDragEnd={handleCenter}
+                  center={position}
+                  zoom={29}
+                  onLoad={onLoad}
+                  onUnmount={onUnmount}
+                 //defaultZoom={4}
+                 //defaultCenter={{ lat: 52.620360, lng: -1.142179 }}
+      >
+      <DistanceMatrixService  options={{  origins: [{pos}],
+                                          destinations: [{ des }],  // setdes 에서 바뀌는 목적지가 들어감
+                                          travelMode: "TRANSIT",
+                                      }}
+                              callback={(res) => {}}
+      />
               
-            }}
-            callback={(res) => {
-              
-            }}
-          />
-              
-<StandaloneSearchBox
-          onPlacesChanged={onPlacesChanged}
-          onLoad={onLoad22}
-        ><div>
+      <StandaloneSearchBox onPlacesChanged={onPlacesChanged} onLoad={onLoad22}>
+        <div>
           <span class='in_inputbox'>SEARCH＝＞</span>
-          <input
-            class='inputbox'
-            type="text"
-            placeholder="did you forget the name of public institutions?"
-            style={{
-              boxSizing: `border-box`,
-              border: `1px solid transparent`,
-              width: `300px`,
-              height: `30px`,
-              padding: `0 12px`,
-              borderRadius: `3px`,
-              boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-              fontSize: `14px`,
-              outline: `none`,
-              textOverflow: `ellipses`,
-              position: "fixed",
-              left: "10%",
-              top:'-22%',
-              
-            }}
-          /></div>
-        </StandaloneSearchBox>
-        {/* {markers.map((marker, index) =>
-      <Marker key={index} position={marker.position} />
-    )} */}
-        {/* <InfoWindow
-      onLoad={onLoad2}  //목적지   
-      position={ des } //데이터 들어 갈 부분 setdes
-    >
-      <div style={divStyle}>
-        <h1>목적지 정보 들어갈 부분</h1>   
-      </div>
-    </InfoWindow> */}
-    
-    <InfoWindow
-      onLoad={onLoad2}  // 출발지 (gps)
-      position={pos}
-    >
-      <div style={divStyle}>
-        <h3>You are here</h3>
-      </div>
-    </InfoWindow>
-        <MyDirectionsRenderer
-          setPos={setPos}
-          origin={pos}
-          destination={ des }   //데이터 들어 갈 부분 setdes
-          setDes = { setDes }
-          travelMode= 'TRANSIT' 
-        />
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
+            <input class='inputbox' type="text" placeholder="did you forget the name of public institutions?" 
+              style={{  boxSizing: `border-box`,
+                        border: `1px solid transparent`,
+                        width: `300px`,
+                        height: `30px`,
+                        padding: `0 12px`,
+                        borderRadius: `3px`,
+                        boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                        fontSize: `14px`,
+                        outline: `none`,
+                        textOverflow: `ellipses`,
+                        position: "fixed",
+                        left: "25%",
+                        top:'6%',}}
+            />
+        </div>
+      </StandaloneSearchBox>
+      {/* {markers.map((marker, index) => <Marker key={index} position={marker.position} /> )} */}
+          {/* <InfoWindow onLoad={onLoad2}  //목적지   position={ des } //데이터 들어 갈 부분 setdes>
+                <div style={divStyle}><h1>목적지 정보 들어갈 부분</h1></div>
+              </InfoWindow> */}
       
-          
+      {/* 출발지 (gps) */}
+      <InfoWindow onLoad={onLoad2} position={pos}><div style={divStyle}>
+                                                    <h3>You are here</h3>
+                                                  </div>
+      </InfoWindow>
+          <MyDirectionsRenderer   setPos={setPos}
+                                  origin={pos}
+                                  destination={ des }   //MyComponent 의 setDes 로 바뀐 목적지 MyDirectionsRenderer 로 값 보냄
+                                  setDes = { setDes }
+                                  travelMode= 'TRANSIT' 
+          />
+          { /* Child components, such as markers, info windows, etc. */ }
+      </GoogleMap>
     </LoadScript>
     
-    <div>
-    <Totalprint/>
-    {/* <Button onClick={info} className="notice">Notice</Button> */}
+    <div> <Totalprint/>
+          {/* <Button onClick={info} className="notice">Notice</Button> */}
     </div>
-    </>
+  </>
   )
 }
 
