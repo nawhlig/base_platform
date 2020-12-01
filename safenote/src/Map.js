@@ -247,8 +247,8 @@ function MyComponent({clicklati, clicklogi}) {
                         outline: `none`,
                         textOverflow: `ellipses`,
                         position: "fixed",
-                        left: "25%",
-                        top:'6%',}}
+                        left: "10%",
+                        top:'1%',}}
             />
         </div>
       </StandaloneSearchBox>

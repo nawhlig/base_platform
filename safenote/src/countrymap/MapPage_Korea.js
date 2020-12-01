@@ -60,7 +60,7 @@ export default function MapPage_Korea()
             </div>
             <div>
                 <div border="1" class="mapList">
-                    <div id="pagetop"><div id="subject">대사관</div></div>
+                    <div>대사관</div>
                     <div id="pagebottom"><List
                         itemLayout="horizontal"
                         dataSource={ItemList_embassy}
@@ -86,7 +86,8 @@ export default function MapPage_Korea()
                             </List.Item>
                         )}/>
                     </div>
-                    <div id="pagetop"><div id="subject">의료기관</div></div>
+                    
+                    <div>의료기관</div>
                     <div id="pagebottom"><List
                         itemLayout="horizontal"
                         dataSource={ItemList_medical}

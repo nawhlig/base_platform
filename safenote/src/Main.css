@@ -348,8 +348,8 @@ select option:hover{
 /* 맵 길들이기 부분 */
 
 .gm-control-active,.gm-svpc{
-  width: 20pt !important;
-  height: 20pt !important;
+  /* width: 20pt !important;
+  height: 20pt !important; */
 }
 
 .gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
@@ -362,23 +362,22 @@ select option:hover{
 .gmnoprint>div{
   width: 20pt !important;
   height: 50pt !important;
-  margin-left: 12pt;
   /* margin-top: 145pt; */
 }
 .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
-  width: 25pt !important;
+  /* width: 25pt !important;
   height: 25pt !important;
   margin-left:25pt;
-  margin-top: 5pt;
+  margin-top: 5pt; */
 }
 .gmnoprint>.gm-style-mtc:nth-child(1)>button{
-  font-size: 1pt !important;
+  /* font-size: 1pt !important;
   font-weight: 800;
   padding: 0pt !important;
   height:30pt !important;
   position: absolute!important;
   top: 70%!important;
-  left:2260%!important;
+  left:2260%!important; */
 
 }
 #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
@@ -392,13 +391,13 @@ select option:hover{
   left:8010%!important;
 }
 .gmnoprint>.gm-style-mtc:nth-child(2)>button{
-  font-size: 1pt !important;
+  /* font-size: 1pt !important;
   font-weight: 800;
   padding: 0pt !important;
   height:30pt !important;
   position: absolute!important;
   top: 150%!important;
-  left:2090%!important;
+  left:2090%!important; */
 }
 
 .gm-style> div:nth-child(7) > button{
@@ -416,17 +415,17 @@ select option:hover{
 
 .mapPage{
   width: 500pt;
-  height: 500pt;
+  height: 390pt;
   margin-left: -28%;
   margin-top: -12%;
 }
 .mapList{
   position: absolute;
   left: 85%;
-  top: -13%;
+  top: -18%;
   overflow-y: scroll;
-  width: 600pt;
-  height:390pt;
+  width: 500pt;
+  height:300pt;
   color: black;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
@@ -435,15 +434,14 @@ select option:hover{
 .mapinfo{
   position: absolute;
   background-color: rgba(255, 255, 255, 0.5);
-  color: black;
+  backdrop-filter: blur(6pt);
+  color: rgba(0, 0, 0, 0.767);
   text-align: center;
-  font-size: x-large;
   font-weight: bolder;
-  top: 90%;
-  left: 145.5%;
-  width: 600pt;
+  left: 85%;
+  top: 80%;
+  width: 500pt;
   font-size: medium;
-  transform: translate(-50%, -50%);
 }
 
 /* 모바일, 테블릿 세로 (해상도~ 767pt)*/
@@ -452,8 +450,8 @@ select option:hover{
     /* 맵 길들이기 부분 */
 
     .gm-control-active,.gm-svpc{
-      width: 20pt !important;
-      height: 20pt !important;
+      /* width: 20pt !important;
+      height: 20pt !important; */
     }
 
     .gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
@@ -470,10 +468,10 @@ select option:hover{
       /* margin-top: 145pt; */
     }
     .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
-      width: 25pt !important;
+      /* width: 25pt !important;
       height: 25pt !important;
       margin-left:25pt;
-      margin-top: 5pt;
+      margin-top: 5pt; */
     }
     .gmnoprint>.gm-style-mtc:nth-child(1)>button{
       font-size: 1pt !important;
@@ -483,7 +481,6 @@ select option:hover{
       position: absolute!important;
       top: 70%!important;
       left:1710%!important;
-
     }
     #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
       position: absolute!important;
@@ -519,10 +516,10 @@ select option:hover{
 
       .mapPage{
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform:  translate(-50%, -110%);
-        width: 390pt;
+        width: 300pt;
         height: 200pt;
       }
       .mapList{
@@ -531,15 +528,15 @@ select option:hover{
         left: 50%;
         transform:  translate(-50%, -7%);
         overflow-y: scroll;
-        width: 389pt;
-        height:230pt;
+        width: 300pt;
+        height:180pt;
         text-align: center;
         backdrop-filter: blur(6pt);
       }
 
       .mapinfo{
         position: absolute;
-        top: 235%;
+        top: 215%;
         left: 50%;
         transform:  translate(-50%, -50%);
         background-color: rgba(255, 255, 255, 0.5);
@@ -550,7 +547,7 @@ select option:hover{
         /* top: 55%;
         left: 50%;
         transform: translate(-50%, -50%); */
-        width: 389pt;
+        width: 300pt;
         font-size:small;
         
       }
@@ -565,14 +562,12 @@ div.ant-list-item-meta-contetn{
 
 .mapList div{
   padding: 3pt;
-  font-size: larger;
-  text-align: right;
+  font-size: xx-large;
+  text-align: center;
 }
 
 .mapList div div{
-  padding: 10pt;
-  font-size: large;
-  text-align: center;
+  font-size: x-large;
 }
 
 /* width */
