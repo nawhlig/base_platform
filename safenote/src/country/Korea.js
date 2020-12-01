@@ -30,8 +30,7 @@ function Korea({history})
                 // 요청이 시작 할 때에는 error 와 itemlist 를 초기화하고
                 setError(null);
                 setItemList_helpcall(null);
-                // loading 상태를 true 로 바꿉니다.
-                setLoading(true);
+                setLoading(true); // loading 상태를 true 로 바꿉니다.
                 // window.alert("목록 불러오는중");   //브라우저에 경고창 띄우기
                 //Axios 로 데이터 끌어오기 safenote.tk/api/safenote/
                 const response_helpcall = await API.get("helpcall/?na=대한민국");
