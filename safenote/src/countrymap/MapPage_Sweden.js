@@ -7,7 +7,8 @@ import API from '../helper/Api';
 import { Button, List } from 'antd';
 import { EnvironmentOutlined } from '@ant-design/icons';
 
-export default function MapPage_Sweden()
+
+export default function MapPage_Korea()
 {   
     // 대사관, 의료기관 위치 상태  mpas.js 로 넘겨줄 값
     const [Deslati, setDeslati] = React.useState(null);
@@ -32,8 +33,8 @@ export default function MapPage_Sweden()
                 setLoading(true);
                 // window.alert("목록 불러오는중");   //브라우저에 경고창 띄우기
                 //Axios 로 데이터 끌어오기 from safenote.tk/api/safenote/
-                const response_getembassy = await API.get("embassy/?na=스웨덴");
-                const response_getmedical = await API.get("medical/?na=스웨덴");
+                const response_getembassy = await API.get("embassy/?na=대한민국");
+                const response_getmedical = await API.get("medical/?na=대한민국");
                 // response.data 안에 Array로 데이터가 있는 것을 값 변화 시킴.
                 setItemList_embassy(response_getembassy.data); 
                 setItemList_medical(response_getmedical.data); 
