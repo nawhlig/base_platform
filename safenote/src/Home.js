@@ -5,7 +5,7 @@ import {Route, Link, Switch } from 'react-router-dom';
 function Home({history}) {
 
     const [text, setText] = React.useState("진정하세요");
-
+    
     React.useEffect(()=>{
         const sentence = ["Calm Down","Beruhigen Sie sich","진정하세요"]
         let cnt = 0
