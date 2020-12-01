@@ -1,6 +1,10 @@
 import React from 'react';
 import '../Main.css';
 
+import police from '../img/pol_white.png'
+import fire from '../img/fire_white.png'
+import amb from '../img/amb_white.png'
+import map from '../img/map_white.png'
 
 import API from '../helper/Api';
 
@@ -47,12 +51,12 @@ function Kosovo()
 
     return(
         <>
-            <div className='countryheader'>Kosovo</div>
+            <div className='countryheader'>Korea</div>
             <div className='sosbox'>
-                <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'>Police</button></a>
-                <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'>Fire Station</button></a>
-                <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'>Ambulance</button></a>
-                <Link exact to='/kosovomap'><button className='btn4'>Map</button></Link>
+                <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={police}/><br/>Police</button></a>
+                <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'><img className="btnicon" src={fire}/><br/>Fire Station</button></a>
+                <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'><img className="btnicon" src={amb}/><br/>Ambulance</button></a>
+                <Link exact to='/koreamap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
             </div>
         </>
     )

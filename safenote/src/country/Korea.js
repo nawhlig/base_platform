@@ -6,8 +6,12 @@ import '../Main.css';
 
 import {Link} from 'react-router-dom';
 
-import fire from '../img/소방1.svg'
-import map from '../img/지도1.svg'
+
+import police from '../img/pol_white.png'
+import fire from '../img/fire_white.png'
+import amb from '../img/amb_white.png'
+import map from '../img/map_white.png'
+
 import API from '../helper/Api';
 // import fire from './img/소방1.svg'
 
@@ -53,10 +57,10 @@ function Korea({history})
         <>
             <div className='countryheader'>Korea</div>
             <div className='sosbox'>
-                <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={fire}/><br/>Police</button></a>
+                <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={police}/><br/>Police</button></a>
                 <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'><img className="btnicon" src={fire}/><br/>Fire Station</button></a>
-                <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'><img className="btnicon" src={fire}/><br/>Ambulance</button></a>
-                <Link exact to='/koreamap'><button className='btn4'><img className="btnicon" src={fire}/><br/>Map</button></Link>
+                <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'><img className="btnicon" src={amb}/><br/>Ambulance</button></a>
+                <Link exact to='/koreamap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
             </div>
         </>
     )

@@ -1,6 +1,10 @@
 import React from 'react';
 import '../Main.css';
 
+import police from '../img/pol_white.png'
+import fire from '../img/fire_white.png'
+import amb from '../img/amb_white.png'
+import map from '../img/map_white.png'
 
 import API from '../helper/Api';
 
@@ -29,7 +33,7 @@ function HongKong()
                 setLoading(true);
                 // window.alert("목록 불러오는중");   //브라우저에 경고창 띄우기
                 //Axios 로 데이터 끌어오기 safenote.tk/api/safenote/
-                const response_helpcall = await API.get("helpcall/?na=홍콩");
+                const response_helpcall = await API.get("helpcall/?na=홍콩(중국)");
                 // response.data 안에 Array로 데이터가 있는 것을 값 변화 시킴.
                 setItemList_helpcall(response_helpcall.data); 
             }
@@ -44,15 +48,15 @@ function HongKong()
     if (Error) return <div> API 주소에서 불러오기 실패</div>;
     if (!ItemList_helpcall) return null;
     
-
+    
     return(
         <>
-            <div className='countryheader'>HongKong</div>
+            <div className='countryheader'>Korea</div>
             <div className='sosbox'>
-                <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'>Police</button></a>
-                <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'>Fire Station</button></a>
-                <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'>Ambulance</button></a>
-                <Link exact to='/hongkongmap'><button className='btn4'>Map</button></Link>
+                <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={police}/><br/>Police</button></a>
+                <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'><img className="btnicon" src={fire}/><br/>Fire Station</button></a>
+                <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'><img className="btnicon" src={amb}/><br/>Ambulance</button></a>
+                <Link exact to='/koreamap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
             </div>
         </>
     )
