@@ -51,7 +51,7 @@ function Chile()
 
     return(
         <>
-            <div className='countryheader'>Korea</div>
+            <div className='countryheader'>Chile</div>
             <div className='sosbox'>
                 <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={police}/><br/>Police</button></a>
                 <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'><img className="btnicon" src={fire}/><br/>Fire Station</button></a>
