@@ -1,6 +1,9 @@
 import React from 'react';
 import '../Main.css';
 
+
+import API from '../helper/Api';
+
 import {Link} from 'react-router-dom';
 
 
