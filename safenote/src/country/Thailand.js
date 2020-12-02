@@ -11,7 +11,7 @@ import API from '../helper/Api';
 import {Link} from 'react-router-dom';
 
 
-function Chad()
+function Thailand()
 {
 
     // Axios 로 불러올 리스트가 담길 변수 상태
@@ -33,7 +33,7 @@ function Chad()
                 setLoading(true);
                 // window.alert("목록 불러오는중");   //브라우저에 경고창 띄우기
                 //Axios 로 데이터 끌어오기 safenote.tk/api/safenote/
-                const response_helpcall = await API.get("helpcall/?na=차드");
+                const response_helpcall = await API.get("helpcall/?na=태국");
                 // response.data 안에 Array로 데이터가 있는 것을 값 변화 시킴.
                 setItemList_helpcall(response_helpcall.data); 
             }
@@ -56,10 +56,10 @@ function Chad()
                 <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={police}/><br/>Police</button></a>
                 <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'><img className="btnicon" src={fire}/><br/>Fire Station</button></a>
                 <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'><img className="btnicon" src={amb}/><br/>Ambulance</button></a>
-                <Link exact to='/koreamap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
+                <Link exact to='/thailandmap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
             </div>
         </>
     )
 
 }
-export default Chad;
+export default Thailand;

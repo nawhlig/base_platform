@@ -56,7 +56,7 @@ function Ghana()
                 <a href={'tel:'+ ItemList_helpcall[0]['crime']}><button className='btn1'><img className="btnicon" src={police}/><br/>Police</button></a>
                 <a href={'tel:'+ ItemList_helpcall[0]['fire']}><button className='btn2'><img className="btnicon" src={fire}/><br/>Fire Station</button></a>
                 <a href={'tel:'+ ItemList_helpcall[0]['ambulance']}><button className='btn3'><img className="btnicon" src={amb}/><br/>Ambulance</button></a>
-                <Link exact to='/koreamap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
+                <Link exact to='/ghanamap'><button className='btn4'><img className="btnicon" src={map}/><br/>Map</button></Link>
             </div>
         </>
     )

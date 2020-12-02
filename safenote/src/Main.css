@@ -179,7 +179,7 @@ transform: translate(-50%, -50%);
 .sosbox{
 position: absolute;
 text-align: center;
-min-width: 360pt;
+min-width: 600pt;
 font-family: 'Do Hyeon', sans-serif;
 top: 60%;
 left: 50%;
@@ -303,11 +303,10 @@ background-color: rgb(0, 0, 0);
   }
 }
 
-@media (max-width: 730pt) { 
+@media (max-width: 735pt) { 
   .sosbox{
-    max-width: 300pt;
+    min-width: 300pt;
     min-height: 330pt;
-    /* min-width: 300pt; */
   }
 
 }
