@@ -95,19 +95,19 @@ function Main() {
                     <Link exact to='/gabon'>Gabon</Link>
                     <Link exact to='/gambia'>Gambia</Link>
                     <Link exact to='/ghana'>Ghana</Link>
-                    <Link exact to='/guyana'>Guyana</Link>
+                    {/* <Link exact to='/guyana'>Guyana</Link> */}
                     <Link exact to='/honduras'>Honduras</Link>
                     <Link exact to='/hongkong'>HongKong</Link>
-                    <Link exact to='/jordan'>Jordan</Link>
+                    {/* <Link exact to='/jordan'>Jordan</Link> */}
                     <Link exact to='/kenya'>Kenya</Link>
-                    <Link exact to='/kosovo'>Kosovo</Link>
+                    {/* <Link exact to='/kosovo'>Kosovo</Link> */}
                     <Link exact to='/newzealand'>NewZealand</Link>
                     <Link exact to='/oman'>Oman</Link>
                     <Link exact to='/peru'>Peru</Link>
                     <Link exact to='/philippines'>Philippines</Link>
                     <Link exact to='/poland'>Poland</Link>
                     <Link exact to='/thailand'>Thailand</Link>
-                    <Link exact to='/togo'>Togo</Link>
+                    {/* <Link exact to='/togo'>Togo</Link> */}
                     <Link exact to='/tuvalu'>Tuvalu</Link>
                     <Link exact to='/uganda'>Uganda</Link>
                     </div>
@@ -131,19 +131,19 @@ function Main() {
                 <Route exact path="/gabon" component={Gabon}/>
                 <Route exact path="/gambia" component={Gambia}/>
                 <Route exact path="/ghana" component={Ghana}/>
-                <Route exact path="/guyana" component={Guyana}/>
+                {/* <Route exact path="/guyana" component={Guyana}/> */}
                 <Route exact path="/honduras" component={Honduras}/>
                 <Route exact path="/hongkong" component={HongKong}/>
-                <Route exact path="/jordan" component={Jordan}/>
+                {/* <Route exact path="/jordan" component={Jordan}/> */}
                 <Route exact path="/kenya" component={Kenya}/>
-                <Route exact path="/kosovo" component={Kosovo}/>
+                {/* <Route exact path="/kosovo" component={Kosovo}/> */}
                 <Route exact path="/newzealand" component={NewZealand}/>
                 <Route exact path="/oman" component={Oman}/>
                 <Route exact path="/peru" component={Peru}/>
                 <Route exact path="/philippines" component={Philippines}/>
                 <Route exact path="/poland" component={Poland}/>
                 <Route exact path="/thailand" component={Thailand}/>
-                <Route exact path="/togo" component={Togo}/>
+                {/* <Route exact path="/togo" component={Togo}/> */}
                 <Route exact path="/tuvalu" component={Tuvalu}/>
                 <Route exact path="/uganda" component={Uganda}/>
                 
@@ -162,12 +162,12 @@ function Main() {
                 <Route exact path="/gabonmap" component={MapPage_Gabon}/>
                 <Route exact path="/gambiamap" component={MapPage_Gambia}/>
                 <Route exact path="/ghanamap" component={MapPage_Ghana}/>
-                <Route exact path="/guyanamap" component={MapPage_Guyana}/>
+                {/* <Route exact path="/guyanamap" component={MapPage_Guyana}/> */}
                 <Route exact path="/hondurasmap" component={MapPage_Honduras}/>
                 <Route exact path="/hongkongmap" component={MapPage_HongKong}/>
-                <Route exact path="/jordanmap" component={MapPage_Jordan}/>
+                {/* <Route exact path="/jordanmap" component={MapPage_Jordan}/> */}
                 <Route exact path="/kenyamap" component={MapPage_Kenya}/>
-                <Route exact path="/kosovomap" component={MapPage_Kosovo}/>
+                {/* <Route exact path="/kosovomap" component={MapPage_Kosovo}/> */}
                 <Route exact path="/newzealandmap" component={MapPage_NewZealand}/>
                 <Route exact path="/omanmap" component={MapPage_Oman}/>
                 <Route exact path="/perumap" component={MapPage_Peru}/>
@@ -175,7 +175,7 @@ function Main() {
                 <Route exact path="/polandmap" component={MapPage_Poland}/>
                 <Route exact path="/thailandmap" component={MapPage_Thailand}/>
                 <Route exact path="/tuvalumap" component={MapPage_Tuvalu}/>
-                <Route exact path="/togomap" component={MapPage_Togo}/>
+                {/* <Route exact path="/togomap" component={MapPage_Togo}/> */}
                 <Route exact path="/ugandamap" component={MapPage_Uganda}/>
                 
 

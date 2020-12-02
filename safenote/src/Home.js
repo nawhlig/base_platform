@@ -49,18 +49,18 @@ return (
         <option value="/gabon">Gabon</option>
         <option value="/gambia">Gambia</option>
         <option value="/ghana">Ghana</option>
-        <option value="/guyana">Guyana</option>
+        {/* <option value="/guyana">Guyana</option> */}
         <option value="/honduras">Honduras</option>
         <option value="/hongkong">HongKong</option>
-        <option value="/jordan">Jordan</option>
+        {/* <option value="/jordan">Jordan</option> */}
         <option value="/kenya">Kenya</option>
-        <option value="/kosovo">Kosovo</option>
+        {/* <option value="/kosovo">Kosovo</option> */}
         <option value="/newzeland">NewZeland</option>
         <option value="/oman">Oman</option>
         <option value="/peru">Peru</option>
         <option value="/philippines">Philippines</option>
         <option value="/poland">Poland</option>
-        <option value="/togo">Togo</option>
+        {/* <option value="/togo">Togo</option> */}
         <option value="/tuvalu">Tuvalu</option>
         <option value="/uganda">Uganda</option>
     </select>
