@@ -170,11 +170,11 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-/* @media (max-width: 730pt) { 
+@media (max-width: 730pt) { 
   .countryheader{
-    font-size: 1cm;
+    font-size: 1.7cm;
   }
-} */
+}
 
 .sosbox{
 position: absolute;
@@ -186,10 +186,16 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
+.sosbox a {
+  border: 0pt;
+  outline: none;
+}
+
 .btn1, .btn2, .btn3, .btn4, .btn5{
 background-color: rgba(255, 255, 255, 0.5);
 color: white;
 border: none;
+outline: none;
 border-radius: 20%;
 font-size: large;
 font-family: 'Do Hyeon', sans-serif;
@@ -200,6 +206,8 @@ width: 120pt;
 .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover{
 color: white;
 background-color: rgb(0, 0, 0);
+border: none;
+outline: none;
 }
 
 
@@ -213,6 +221,8 @@ background-color: rgb(0, 0, 0);
   font-size: medium;
   height: 150pt;
   width: 150pt;
+  outline: none;
+  border: none;
   }
 /*맵길들이기*/
 .inputbox{
@@ -300,6 +310,8 @@ background-color: rgb(0, 0, 0);
   height: 130pt;
   width: 130pt;
   float: left;
+  outline: none;
+  border: none;
   }
 }
 
@@ -314,6 +326,8 @@ background-color: rgb(0, 0, 0);
 .btnicon{
     max-width: 50pt;
     max-height: 50pt;
+    outline: none;
+    border: none;
     /* background-color: rgb(255, 255, 255,0.5);
     border-radius: 10%; */
 }

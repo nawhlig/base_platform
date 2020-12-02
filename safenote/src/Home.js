@@ -41,9 +41,7 @@ return (
         <option value="/sweden">Sweden</option>
         <option value="/egypt">Egypt</option>
         <option value="/austria">Austria</option>
-        <option value="/chad">Chad</option>
         <option value="/chile">Chile</option>
-        <option value="/costarica">CostaRica</option>
         <option value="/fiji">Fiji</option>
         <option value="/france">France</option>
         <option value="/gabon">Gabon</option>
@@ -61,7 +59,8 @@ return (
         <option value="/philippines">Philippines</option>
         <option value="/poland">Poland</option>
         {/* <option value="/togo">Togo</option> */}
-        <option value="/tuvalu">Tuvalu</option>
+        <option value="/thailand">Thailand</option>
+        {/* <option value="/tuvalu">Tuvalu</option> */}
         <option value="/uganda">Uganda</option>
     </select>
     </div>

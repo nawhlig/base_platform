@@ -108,7 +108,7 @@ function Main() {
                     <Link exact to='/poland'>Poland</Link>
                     <Link exact to='/thailand'>Thailand</Link>
                     {/* <Link exact to='/togo'>Togo</Link> */}
-                    <Link exact to='/tuvalu'>Tuvalu</Link>
+                    {/* <Link exact to='/tuvalu'>Tuvalu</Link> */}
                     <Link exact to='/uganda'>Uganda</Link>
                     </div>
                 </div> 
@@ -144,7 +144,7 @@ function Main() {
                 <Route exact path="/poland" component={Poland}/>
                 <Route exact path="/thailand" component={Thailand}/>
                 {/* <Route exact path="/togo" component={Togo}/> */}
-                <Route exact path="/tuvalu" component={Tuvalu}/>
+                {/* <Route exact path="/tuvalu" component={Tuvalu}/> */}
                 <Route exact path="/uganda" component={Uganda}/>
                 
                 
@@ -174,7 +174,7 @@ function Main() {
                 <Route exact path="/philippinesmap" component={MapPage_Philippines}/>
                 <Route exact path="/polandmap" component={MapPage_Poland}/>
                 <Route exact path="/thailandmap" component={MapPage_Thailand}/>
-                <Route exact path="/tuvalumap" component={MapPage_Tuvalu}/>
+                {/* <Route exact path="/tuvalumap" component={MapPage_Tuvalu}/> */}
                 {/* <Route exact path="/togomap" component={MapPage_Togo}/> */}
                 <Route exact path="/ugandamap" component={MapPage_Uganda}/>
                 
