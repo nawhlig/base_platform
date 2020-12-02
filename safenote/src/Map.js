@@ -140,20 +140,6 @@ function MyComponent({clicklati, clicklogi}) {
                 }, [clicklati, clicklogi]); 
   
   
-  // useEffect(()=> {  setDes({lat:clicklati, lng:clicklogi});
-  // }, [clicklati, clicklogi]); 
-  // function ClickLocation(prop){
-  // //   return(<>
-  // console.log('전달 받은값 :', prop);
-  // //  console.log('위도 전달', {clicklati}, '경도 전달', {clicklogi});
-  // //   </>
-  // //   )
-  // }
-  //  useEffect(()=> { setDes({lat: {changelat},  lng: {changelng} }, []);
-
-
-
-
   ///////////////////////////////////////////////////////////////////////////////////
 
   function handleCenter() {
@@ -236,19 +222,7 @@ function MyComponent({clicklati, clicklogi}) {
         <div>
           <span class='in_inputbox'>SEARCH＝＞</span>
             <input class='inputbox' type="text" placeholder="did you forget the name of public institutions?" 
-              style={{  boxSizing: `border-box`,
-                        border: `1px solid transparent`,
-                        width: `300px`,
-                        height: `30px`,
-                        padding: `0 12px`,
-                        borderRadius: `3px`,
-                        boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                        fontSize: `14px`,
-                        outline: `none`,
-                        textOverflow: `ellipses`,
-                        position: "fixed",
-                        left: "10%",
-                        top:'1%',}}
+              
             />
         </div>
       </StandaloneSearchBox>

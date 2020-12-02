@@ -170,16 +170,16 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-@media (max-width: 730pt) { 
+/* @media (max-width: 730pt) { 
   .countryheader{
     font-size: 1cm;
   }
-}
+} */
 
 .sosbox{
 position: absolute;
 text-align: center;
-min-width: 1000pt;
+min-width: 360pt;
 font-family: 'Do Hyeon', sans-serif;
 top: 60%;
 left: 50%;
@@ -191,22 +191,115 @@ background-color: rgba(255, 255, 255, 0.5);
 color: white;
 border: none;
 border-radius: 20%;
-font-size: xx-large;
+font-size: large;
 font-family: 'Do Hyeon', sans-serif;
 margin: 10pt;
-height: 200pt;
-width: 200pt;
+height: 120pt;
+width: 120pt;
 }
 .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover{
 color: white;
 background-color: rgb(0, 0, 0);
 }
 
-@media (max-width: 920pt) { 
+
+
+/*컴퓨터 픽셀??*/
+@media all and (min-width: 768pt) { 
+  .blink>span{
+    font-size: 2cm;
+  }
   .btn1, .btn2, .btn3, .btn4, .btn5{
   font-size: medium;
   height: 150pt;
   width: 150pt;
+  }
+/*맵길들이기*/
+.inputbox{
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  width: 500px;
+  height: 40px;
+  padding:0 12px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  outline: none;
+  text-overflow: ellipses;
+  position: absolute;
+  left: 24%;
+  top:92%;
+}
+/*로드뷰 박스*/
+  .gm-svpc{
+    width: 7pt !important;
+    height: 15pt !important;
+    margin-left: 13px !important;
+  }
+  
+  /*이용약관 가리기*/
+  .gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
+    display: none;
+  }
+  
+  /*확대축소 뒷판*/
+  #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(12) > div > div:nth-child(3) > div{
+    width: 17pt !important;
+    height: 30pt !important;
+    margin-left: 19pt;
+    margin-top: -205pt;
+  }
+  /*로드맵*/
+  #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(12) > div > div.gm-svpc{
+    width: 35px !important;
+    height: 35px !important;
+    margin-left:40px;
+    margin-top: -300px;
+  }
+  /*지도*/
+  #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > button{
+    font-size: 1px !important;
+    font-weight: 800;
+    padding: 0px !important;
+    height:24px !important;
+    position: absolute!important;
+    top: 770%!important;
+    left:3160%!important;
+  
+  }
+  /*지도-탭*/
+  #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul{
+    position: absolute!important;
+    top: 860%!important;
+    left: 910%!important;
+  }
+  /*위성-탭*/
+  #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul{
+    position: absolute!important;
+    top: 430%!important;
+    left: 1325%!important;
+  }
+  /*위성*/
+  .gmnoprint>.gm-style-mtc:nth-child(2)>button{
+    font-size: 1px !important;
+    font-weight: 800;
+    padding: 0px !important;
+    height:30px !important;
+    height:24px !important;
+    position: absolute!important;
+    top: 570%!important;
+    left:3060%!important;
+  }
+  /*전체화면*/
+  #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(7) > button{
+    right:-1% !important;
+  }
+  
+  
+  .btn1, .btn2, .btn3, .btn4, .btn5{
+  height: 130pt;
+  width: 130pt;
+  float: left;
   }
 }
 
@@ -214,14 +307,9 @@ background-color: rgb(0, 0, 0);
   .sosbox{
     max-width: 300pt;
     min-height: 330pt;
-    min-width: 300pt;
+    /* min-width: 300pt; */
   }
 
-  .btn1, .btn2, .btn3, .btn4, .btn5{
-  height: 130pt;
-  width: 130pt;
-  float: left;
-  }
 }
 
 .btnicon{
@@ -330,12 +418,6 @@ select option:hover{
   z-index: 0;
 }
 
-@media all and (max-width:900pt) { 
-  .blink>span{
-    font-size: 2cm;
-  }
-}
-
 
 @keyframes blink{
   0%{opacity: 0;}
@@ -348,8 +430,8 @@ select option:hover{
 /* 맵 길들이기 부분 */
 
 .gm-control-active,.gm-svpc{
-  /* width: 20pt !important;
-  height: 20pt !important; */
+  width: 15pt !important;
+  height: 15pt !important;
 }
 
 .gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
@@ -360,24 +442,24 @@ select option:hover{
   margin-left: 100pt;
 }
 .gmnoprint>div{
-  width: 20pt !important;
-  height: 50pt !important;
+  width: 15pt !important;
+  height: 10pt !important;
   /* margin-top: 145pt; */
 }
 .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
-  /* width: 25pt !important;
+  width: 25pt !important;
   height: 25pt !important;
   margin-left:25pt;
-  margin-top: 5pt; */
+  margin-top: 5pt;
 }
 .gmnoprint>.gm-style-mtc:nth-child(1)>button{
-  /* font-size: 1pt !important;
+  font-size: 1pt !important;
   font-weight: 800;
   padding: 0pt !important;
   height:30pt !important;
   position: absolute!important;
   top: 70%!important;
-  left:2260%!important; */
+  left:2260%!important;
 
 }
 #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
@@ -388,17 +470,9 @@ select option:hover{
 #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul > div{
   position: absolute!important;
   top: 500%!important;
-  left:8010%!important;
+  left:7010%!important;
 }
-.gmnoprint>.gm-style-mtc:nth-child(2)>button{
-  /* font-size: 1pt !important;
-  font-weight: 800;
-  padding: 0pt !important;
-  height:30pt !important;
-  position: absolute!important;
-  top: 150%!important;
-  left:2090%!important; */
-}
+
 
 .gm-style> div:nth-child(7) > button{
   right:-2% !important;
@@ -448,60 +522,80 @@ select option:hover{
 @media all and (max-width:767pt) { 
 
     /* 맵 길들이기 부분 */
-
-    .gm-control-active,.gm-svpc{
-      /* width: 20pt !important;
-      height: 20pt !important; */
+    .inputbox{
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      width: 300px;
+      height: 30px;
+      padding:0 12px;
+      border-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      font-size: 14px;
+      outline: none;
+      text-overflow: ellipses;
+      position: absolute;
+      left: 24%;
+      top:90%;
     }
-
+/*로드뷰 박스*/
+    .gm-svpc{
+      width: 7pt !important;
+      height: 15pt !important;
+      margin-left: 15px !important;
+    }
+/*이용약관 가리기*/
     .gm-style-cc>div,.gm-style-cc>div>span,.gmnoprint.gm-style-cc>div>a{
       display: none;
     }
 
-    .gm-style-cc{
-      margin-left: 100pt;
-    }
+    
+    /*확대축소 뒷판*/
     .gmnoprint>div{
-      width: 20pt !important;
-      height: 40pt !important;
-      margin-left: 14pt;
-      /* margin-top: 145pt; */
+      width: 16pt !important;
+      height: 28pt !important;
+      margin-left: 9pt;
+      margin-top: -40pt;
     }
+    /*로드맵*/
     .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom>.gm-svpc{
-      /* width: 25pt !important;
+      width: 20pt !important;
       height: 25pt !important;
-      margin-left:25pt;
-      margin-top: 5pt; */
+      margin-left:16pt !important;
+      margin-top: 5pt;
     }
+    /*지도*/
     .gmnoprint>.gm-style-mtc:nth-child(1)>button{
       font-size: 1pt !important;
       font-weight: 800;
       padding: 0pt !important;
-      height:30pt !important;
+      height:20pt !important;
       position: absolute!important;
-      top: 70%!important;
-      left:1710%!important;
+      top: 550%!important;
+      left:1660%!important;
     }
+    /*지구-탭*/
     #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(1) > ul > div{
       position: absolute!important;
-      top: -270%!important;
-      left:7010%!important;
+      top: 4170%!important;
+      left: 7110%!important;
     }
+    /*위성-탭*/
     #root > div > main > div > div > div.mapPage > div:nth-child(2) > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > ul > div{
       position: absolute!important;
-      top: -270%!important;
-      left:7010%!important;
+      top: 3555%!important;
+      left: 6691%!important;
     }
+    /*위성*/
     .gmnoprint>.gm-style-mtc:nth-child(2)>button{
       font-size: 1pt !important;
       font-weight: 800;
       padding: 0pt !important;
-      height:30pt !important;
+      height:20pt !important;
       position: absolute!important;
-      top: 150%!important;
-      left:1540%!important;
+      top: 480%!important;
+      left:1660%!important;
     }
-
+/*전체화면*/
     .gm-style> div:nth-child(7) > button{
       right:-2% !important;
     }
